@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trip Itineraries | Parkbus</title>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #2E5137;
+      --text: #1a1a1a;
+      --text-secondary: #5a5a5a;
+      --bg: #F7F5F0;
+      --card-bg: #ffffff;
+      --font: 'Figtree', -apple-system, sans-serif;
+    }
+
+    body {
+      font-family: var(--font);
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .header {
+      text-align: center;
+      padding: 4rem 2rem 2rem;
+    }
+
+    .header__title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.5rem;
+    }
+
+    .header__sub {
+      font-size: 1rem;
+      color: var(--text-secondary);
+    }
+
+    .trips {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .trip-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid #c5d1c8;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s ease;
+    }
+
+    .trip-card:hover {
+      border-color: var(--primary);
+      box-shadow: 0 4px 20px rgba(46,81,55,0.12);
+      transform: translateY(-3px);
+    }
+
+    .trip-card__image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .trip-card__body {
+      padding: 1.25rem;
+    }
+
+    .trip-card__tags {
+      display: flex;
+      gap: 0.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .trip-card__tag {
+      padding: 0.2rem 0.5rem;
+      background: var(--primary);
+      color: white;
+      font-size: 0.65rem;
+      font-weight: 600;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .trip-card__title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.25rem;
+      line-height: 1.25;
+    }
+
+    .trip-card__date {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.15rem;
+    }
+
+    .trip-card__season {
+      font-size: 0.75rem;
+      color: #999;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      font-size: 0.8rem;
+      color: #999;
+    }
+
+    .footer a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1 class="header__title">Trip Itineraries</h1>
+    <p class="header__sub">Explore our interactive trip guides</p>
+  </div>
+
+  <div class="trips" id="trips"></div>
+
+  <div class="footer">
+    <p><a href="https://www.parkbus.ca" target="_blank">Parkbus</a> — car-free adventures to Canada's national and provincial parks</p>
+  </div>
+
+  <script>
+    // Add trips here as you create them.
+    // Each entry becomes a card on the landing page.
+    const trips = [
+      {
+        folder: 'point-pelee',
+        title: 'Day Trip to Point Pelee National Park',
+        image: 'https://images.unsplash.com/photo-1510797215324-95aa89f43c33?w=600&q=80',
+        region: 'Ontario',
+        type: 'Guided',
+        date: 'May 18, 2026',
+        season: 'Multiple Trips May – September'
+      }
+      // To add a new trip, copy the block above and change the values.
+      // Make sure the "folder" matches the folder name in the repo.
+    ];
+
+    const container = document.getElementById('trips');
+    container.innerHTML = trips.map(t => `
+      <a href="${t.folder}/" class="trip-card">
+        <img class="trip-card__image" src="${t.image}" alt="${t.title}">
+        <div class="trip-card__body">
+          <div class="trip-card__tags">
+            ${t.region ? `<span class="trip-card__tag">${t.region}</span>` : ''}
+            ${t.type ? `<span class="trip-card__tag">${t.type}</span>` : ''}
+          </div>
+          <h2 class="trip-card__title">${t.title}</h2>
+          ${t.date ? `<p class="trip-card__date">${t.date}</p>` : ''}
+          ${t.season ? `<p class="trip-card__season">${t.season}</p>` : ''}
+        </div>
+      </a>
+    `).join('');
+  </script>
+</body>
+</html>
