@@ -696,11 +696,19 @@
 
       .scrolly__map-wrap {
         width: 100%;
-        height: 40vh;
+        height: 28vh;
         position: sticky;
         top: 0;
         z-index: 5;
         order: 1;
+        transition: height 0.5s ease, opacity 0.5s ease;
+      }
+
+      /* Hide map when CTA is active */
+      .scrolly.cta-active .scrolly__map-wrap {
+        height: 0;
+        opacity: 0;
+        overflow: hidden;
       }
 
       .scrolly__map-wrap::after {
@@ -715,9 +723,69 @@
         order: 2;
       }
 
+      /* Stack cards vertically on mobile — image on top, body below */
+      .card {
+        flex-direction: column;
+      }
+
       .card__image-wrap {
-        width: 160px;
-        min-width: 160px;
+        width: 100%;
+        min-width: 100%;
+        height: 200px;
+        order: 1;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .card__image {
+        height: 120%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center 30%;
+        transition: transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1),
+                    object-position 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+      }
+
+      /* Parallax-style image reveal on active card */
+      .step.is-active .card__image {
+        transform: scale(1.08);
+        object-position: center 50%;
+      }
+
+      .card__body {
+        order: 2;
+      }
+
+      /* One card at a time: enough space between steps */
+      .step {
+        margin-bottom: 60vh;
+        scroll-margin-top: 28vh;
+      }
+
+      .step:first-of-type {
+        margin-top: 1rem;
+      }
+
+      /* CTA card takes over full viewport on mobile */
+      .step--cta {
+        margin-bottom: 2rem;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        scroll-margin-top: 0;
+      }
+
+      .scrolly.cta-active .step--cta {
+        min-height: 100vh;
+      }
+
+      .card--cta {
+        min-height: 70vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
       }
 
       .step-counter {
@@ -725,26 +793,32 @@
         transform: translateX(50%);
         bottom: 1rem;
       }
+
+      /* Connectors take less space on mobile */
+      .connector {
+        padding: 0.4rem 0 0.4rem 1.5rem;
+      }
+
+      .day-header {
+        padding: 1.25rem 0 0.75rem;
+      }
     }
 
     @media (max-width: 480px) {
       .hero { height: 65vh; min-height: 380px; }
       .hero__content { padding: 2rem 1.5rem; }
 
-      .card__image-wrap { width: 120px; min-width: 120px; }
+      .card__image-wrap { height: 180px; }
       .card__body { padding: 0.75rem 1rem; }
 
       .card__desc {
         font-size: 0.8rem;
-        -webkit-line-clamp: 3;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
       }
 
       .cta-button { padding: 0.85rem 2rem; font-size: 1rem; }
       .card--cta { padding: 2rem 1.5rem; }
-      .step--cta { margin-bottom: 40vh; }
+
+      .step { margin-bottom: 55vh; }
     }
 
     /* ========================================
@@ -1108,10 +1182,13 @@
     function initScrollama() {
       scroller = scrollama();
 
+      // On mobile, trigger earlier so cards activate as soon as they appear below the map
+      const scrollOffset = isMobile() ? 0.55 : 0.4;
+
       scroller
         .setup({
           step: '.step',
-          offset: 0.4,
+          offset: scrollOffset,
           progress: true
         })
         .onStepEnter(handleStepEnter);
@@ -1121,6 +1198,7 @@
     }
 
     let flyToTimeout = null;
+    const isMobile = () => window.innerWidth <= 900;
 
     function handleStepEnter(response) {
       const { index } = response;
@@ -1137,12 +1215,25 @@
         el.classList.toggle('active', !isCTA && i === index);
       });
 
+      // Toggle CTA full-screen mode on mobile (hides map)
+      const scrollyEl = document.getElementById('scrolly');
+      if (isMobile()) {
+        scrollyEl.classList.toggle('cta-active', isCTA);
+      } else {
+        scrollyEl.classList.remove('cta-active');
+      }
+
       // Clear any pending second-step flyTo
       if (flyToTimeout) { clearTimeout(flyToTimeout); flyToTimeout = null; }
 
       const easeFn = function(t) {
         return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2;
       };
+
+      // Mobile uses faster, simpler transitions
+      const mobile = isMobile();
+      const durationMult = mobile ? 0.55 : 1;
+      const pauseTime = mobile ? 800 : 2000;
 
       if (isCTA) {
         // Zoom out to show the full trip
@@ -1151,7 +1242,7 @@
           zoom: tripData.initialView.zoom,
           bearing: 0,
           pitch: 0,
-          duration: 2800,
+          duration: 2800 * durationMult,
           essential: true,
           curve: 1.6,
           easing: easeFn
@@ -1171,21 +1262,23 @@
           const dLng = Math.abs(stop.coordinates[0] - prevStop.coordinates[0]);
           const dLat = Math.abs(stop.coordinates[1] - prevStop.coordinates[1]);
           const maxDelta = Math.max(dLng, dLat);
-          // Map distance to a zoom level: small moves stay close, big moves zoom way out
           let midZoom;
-          if (maxDelta < 0.05) midZoom = 11;       // very close stops
+          if (maxDelta < 0.05) midZoom = 11;
           else if (maxDelta < 0.2) midZoom = 10;
           else if (maxDelta < 1) midZoom = 8;
           else if (maxDelta < 3) midZoom = 7;
-          else midZoom = 6;                         // cross-province distance
+          else midZoom = 6;
+
+          // On mobile, don't zoom out as far (keeps context tighter)
+          if (mobile) midZoom = Math.min(midZoom + 1, 12);
 
           // Step 1: zoom out to show both stops
           map.flyTo({
             center: [midLng, midLat],
             zoom: midZoom,
             bearing: 0,
-            pitch: 15,
-            duration: 1800,
+            pitch: mobile ? 0 : 15,
+            duration: 1800 * durationMult,
             essential: true,
             curve: 1.2,
             easing: easeFn
@@ -1198,12 +1291,12 @@
               zoom: stop.zoom || 12,
               bearing: stop.bearing || 0,
               pitch: stop.pitch || 0,
-              duration: 2200,
+              duration: 2200 * durationMult,
               essential: true,
               curve: 1.4,
               easing: easeFn
             });
-          }, 2000);
+          }, pauseTime);
         } else {
           // First stop or same location — just fly directly
           map.flyTo({
@@ -1211,7 +1304,7 @@
             zoom: stop.zoom || 12,
             bearing: stop.bearing || 0,
             pitch: stop.pitch || 0,
-            duration: 2800,
+            duration: 2800 * durationMult,
             essential: true,
             curve: 1.6,
             easing: easeFn
