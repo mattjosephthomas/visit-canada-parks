@@ -48,6 +48,7 @@
       font-family: var(--font);
       color: var(--text);
       background: var(--bg);
+      background-size: 200px 200px;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cpath d='M0,45 C30,45 30,36 60,36 C90,36 90,45 120,45 C150,45 150,41 180,41 C210,41 210,47 240,47 C270,47 270,37 300,37 C330,37 330,33 360,33 C390,33 390,6 420,6 C450,6 450,9 480,9 C510,9 510,-1 540,-1 C570,-1 570,8 600,8' fill='none' stroke='%232E5137' stroke-width='1' opacity='0.045'/%3E%3Cpath d='M0,81 C30,81 30,84 60,84 C90,84 90,89 120,89 C150,89 150,78 180,78 C210,78 210,61 240,61 C270,61 270,61 300,61 C330,61 330,61 360,61 C390,61 390,40 420,40 C450,40 450,63 480,63 C510,63 510,67 540,67 C570,67 570,67 600,67' fill='none' stroke='%232E5137' stroke-width='1' opacity='0.045'/%3E%3Cpath d='M0,140 C30,140 30,118 60,118 C90,118 90,102 120,102 C150,102 150,93 180,93 C210,93 210,105 240,105 C270,105 270,97 300,97 C330,97 330,103 360,103 C390,103 390,108 420,108 C450,108 450,112 480,112 C510,112 510,132 540,132 C570,132 570,125 600,125' fill='none' stroke='%232E5137' stroke-width='1' opacity='0.045'/%3E%3Cpath d='M0,164 C30,164 30,150 60,150 C90,150 90,149 120,149 C150,149 150,138 180,138 C210,138 210,142 240,142 C270,142 270,131 300,131 C330,131 330,144 360,144 C390,144 390,155 420,155 C450,155 450,158 480,158 C510,158 510,168 540,168 C570,168 570,166 600,166' fill='none' stroke='%232E5137' stroke-width='1' opacity='0.045'/%3E%3Cpath d='M0,231 C30,231 30,227 60,227 C90,227 90,231 120,231 C150,231 150,244 180,244 C210,244 210,257 240,257 C270,257 270,263 300,263 C330,263 330,253 360,253 C390,253 390,248 420,248 C450,248 450,250 480,250 C510,250 510,240 540,240 C570,240 570,230 600,230' fill='none' stroke='%232E5137' stroke-width='1' opacity='0.045'/%3E%3Cpath d='M0,279 C30,279 30,274 60,274 C90,274 90,292 120,292 C150,292 150,294 180,294 C210,294 210,311 240,311 C270,311 270,301 300,301 C330,301 330,292 360,292 C390,292 390,284 420,284 C450,284 450,282 480,282 C510,282 510,266 540,266 C570,266 570,267 600,267' fill='none' stroke='%232E5137' stroke-width='1' opacity='0.045'/%3E%3Cpath d='M0,326 C30,326 30,330 60,330 C90,330 90,354 120,354 C150,354 150,344 180,344 C210,344 210,331 240,331 C270,331 270,324 300,324 C330,324 330,316 360,316 C390,316 390,319 420,319 C450,319 450,315 480,315 C510,315 510,303 540,303 C570,303 570,294 600,294' fill='none' stroke='%232E5137' stroke-width='1' opacity='0.045'/%3E%3Cpath d='M0,395 C30,395 30,387 60,387 C90,387 90,396 120,396 C150,396 150,387 180,387 C210,387 210,358 240,358 C270,358 270,366 300,366 C330,366 330,356 360,356 C390,356 390,348 420,348 C450,348 450,341 480,341 C510,341 510,353 540,353 C570,353 570,348 600,348' fill='none' stroke='%232E5137' stroke-width='1' opacity='0.045'/%3E%3Cpath d='M0,465 C30,465 30,450 60,450 C90,450 90,447 120,447 C150,447 150,434 180,434 C210,434 210,418 240,418 C270,418 270,427 300,427 C330,427 330,426 360,426 C390,426 390,456 420,456 C450,456 450,465 480,465 C510,465 510,472 540,472 C570,472 570,464 600,464' fill='none' stroke='%232E5137' stroke-width='1' opacity='0.045'/%3E%3Cpath d='M0,555 C30,555 30,567 60,567 C90,567 90,568 120,568 C150,568 150,577 180,577 C210,577 210,581 240,581 C270,581 270,599 300,599 C330,599 330,589 360,589 C390,589 390,601 420,601 C450,601 450,592 480,592 C510,592 510,563 540,563 C570,563 570,558 600,558' fill='none' stroke='%232E5137' stroke-width='1' opacity='0.045'/%3E%3C/svg%3E");
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
@@ -120,10 +121,9 @@
     .hero__title {
       font-size: clamp(1.75rem, 4vw, 2.75rem);
       font-weight: 800;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.01em;
       line-height: 1.15;
       margin-bottom: 0.5rem;
-      text-transform: uppercase;
     }
 
     .hero__subtitle {
@@ -175,17 +175,17 @@
       top: 1.5rem;
       right: 1.5rem;
       z-index: 3;
-      width: 90px;
-      height: 90px;
-      opacity: 0.9;
-      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+      width: 130px;
+      height: 130px;
+      opacity: 0.92;
+      filter: drop-shadow(0 2px 12px rgba(0,0,0,0.35));
       transition: opacity 0.3s ease;
     }
 
     .hero__badge:hover { opacity: 1; }
 
     @media (max-width: 480px) {
-      .hero__badge { width: 65px; height: 65px; top: 1rem; right: 1rem; }
+      .hero__badge { width: 90px; height: 90px; top: 1rem; right: 1rem; }
     }
 
     /* ========================================
@@ -270,7 +270,7 @@
     }
 
     /* ========================================
-       STOP CARDS — bordered, all-caps titles
+       STOP CARDS — bordered, headline caps
        ======================================== */
     .step {
       margin-bottom: 2.5rem;
@@ -305,8 +305,8 @@
 
     /* Thumbnail — right side of card */
     .card__image-wrap {
-      width: 160px;
-      min-width: 160px;
+      width: 220px;
+      min-width: 220px;
       overflow: hidden;
       flex-shrink: 0;
       order: 2;
@@ -342,13 +342,12 @@
     }
 
     .card__title {
-      font-size: 1.05rem;
-      font-weight: 800;
+      font-size: 1.15rem;
+      font-weight: 700;
       color: var(--text);
       margin-bottom: 0.3rem;
       line-height: 1.25;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.01em;
     }
 
     .card__location {
@@ -530,8 +529,7 @@
       font-weight: 800;
       color: var(--text);
       margin-bottom: 0.35rem;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.01em;
     }
 
     .card--cta .cta__sub {
@@ -718,8 +716,8 @@
       }
 
       .card__image-wrap {
-        width: 120px;
-        min-width: 120px;
+        width: 160px;
+        min-width: 160px;
       }
 
       .step-counter {
@@ -733,7 +731,7 @@
       .hero { height: 65vh; min-height: 380px; }
       .hero__content { padding: 2rem 1.5rem; }
 
-      .card__image-wrap { width: 100px; min-width: 100px; }
+      .card__image-wrap { width: 120px; min-width: 120px; }
       .card__body { padding: 0.75rem 1rem; }
 
       .card__desc {
@@ -1122,6 +1120,8 @@
       window.addEventListener('scroll', updateProgressBar, { passive: true });
     }
 
+    let flyToTimeout = null;
+
     function handleStepEnter(response) {
       const { index } = response;
       currentStopIndex = index;
@@ -1137,7 +1137,9 @@
         el.classList.toggle('active', !isCTA && i === index);
       });
 
-      // Fly to
+      // Clear any pending second-step flyTo
+      if (flyToTimeout) { clearTimeout(flyToTimeout); flyToTimeout = null; }
+
       const easeFn = function(t) {
         return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2;
       };
@@ -1149,23 +1151,72 @@
           zoom: tripData.initialView.zoom,
           bearing: 0,
           pitch: 0,
-          duration: 2400,
+          duration: 2800,
           essential: true,
-          curve: 1.42,
+          curve: 1.6,
           easing: easeFn
         });
       } else {
         const stop = tripData.stops[index];
-        map.flyTo({
-          center: stop.coordinates,
-          zoom: stop.zoom || 12,
-          bearing: stop.bearing || 0,
-          pitch: stop.pitch || 0,
-          duration: 2400,
-          essential: true,
-          curve: 1.42,
-          easing: easeFn
-        });
+        const prevStop = index > 0 ? tripData.stops[index - 1] : null;
+
+        // If there's a previous stop, do a two-step fly:
+        // 1) Zoom out to show both stops (the journey)
+        // 2) Then ease into the destination
+        if (prevStop && (prevStop.coordinates[0] !== stop.coordinates[0] || prevStop.coordinates[1] !== stop.coordinates[1])) {
+          const midLng = (prevStop.coordinates[0] + stop.coordinates[0]) / 2;
+          const midLat = (prevStop.coordinates[1] + stop.coordinates[1]) / 2;
+
+          // Calculate distance-based zoom: farther apart = zoom out more
+          const dLng = Math.abs(stop.coordinates[0] - prevStop.coordinates[0]);
+          const dLat = Math.abs(stop.coordinates[1] - prevStop.coordinates[1]);
+          const maxDelta = Math.max(dLng, dLat);
+          // Map distance to a zoom level: small moves stay close, big moves zoom way out
+          let midZoom;
+          if (maxDelta < 0.05) midZoom = 11;       // very close stops
+          else if (maxDelta < 0.2) midZoom = 10;
+          else if (maxDelta < 1) midZoom = 8;
+          else if (maxDelta < 3) midZoom = 7;
+          else midZoom = 6;                         // cross-province distance
+
+          // Step 1: zoom out to show both stops
+          map.flyTo({
+            center: [midLng, midLat],
+            zoom: midZoom,
+            bearing: 0,
+            pitch: 15,
+            duration: 1800,
+            essential: true,
+            curve: 1.2,
+            easing: easeFn
+          });
+
+          // Step 2: after a pause, ease into the destination
+          flyToTimeout = setTimeout(() => {
+            map.flyTo({
+              center: stop.coordinates,
+              zoom: stop.zoom || 12,
+              bearing: stop.bearing || 0,
+              pitch: stop.pitch || 0,
+              duration: 2200,
+              essential: true,
+              curve: 1.4,
+              easing: easeFn
+            });
+          }, 2000);
+        } else {
+          // First stop or same location — just fly directly
+          map.flyTo({
+            center: stop.coordinates,
+            zoom: stop.zoom || 12,
+            bearing: stop.bearing || 0,
+            pitch: stop.pitch || 0,
+            duration: 2800,
+            essential: true,
+            curve: 1.6,
+            easing: easeFn
+          });
+        }
       }
 
       updateStepCounter(index);
