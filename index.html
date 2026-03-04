@@ -21,6 +21,7 @@
       font-family: var(--font);
       color: var(--text);
       background: var(--bg);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cpath d='M0,45 C30,45 30,36 60,36 C90,36 90,45 120,45 C150,45 150,41 180,41 C210,41 210,47 240,47 C270,47 270,37 300,37 C330,37 330,33 360,33 C390,33 390,6 420,6 C450,6 450,9 480,9 C510,9 510,-1 540,-1 C570,-1 570,8 600,8' fill='none' stroke='%232E5137' stroke-width='1' opacity='0.045'/%3E%3Cpath d='M0,140 C30,140 30,118 60,118 C90,118 90,102 120,102 C150,102 150,93 180,93 C210,93 210,105 240,105 C270,105 270,97 300,97 C330,97 330,103 360,103 C390,103 390,108 420,108 C450,108 450,112 480,112 C510,112 510,132 540,132 C570,132 570,125 600,125' fill='none' stroke='%232E5137' stroke-width='1' opacity='0.045'/%3E%3Cpath d='M0,279 C30,279 30,274 60,274 C90,274 90,292 120,292 C150,292 150,294 180,294 C210,294 210,311 240,311 C270,311 270,301 300,301 C330,301 330,292 360,292 C390,292 390,284 420,284 C450,284 450,282 480,282 C510,282 510,266 540,266 C570,266 570,267 600,267' fill='none' stroke='%232E5137' stroke-width='1' opacity='0.045'/%3E%3Cpath d='M0,395 C30,395 30,387 60,387 C90,387 90,396 120,396 C150,396 150,387 180,387 C210,387 210,358 240,358 C270,358 270,366 300,366 C330,366 330,356 360,356 C390,356 390,348 420,348 C450,348 450,341 480,341 C510,341 510,353 540,353 C570,353 570,348 600,348' fill='none' stroke='%232E5137' stroke-width='1' opacity='0.045'/%3E%3Cpath d='M0,555 C30,555 30,567 60,567 C90,567 90,568 120,568 C150,568 150,577 180,577 C210,577 210,581 240,581 C270,581 270,599 300,599 C330,599 330,589 360,589 C390,589 390,601 420,601 C450,601 450,592 480,592 C510,592 510,563 540,563 C570,563 570,558 600,558' fill='none' stroke='%232E5137' stroke-width='1' opacity='0.045'/%3E%3C/svg%3E");
       -webkit-font-smoothing: antialiased;
     }
 
@@ -145,13 +146,22 @@
     // Each entry becomes a card on the landing page.
     const trips = [
       {
-        folder: 'point-pelee',
-        title: 'Day Trip to Point Pelee National Park',
-        image: 'https://images.unsplash.com/photo-1510797215324-95aa89f43c33?w=600&q=80',
+        folder: 'tulip-festival',
+        title: "Mother's Day Among 3 Million Tulips",
+        image: 'https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/68a5cbb5f5d7d501ad8edeb6_E~4157887.jpg',
         region: 'Ontario',
         type: 'Guided',
-        date: 'May 18, 2026',
-        season: 'Multiple Trips May – September'
+        date: 'May 9, 2026',
+        season: 'Limited Spring Departure'
+      },
+      {
+        folder: 'point-pelee',
+        title: 'Perseids at Point Pelee',
+        image: 'https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/699f531db89868bc61c9250c_peele4.jpg',
+        region: 'Ontario',
+        type: 'Overnight',
+        date: 'August 11–12, 2026',
+        season: 'In partnership with Parks Canada'
       }
       // To add a new trip, copy the block above and change the values.
       // Make sure the "folder" matches the folder name in the repo.

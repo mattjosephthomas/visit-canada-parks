@@ -1,0 +1,116 @@
+{
+  "title": "Mother's Day Among 3 Million Tulips",
+  "subtitle": "A Guided Experience Through Canada's Largest Tulip Field",
+  "date": "Saturday, May 9, 2026",
+  "season": "Limited Spring Departure",
+  "region": "Ontario",
+  "type": "Guided",
+  "heroImage": "https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/68a5cbb5f5d7d501ad8edeb6_E~4157887.jpg",
+  "mapStyle": "mapbox://styles/mapbox/outdoors-v12",
+  "initialView": {
+    "center": [-79.6, 43.4],
+    "zoom": 7.5,
+    "bearing": 0,
+    "pitch": 0
+  },
+  "days": [
+    { "label": "Saturday, May 9", "totalDistance": "~260 km round trip" }
+  ],
+  "stops": [
+    {
+      "id": 1,
+      "day": 1,
+      "title": "Departure from Toronto",
+      "location": "34 Asquith Avenue, Toronto",
+      "description": "Your day begins just north of the Yonge & Bloor subway station. Arrive 15 minutes early and look for the Parkbus branded coach. Our guide will welcome you aboard for a relaxing 1 hour 45 minute drive through Ontario's countryside toward the Niagara region. This isn't just a ride—it's the beginning of a day curated for you and the mothers you celebrate.",
+      "image": "https://cdn.prod.website-files.com/682513f5b15a80758dd87582/6855dbef14205bf86a731b43_RPX-photo-1-min.webp",
+      "coordinates": [-79.3868, 43.6711],
+      "zoom": 14,
+      "bearing": 0,
+      "pitch": 40,
+      "tags": ["Start"],
+      "time": "9:00 AM",
+      "learnMoreUrl": "https://www.parkbus.ca",
+      "learnMoreText": "About Parkbus",
+      "googleMapsUrl": "https://www.google.com/maps/place/34+Asquith+Ave,+Toronto,+ON"
+    },
+    {
+      "id": 2,
+      "day": 1,
+      "title": "Balls Falls Conservation Area",
+      "location": "Balls Falls Conservation Area, Lincoln, Ontario",
+      "description": "Begin your day with a guided nature hike through one of Ontario's most scenic conservation areas. Walk among towering cliffs and cascading waterfalls, surrounded by lush forest canopy and spring wildflowers just coming into bloom. This gentle, interpretive walk is the perfect way to build connection with the people you love while breathing in fresh spring air.",
+      "image": "https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/68a4ebdf5479a9b3c2e3b4cd_dji_fly_20230802_134022_182_1690998034098_photo_optimized-1433-1743712863-p-1600.jpg",
+      "coordinates": [-79.3820, 43.1300],
+      "zoom": 13,
+      "bearing": -10,
+      "pitch": 45,
+      "tags": ["Featured"],
+      "time": "10:45 AM",
+      "distanceFromPrev": "~105 km (1 hr 45 min)",
+      "learnMoreUrl": "https://www.npca.ca/parks/ball-s-falls",
+      "learnMoreText": "Explore Balls Falls",
+      "googleMapsUrl": "https://www.google.com/maps/place/Balls+Falls+Conservation+Area"
+    },
+    {
+      "id": 3,
+      "day": 1,
+      "title": "TASC Tulip Farm",
+      "location": "TASC Tulip Farm, Niagara-on-the-Lake, Ontario",
+      "description": "Step into a world of three million tulips stretching across 55 acres of rolling Niagara wine country. Endless rows of vibrant reds, hot pinks, soft yellows, and rich purples create a living canvas unlike anything you've experienced. Your admission includes hand-selecting and picking ten beautiful tulips to bring home—create a bouquet together with the colours that speak to you.",
+      "image": "https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/682ebe45d8b8d53d6dc3921d_67eadc920951be38f034e6b0_TASC2024May6TonyFelgueiras430HIREZ.webp",
+      "coordinates": [-79.1500, 43.1800],
+      "zoom": 13,
+      "bearing": 5,
+      "pitch": 40,
+      "tags": ["Featured"],
+      "time": "2:15 PM",
+      "distanceFromPrev": "~30 km (30 min)",
+      "learnMoreUrl": "https://www.tasctulipfarm.com",
+      "learnMoreText": "Visit TASC Tulip Farm",
+      "googleMapsUrl": "https://www.google.com/maps/place/TASC+Tulip+Farm"
+    },
+    {
+      "id": 4,
+      "day": 1,
+      "title": "Bus Departs TASC Tulip Farm",
+      "location": "TASC Tulip Farm, Niagara-on-the-Lake, Ontario",
+      "description": "The bus leaves at 5:00 PM sharp. Please return to the main parking area by 4:45 PM. Our guide will conduct a final headcount and help you store your freshly picked tulips safely for the journey home. Grab last-minute items from the farm shop before we depart for the relaxing drive back to Toronto.",
+      "image": "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?w=600&q=80",
+      "coordinates": [-79.1500, 43.1800],
+      "zoom": 12,
+      "bearing": 0,
+      "pitch": 30,
+      "tags": ["En Route"],
+      "time": "5:00 PM — Bus departs"
+    },
+    {
+      "id": 5,
+      "day": 1,
+      "title": "Return to Toronto",
+      "location": "34 Asquith Avenue, Toronto",
+      "description": "As the sun sets over Niagara, settle back for the relaxing two-hour drive home. Reflect on the day with your loved ones—from the waterfalls at Balls Falls to the breathtaking tulip fields. Arrive back in Toronto around 7:00 PM, refreshed and holding a bouquet you created together. No parking struggles, no traffic stress—just the gift of a day spent celebrating the mothers who mean the world to you.",
+      "image": "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=600&q=80",
+      "coordinates": [-79.3868, 43.6711],
+      "zoom": 12,
+      "bearing": 0,
+      "pitch": 30,
+      "tags": ["End"],
+      "time": "~7:00 PM",
+      "distanceFromPrev": "~130 km (~2 hrs)",
+      "googleMapsUrl": "https://www.google.com/maps/place/34+Asquith+Ave,+Toronto,+ON"
+    }
+  ],
+  "route": {
+    "show": true,
+    "color": "#2E5137",
+    "width": 3
+  },
+  "theme": {
+    "primaryColor": "#2E5137",
+    "accentColor": "#2E5137",
+    "background": "#F7F5F0",
+    "fontFamily": "'Figtree', sans-serif"
+  },
+  "bookingUrl": "https://www.parkbus.com/reserve?parkline=38&triptype=2&ride1id=81711&ride2id=81712"
+}
