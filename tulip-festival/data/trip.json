@@ -30,6 +30,8 @@
       "pitch": 40,
       "tags": ["Start"],
       "time": "9:00 AM",
+      "timeLabel": "Departing time",
+      "timeNote": "Please arrive 15 minutes early",
       "learnMoreUrl": "https://www.parkbus.ca",
       "learnMoreText": "About Parkbus",
       "googleMapsUrl": "https://www.google.com/maps/place/34+Asquith+Ave,+Toronto,+ON"
@@ -45,7 +47,7 @@
       "zoom": 13,
       "bearing": -10,
       "pitch": 45,
-      "tags": ["Featured"],
+      "tags": [],
       "time": "10:45 AM",
       "distanceFromPrev": "~105 km (1 hr 45 min)",
       "learnMoreUrl": "https://www.npca.ca/parks/ball-s-falls",
@@ -63,7 +65,7 @@
       "zoom": 13,
       "bearing": 5,
       "pitch": 40,
-      "tags": ["Featured"],
+      "tags": [],
       "time": "2:15 PM",
       "distanceFromPrev": "~30 km (30 min)",
       "learnMoreUrl": "https://www.tasctulipfarm.com",
@@ -82,7 +84,8 @@
       "bearing": 0,
       "pitch": 30,
       "tags": ["En Route"],
-      "time": "5:00 PM — Bus departs"
+      "time": "5:00 PM",
+      "timeLabel": "Departs at"
     },
     {
       "id": 5,

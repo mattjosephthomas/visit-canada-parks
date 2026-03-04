@@ -31,6 +31,8 @@
       "pitch": 40,
       "tags": ["Start"],
       "time": "10:30 AM",
+      "timeLabel": "Departs at",
+      "timeNote": "Please arrive 15 minutes early",
       "learnMoreUrl": "https://www.parkbus.ca",
       "learnMoreText": "About Parkbus",
       "googleMapsUrl": "https://www.google.com/maps/place/34+Asquith+Ave,+Toronto,+ON"
@@ -60,8 +62,8 @@
       "location": "Camp Henry, Point Pelee National Park, ON",
       "description": "Check into your oTENTik—comfortable, park-based shelters that blend the feel of camping with the ease of a cabin stay. Once settled, the rest of the afternoon is yours. Walk the Woodland Nature Trail through old-growth Carolinian forest, rent a canoe at the Marsh Boardwalk, or take the shuttle to the Tip—the actual southernmost point of mainland Canada. Point Pelee sits at the same latitude as Rome and Barcelona.",
       "image": "https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/699f8459e3136ac6f1844b23_point1-scaled.jpg",
-      "coordinates": [-82.5100, 41.9580],
-      "zoom": 14,
+      "coordinates": [-82.5119, 41.9625],
+      "zoom": 15,
       "bearing": 10,
       "pitch": 50,
       "tags": ["Overnight"],
@@ -71,9 +73,9 @@
     {
       "id": 4,
       "day": 1,
-      "title": "Guided Evening with Astronomer Caroline El Khoury",
+      "title": "Guided Night Event with Astronomer Caroline El Khoury",
       "location": "Point Pelee National Park, ON",
-      "description": "As dusk settles, astronomer Caroline El Khoury leads the group on an evening orientation before the night sky fully reveals itself. With her expertise in astrophysics, Caroline will introduce the Perseid meteor shower, explain the mechanics behind it, and point out constellations as twilight deepens. She'll also share tips for astrophotography, whether you're using a smartphone or a full camera setup.",
+      "description": "As dusk settles, astronomer Caroline El Khoury leads the group through a guided night event before the sky fully reveals itself. With her expertise in astrophysics, Caroline will introduce the Perseid meteor shower, explain the mechanics behind it, and point out constellations as twilight deepens. She'll also share tips for astrophotography, whether you're using a smartphone or a full camera setup.",
       "image": "https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/699f5f9b480170c39a6ca7be_Screenshot%202026-02-25%20at%203.38.44%E2%80%AFPM.png",
       "coordinates": [-82.5130, 41.9400],
       "zoom": 13,
@@ -93,8 +95,7 @@
       "zoom": 13,
       "bearing": -10,
       "pitch": 40,
-      "tags": ["Featured"],
-      "time": "Peak: August 11–12 overnight"
+      "tags": ["Featured"]
     },
     {
       "id": 6,
@@ -153,5 +154,18 @@
     "background": "#F7F5F0",
     "fontFamily": "'Figtree', sans-serif"
   },
-  "bookingUrl": "https://www.parkbus.ca"
+  "bookingUrl": "https://parkbus.com/perseids",
+  "bookingButtons": [
+    {
+      "label": "Book the Individual Ticket",
+      "price": "$235",
+      "url": "https://parkbus.com/reserve?parkline=9356"
+    },
+    {
+      "label": "Book the Tent Package",
+      "price": "$905",
+      "note": "Each \"Person\" is a TENT — you only need one passenger selected to book a tent",
+      "url": "https://parkbus.com/reserve?parkline=9357"
+    }
+  ]
 }

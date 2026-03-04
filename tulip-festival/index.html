@@ -42,7 +42,15 @@
       --radius: 12px;
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (max-width: 900px) {
+      html {
+        scroll-snap-type: y proximity;
+      }
+    }
 
     body {
       font-family: var(--font);
@@ -617,6 +625,72 @@
       flex-shrink: 0;
     }
 
+    /* Time note (e.g. "Please arrive 15 minutes early") */
+    .card__time-note {
+      font-size: 0.72rem;
+      color: var(--text-light);
+      font-style: italic;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Dual CTA buttons */
+    .cta__buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      width: 100%;
+      max-width: 440px;
+      margin-bottom: 0.5rem;
+    }
+
+    .cta-button--row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.9rem 1.5rem;
+      background: var(--booking-blue);
+      color: white;
+      font-family: var(--font);
+      font-size: 0.95rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 15px rgba(11, 122, 232, 0.3);
+      letter-spacing: 0.01em;
+      text-align: left;
+    }
+
+    .cta-button--row:hover {
+      background: var(--booking-blue-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(11, 122, 232, 0.4);
+    }
+
+    .cta-button--row:active { transform: translateY(0); }
+
+    .cta-button__price {
+      font-size: 0.8rem;
+      font-weight: 600;
+      opacity: 0.85;
+      white-space: nowrap;
+    }
+
+    .cta-button__label {
+      flex: 1;
+    }
+
+    .cta-button__note {
+      font-size: 0.7rem;
+      font-weight: 400;
+      opacity: 0.85;
+      display: block;
+      margin-top: 0.15rem;
+    }
+
     /* ========================================
        STEP COUNTER
        ======================================== */
@@ -756,10 +830,12 @@
         order: 2;
       }
 
-      /* One card at a time: enough space between steps */
+      /* Snap cards into place one at a time */
       .step {
-        margin-bottom: 60vh;
+        margin-bottom: 18vh;
         scroll-margin-top: 28vh;
+        scroll-snap-align: start;
+        scroll-snap-stop: normal;
       }
 
       .step:first-of-type {
@@ -818,7 +894,7 @@
       .cta-button { padding: 0.85rem 2rem; font-size: 1rem; }
       .card--cta { padding: 2rem 1.5rem; }
 
-      .step { margin-bottom: 55vh; }
+      .step { margin-bottom: 15vh; }
     }
 
     /* ========================================
@@ -1013,14 +1089,18 @@
           });
         }
 
-        // Time info (arrival/departure style)
+        // Time info (customizable label)
         let timesHTML = '';
         if (stop.time) {
+          const timeLabel = stop.timeLabel || 'Estimated arrival';
           timesHTML = `
             <div class="card__times">
-              <span>Estimated arrival</span><span>${stop.time}</span>
+              <span>${timeLabel}</span><span>${stop.time}</span>
             </div>
           `;
+          if (stop.timeNote) {
+            timesHTML += `<p class="card__time-note">${stop.timeNote}</p>`;
+          }
         }
 
         // Actions
@@ -1059,12 +1139,31 @@
 
       // CTA card — the final "stop"
       const bookingUrl = data.bookingUrl || 'https://www.parkbus.ca';
+      const bookingButtons = data.bookingButtons;
+      let ctaButtonsHTML = '';
+
+      if (bookingButtons && bookingButtons.length > 0) {
+        ctaButtonsHTML = '<div class="cta__buttons">';
+        bookingButtons.forEach(btn => {
+          const noteHTML = btn.note ? `<span class="cta-button__note">${btn.note}</span>` : '';
+          ctaButtonsHTML += `
+            <a href="${btn.url}" target="_blank" rel="noopener" class="cta-button--row">
+              <span class="cta-button__label">${btn.label}${noteHTML}</span>
+              <span class="cta-button__price">${btn.price}</span>
+            </a>
+          `;
+        });
+        ctaButtonsHTML += '</div>';
+      } else {
+        ctaButtonsHTML = `<a href="${bookingUrl}" target="_blank" rel="noopener" class="cta-button">Book Now</a>`;
+      }
+
       html += `
         <div class="step step--cta" data-step="${stops.length}" data-is-cta="true">
           <article class="card card--cta">
             <h2 class="cta__heading">Ready to go?</h2>
             <p class="cta__sub">Secure your seat on the Parkbus and experience this trip for yourself.</p>
-            <a href="${bookingUrl}" target="_blank" rel="noopener" class="cta-button">Book Now</a>
+            ${ctaButtonsHTML}
             <p class="cta__seats">Seats are limited. Book early to guarantee your spot.</p>
             <hr class="cta__divider">
             <p class="cta__share-text">This trip is better with friends.<br>Share this itinerary.</p>
