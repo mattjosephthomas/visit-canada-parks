@@ -68,7 +68,13 @@
       "pitch": 50,
       "tags": ["Overnight"],
       "learnMoreUrl": "https://parks.canada.ca/pn-np/on/pelee/activ/camping",
-      "learnMoreText": "Camp Henry"
+      "learnMoreText": "Camp Henry",
+      "detailDescription": "Check into your oTENTik—comfortable, park-based shelters that blend the feel of camping with the ease of a cabin stay. Each oTENTik sleeps up to six and comes equipped with beds, a table, chairs, and a BBQ outside. Once settled, the rest of the afternoon is yours.\n\nWalk the Woodland Nature Trail through old-growth Carolinian forest—one of the rarest ecosystems in Canada. Rent a canoe at the Marsh Boardwalk and paddle through a freshwater marsh teeming with turtles, herons, and dragonflies. Or take the shuttle to the Tip—the actual southernmost point of mainland Canada, extending into Lake Erie like a finger pointing south.\n\nPoint Pelee sits at the same latitude as Rome and Barcelona, giving it a microclimate that supports species found nowhere else in Canada.",
+      "gallery": [
+        "https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/699f8459e3136ac6f1844b23_point1-scaled.jpg",
+        "https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/699c69d7f6c410c822fe9739_Point-Pelee-Marsh-Boardwalk-Canoeing.jpg",
+        "https://cdn.prod.website-files.com/682513f5b15a80758dd87582/69a842142cc45d8e2da0f17c_point-pelee-canoeing%20.jpg"
+      ]
     },
     {
       "id": 4,
@@ -82,20 +88,32 @@
       "bearing": 0,
       "pitch": 60,
       "tags": ["Featured"],
-      "time": "After dusk"
+      "time": "After dusk",
+      "nightMode": true,
+      "detailDescription": "As dusk settles over Point Pelee, astronomer Caroline El Khoury leads the group through an unforgettable guided night event. With her expertise in astrophysics and deep sky observation, Caroline will introduce the Perseid meteor shower, explain the orbital mechanics of Comet Swift-Tuttle that creates this annual spectacle, and help you identify key constellations as twilight deepens into true darkness.\n\nShe'll share practical tips for astrophotography—whether you're shooting with a smartphone or a full DSLR setup—and guide the group through the transition from civil twilight to astronomical darkness. This is your warm-up for the main event: the Perseids peak.",
+      "gallery": [
+        "https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/699f5f9b480170c39a6ca7be_Screenshot%202026-02-25%20at%203.38.44%E2%80%AFPM.png",
+        "https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/699f567159da15437143dfa2_stargazing.jpg"
+      ]
     },
     {
       "id": 5,
       "day": 1,
       "title": "Perseids Meteor Shower",
       "location": "Dark Sky Preserve, Point Pelee National Park, ON",
-      "description": "The peak of the Perseid meteor shower—the most popular and brightest of the year. Peak rates reach 60 to 100 shooting stars per hour, with fast-moving, luminous streaks visible to the naked eye. This year's new moon on August 12 means zero moonlight interference and maximum visibility. Far from Toronto's light pollution, Point Pelee's Dark Sky Preserve ensures the sky is as dark as it gets. Lie on a beach at the southernmost point of mainland Canada, look up, and watch the night sky come alive.",
+      "description": "The peak of the Perseid meteor shower—the most popular and brightest of the year. Peak rates reach 60 to 100 shooting stars per hour. This year's new moon means zero moonlight interference and maximum visibility.",
       "image": "https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/699f567159da15437143dfa2_stargazing.jpg",
       "coordinates": [-82.5077, 41.9100],
       "zoom": 13,
       "bearing": -10,
       "pitch": 40,
-      "tags": ["Featured"]
+      "tags": ["Featured"],
+      "nightMode": true,
+      "detailDescription": "The peak of the Perseid meteor shower—the most popular and brightest of the year. Peak rates reach 60 to 100 shooting stars per hour, with fast-moving, luminous streaks visible to the naked eye. This year's new moon on August 12 means zero moonlight interference and maximum visibility.\n\nFar from Toronto's light pollution, Point Pelee's Dark Sky Preserve ensures the sky is as dark as it gets in southern Ontario. Lie on a beach at the southernmost point of mainland Canada, look up, and watch the night sky come alive. The Perseids are caused by Earth passing through the debris trail of Comet Swift-Tuttle, a comet that last visited the inner solar system in 1992 and won't return until 2126.\n\nBring a blanket, lie back, and give your eyes 20 minutes to adjust to the darkness. You won't need a telescope—the best way to see meteors is with the naked eye, scanning as wide an area of sky as possible.",
+      "gallery": [
+        "https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/699f567159da15437143dfa2_stargazing.jpg",
+        "https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/699f531db89868bc61c9250c_peele4.jpg"
+      ]
     },
     {
       "id": 6,
