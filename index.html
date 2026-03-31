@@ -3,18 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trip Itineraries | Parkbus</title>
-  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <title>Trip Itinerary</title>
+
+  <!-- Mapbox GL JS -->
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
+
+  <!-- Scrollama -->
+  <script src="https://unpkg.com/scrollama@3.2.0/build/scrollama.min.js"></script>
+
+  <!-- Figtree font (Parkbus brand font) + Instrument Serif for headlines -->
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
   <style>
+    /* ========================================
+       RESET & BASE — Parkbus branding
+       ======================================== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --primary: #2E5137;
+      --primary-light: #3d6b49;
+      --accent: #2E5137;
+      --booking-blue: #0B7AE8;
+      --booking-blue-hover: #0966c7;
       --text: #1a1a1a;
       --text-secondary: #5a5a5a;
+      --text-light: #999;
       --bg: #F7F5F0;
+      --bg-white: #ffffff;
       --card-bg: #ffffff;
-      --font: 'Figtree', -apple-system, sans-serif;
+      --card-border: #c5d1c8;
+      --card-border-active: #2E5137;
+      --card-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      --card-shadow-active: 0 2px 16px rgba(46,81,55,0.12);
+      --transition: 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+      --font: 'Figtree', -apple-system, BlinkMacSystemFont, sans-serif;
+      --radius: 12px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (max-width: 900px) {
+      html {
+        scroll-snap-type: y proximity;
+      }
     }
 
     body {
@@ -22,167 +57,1467 @@
       color: var(--text);
       background: var(--bg);
       background-size: 200px 200px;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cpath d='M0,45 C30,45 30,36 60,36 C90,36 90,45 120,45 C150,45 150,41 180,41 C210,41 210,47 240,47 C270,47 270,37 300,37 C330,37 330,33 360,33 C390,33 390,6 420,6 C450,6 450,9 480,9 C510,9 510,-1 540,-1 C570,-1 570,8 600,8' fill='none' stroke='%232E5137' stroke-width='1' opacity='0.045'/%3E%3Cpath d='M0,140 C30,140 30,118 60,118 C90,118 90,102 120,102 C150,102 150,93 180,93 C210,93 210,105 240,105 C270,105 270,97 300,97 C330,97 330,103 360,103 C390,103 390,108 420,108 C450,108 450,112 480,112 C510,112 510,132 540,132 C570,132 570,125 600,125' fill='none' stroke='%232E5137' stroke-width='1' opacity='0.045'/%3E%3Cpath d='M0,279 C30,279 30,274 60,274 C90,274 90,292 120,292 C150,292 150,294 180,294 C210,294 210,311 240,311 C270,311 270,301 300,301 C330,301 330,292 360,292 C390,292 390,284 420,284 C450,284 450,282 480,282 C510,282 510,266 540,266 C570,266 570,267 600,267' fill='none' stroke='%232E5137' stroke-width='1' opacity='0.045'/%3E%3Cpath d='M0,395 C30,395 30,387 60,387 C90,387 90,396 120,396 C150,396 150,387 180,387 C210,387 210,358 240,358 C270,358 270,366 300,366 C330,366 330,356 360,356 C390,356 390,348 420,348 C450,348 450,341 480,341 C510,341 510,353 540,353 C570,353 570,348 600,348' fill='none' stroke='%232E5137' stroke-width='1' opacity='0.045'/%3E%3Cpath d='M0,555 C30,555 30,567 60,567 C90,567 90,568 120,568 C150,568 150,577 180,577 C210,577 210,581 240,581 C270,581 270,599 300,599 C330,599 330,589 360,589 C390,589 390,601 420,601 C450,601 450,592 480,592 C510,592 510,563 540,563 C570,563 570,558 600,558' fill='none' stroke='%232E5137' stroke-width='1' opacity='0.045'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cpath d='M0,45 C30,45 30,36 60,36 C90,36 90,45 120,45 C150,45 150,41 180,41 C210,41 210,47 240,47 C270,47 270,37 300,37 C330,37 330,33 360,33 C390,33 390,6 420,6 C450,6 450,9 480,9 C510,9 510,-1 540,-1 C570,-1 570,8 600,8' fill='none' stroke='%232E5137' stroke-width='1' opacity='0.045'/%3E%3Cpath d='M0,81 C30,81 30,84 60,84 C90,84 90,89 120,89 C150,89 150,78 180,78 C210,78 210,61 240,61 C270,61 270,61 300,61 C330,61 330,61 360,61 C390,61 390,40 420,40 C450,40 450,63 480,63 C510,63 510,67 540,67 C570,67 570,67 600,67' fill='none' stroke='%232E5137' stroke-width='1' opacity='0.045'/%3E%3Cpath d='M0,140 C30,140 30,118 60,118 C90,118 90,102 120,102 C150,102 150,93 180,93 C210,93 210,105 240,105 C270,105 270,97 300,97 C330,97 330,103 360,103 C390,103 390,108 420,108 C450,108 450,112 480,112 C510,112 510,132 540,132 C570,132 570,125 600,125' fill='none' stroke='%232E5137' stroke-width='1' opacity='0.045'/%3E%3Cpath d='M0,164 C30,164 30,150 60,150 C90,150 90,149 120,149 C150,149 150,138 180,138 C210,138 210,142 240,142 C270,142 270,131 300,131 C330,131 330,144 360,144 C390,144 390,155 420,155 C450,155 450,158 480,158 C510,158 510,168 540,168 C570,168 570,166 600,166' fill='none' stroke='%232E5137' stroke-width='1' opacity='0.045'/%3E%3Cpath d='M0,231 C30,231 30,227 60,227 C90,227 90,231 120,231 C150,231 150,244 180,244 C210,244 210,257 240,257 C270,257 270,263 300,263 C330,263 330,253 360,253 C390,253 390,248 420,248 C450,248 450,250 480,250 C510,250 510,240 540,240 C570,240 570,230 600,230' fill='none' stroke='%232E5137' stroke-width='1' opacity='0.045'/%3E%3Cpath d='M0,279 C30,279 30,274 60,274 C90,274 90,292 120,292 C150,292 150,294 180,294 C210,294 210,311 240,311 C270,311 270,301 300,301 C330,301 330,292 360,292 C390,292 390,284 420,284 C450,284 450,282 480,282 C510,282 510,266 540,266 C570,266 570,267 600,267' fill='none' stroke='%232E5137' stroke-width='1' opacity='0.045'/%3E%3Cpath d='M0,326 C30,326 30,330 60,330 C90,330 90,354 120,354 C150,354 150,344 180,344 C210,344 210,331 240,331 C270,331 270,324 300,324 C330,324 330,316 360,316 C390,316 390,319 420,319 C450,319 450,315 480,315 C510,315 510,303 540,303 C570,303 570,294 600,294' fill='none' stroke='%232E5137' stroke-width='1' opacity='0.045'/%3E%3Cpath d='M0,395 C30,395 30,387 60,387 C90,387 90,396 120,396 C150,396 150,387 180,387 C210,387 210,358 240,358 C270,358 270,366 300,366 C330,366 330,356 360,356 C390,356 390,348 420,348 C450,348 450,341 480,341 C510,341 510,353 540,353 C570,353 570,348 600,348' fill='none' stroke='%232E5137' stroke-width='1' opacity='0.045'/%3E%3Cpath d='M0,465 C30,465 30,450 60,450 C90,450 90,447 120,447 C150,447 150,434 180,434 C210,434 210,418 240,418 C270,418 270,427 300,427 C330,427 330,426 360,426 C390,426 390,456 420,456 C450,456 450,465 480,465 C510,465 510,472 540,472 C570,472 570,464 600,464' fill='none' stroke='%232E5137' stroke-width='1' opacity='0.045'/%3E%3Cpath d='M0,555 C30,555 30,567 60,567 C90,567 90,568 120,568 C150,568 150,577 180,577 C210,577 210,581 240,581 C270,581 270,599 300,599 C330,599 330,589 360,589 C390,589 390,601 420,601 C450,601 450,592 480,592 C510,592 510,563 540,563 C570,563 570,558 600,558' fill='none' stroke='%232E5137' stroke-width='1' opacity='0.045'/%3E%3C/svg%3E");
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    .header {
-      text-align: center;
-      padding: 4rem 2rem 2rem;
-    }
-
-    .header__title {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--primary);
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-      margin-bottom: 0.5rem;
-    }
-
-    .header__sub {
-      font-size: 1rem;
-      color: var(--text-secondary);
-    }
-
-    .trips {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 2rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .trip-card {
-      background: var(--card-bg);
-      border-radius: 12px;
-      overflow: hidden;
-      border: 2px solid #c5d1c8;
-      text-decoration: none;
-      color: inherit;
-      transition: all 0.3s ease;
-    }
-
-    .trip-card:hover {
-      border-color: var(--primary);
-      box-shadow: 0 4px 20px rgba(46,81,55,0.12);
-      transform: translateY(-3px);
-    }
-
-    .trip-card__image {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-
-    .trip-card__body {
-      padding: 1.25rem;
-    }
-
-    .trip-card__tags {
+    /* ========================================
+       HERO SECTION
+       ======================================== */
+    .hero {
+      position: relative;
+      height: 75vh;
+      min-height: 450px;
       display: flex;
-      gap: 0.4rem;
-      margin-bottom: 0.5rem;
+      align-items: flex-end;
+      justify-content: flex-start;
+      overflow: hidden;
     }
 
-    .trip-card__tag {
-      padding: 0.2rem 0.5rem;
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.05);
+      will-change: transform;
+    }
+
+    .hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.05) 0%,
+        rgba(0,0,0,0.2) 40%,
+        rgba(0,0,0,0.65) 100%
+      );
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 2;
+      color: white;
+      padding: 3rem 4%;
+      max-width: 700px;
+    }
+
+    .hero__tags {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero__tag {
+      padding: 0.3rem 0.75rem;
       background: var(--primary);
       color: white;
-      font-size: 0.65rem;
+      font-size: 0.75rem;
       font-weight: 600;
       border-radius: 4px;
-      text-transform: uppercase;
       letter-spacing: 0.02em;
     }
 
-    .trip-card__title {
+    .hero__tag--outline {
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255,255,255,0.4);
+    }
+
+    .hero__title {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(2rem, 4.5vw, 3.25rem);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero__subtitle {
       font-size: 1.1rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-      margin-bottom: 0.25rem;
-      line-height: 1.25;
+      font-weight: 400;
+      opacity: 0.9;
+      margin-bottom: 0.4rem;
     }
 
-    .trip-card__date {
-      font-size: 0.8rem;
-      color: var(--text-secondary);
+    .hero__date {
+      font-size: 0.9rem;
+      opacity: 0.75;
+      margin-bottom: 0.25rem;
+    }
+
+    .hero__season {
+      font-size: 0.85rem;
+      opacity: 0.65;
+      margin-bottom: 2rem;
+    }
+
+    .hero__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.75rem;
+      background: white;
+      color: var(--primary);
+      font-family: var(--font);
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .hero__cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    }
+
+    .hero__cta svg { transition: transform 0.3s ease; }
+    .hero__cta:hover svg { transform: translateY(3px); }
+
+    .hero__badge {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      z-index: 3;
+      width: 130px;
+      height: 130px;
+      opacity: 0.92;
+      filter: drop-shadow(0 2px 12px rgba(0,0,0,0.35));
+      transition: opacity 0.3s ease;
+    }
+
+    .hero__badge:hover { opacity: 1; }
+
+    @media (max-width: 480px) {
+      .hero__badge { width: 90px; height: 90px; top: 1rem; right: 1rem; }
+    }
+
+    /* ========================================
+       PROGRESS BAR
+       ======================================== */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: var(--primary);
+      z-index: 1000;
+      transition: width 0.4s ease;
+      width: 0%;
+    }
+
+    /* ========================================
+       SCROLLYTELLING LAYOUT
+       Map LEFT, cards RIGHT
+       ======================================== */
+    .scrolly {
+      position: relative;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .scrolly__map-wrap {
+      width: 50%;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      order: 1;
+    }
+
+    #map { width: 100%; height: 100%; }
+
+    .scrolly__map-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 40px; height: 100%;
+      background: linear-gradient(to left, var(--bg), transparent);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .scrolly__story {
+      width: 50%;
+      padding: 0 3% 0 2%;
+      position: relative;
+      z-index: 2;
+      order: 2;
+    }
+
+    /* ========================================
+       DAY HEADER
+       ======================================== */
+
+    .day-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 2rem 0 1.25rem;
+      margin-top: 0.5rem;
+    }
+
+    .day-header:first-child {
+      margin-top: 2.5rem;
+    }
+
+    .day-header__icon { font-size: 1.25rem; }
+
+    .day-header__label {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .day-header__distance {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      font-weight: 400;
+    }
+
+    /* ========================================
+       STOP CARDS — bordered, headline caps
+       ======================================== */
+    .step {
+      margin-bottom: 2.5rem;
+      opacity: 0.45;
+      transition: opacity 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
+                  transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+      transform: translateX(8px);
+    }
+
+    .step.is-active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      border: 2px solid var(--card-border);
+      transition: box-shadow 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
+                  border-color 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+      display: flex;
+      flex-direction: row;
+      min-height: 0;
+    }
+
+    .step.is-active .card {
+      box-shadow: var(--card-shadow-active);
+      border-color: var(--card-border-active);
+    }
+
+    /* Thumbnail — right side of card */
+    .card__image-wrap {
+      width: 220px;
+      min-width: 220px;
+      overflow: hidden;
+      flex-shrink: 0;
+      order: 2;
+    }
+
+    .card__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+
+    .step.is-active .card__image {
+      transform: scale(1.05);
+    }
+
+    /* Card body — left side */
+    .card__body {
+      padding: 1.1rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex: 1;
+      min-width: 0;
+      order: 1;
+    }
+
+    .card__stop-number {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary);
       margin-bottom: 0.15rem;
     }
 
-    .trip-card__season {
-      font-size: 0.75rem;
-      color: #999;
+    .card__title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+      line-height: 1.25;
+      letter-spacing: 0.01em;
     }
 
-    .footer {
-      text-align: center;
-      padding: 3rem 2rem;
-      font-size: 0.8rem;
-      color: #999;
+    .card__location {
+      font-size: 0.78rem;
+      color: var(--text-light);
+      margin-bottom: 0.5rem;
     }
 
-    .footer a {
+    /* Tags row */
+    .card__tags {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.6rem;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.2rem 0.55rem;
+      font-size: 0.68rem;
+      font-weight: 600;
+      border-radius: 4px;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .tag--filled {
+      background: var(--primary);
+      color: white;
+    }
+
+    .tag--outline {
+      background: transparent;
       color: var(--primary);
-      text-decoration: none;
+      border: 1.5px solid var(--primary);
     }
+
+    .tag--featured {
+      background: #d4a017;
+      color: white;
+    }
+
+    .tag--time {
+      background: transparent;
+      color: var(--text-secondary);
+      border: 1.5px solid #ccc;
+      font-weight: 500;
+      text-transform: none;
+    }
+
+    /* Time details table */
+    .card__times {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.1rem 0.75rem;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.5rem;
+      padding-top: 0.35rem;
+      border-top: 1px solid #e8e5df;
+    }
+
+    .card__times span:nth-child(odd) {
+      color: var(--text-light);
+      font-weight: 500;
+    }
+
+    .card__desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: 0.6rem;
+    }
+
+    /* Expand button */
+
+    /* Action buttons */
+    .card__actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: auto;
+    }
+
+    .card__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.78rem;
+      text-decoration: none;
+      padding: 0.3rem 0.65rem;
+      border: 1.5px solid var(--primary);
+      border-radius: 6px;
+      transition: all 0.25s ease;
+    }
+
+    .card__link:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .card__link svg { width: 12px; height: 12px; flex-shrink: 0; }
+
+    .card__gmaps {
+      display: inline-flex;
+      align-items: center;
+      color: var(--primary);
+      font-weight: 500;
+      font-size: 0.78rem;
+      text-decoration: none;
+      opacity: 0.65;
+      transition: opacity 0.2s ease;
+    }
+
+    .card__gmaps:hover { opacity: 1; }
+
+    /* ========================================
+       DISTANCE CONNECTOR between stops
+       ======================================== */
+    .connector {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.75rem 0 0.75rem 1.5rem;
+      color: var(--text-light);
+      font-size: 0.78rem;
+      position: relative;
+    }
+
+    .connector::before {
+      content: '';
+      position: absolute;
+      left: 0.5rem;
+      top: 0;
+      bottom: 0;
+      width: 0;
+      border-left: 2px dashed #d5d0c8;
+    }
+
+    .connector__dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #d5d0c8;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ========================================
+       CTA CARD — Book Now (final card in scroll)
+       ======================================== */
+    .step--cta {
+      margin-bottom: 50vh;
+    }
+
+    .card--cta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 2.5rem 2rem;
+      border: 2px solid var(--booking-blue);
+      background: white;
+    }
+
+    .step--cta.is-active .card--cta {
+      border-color: var(--booking-blue);
+      box-shadow: 0 4px 24px rgba(11, 122, 232, 0.15);
+    }
+
+    .card--cta .cta__heading {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+      letter-spacing: -0.01em;
+    }
+
+    .card--cta .cta__sub {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      max-width: 360px;
+      line-height: 1.5;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2.75rem;
+      background: var(--booking-blue);
+      color: white;
+      font-family: var(--font);
+      font-size: 1.05rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 15px rgba(11, 122, 232, 0.3);
+      letter-spacing: 0.01em;
+    }
+
+    .cta-button:hover {
+      background: var(--booking-blue-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(11, 122, 232, 0.4);
+    }
+
+    .cta-button:active { transform: translateY(0); }
+
+    .cta__seats {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      margin-top: 0.75rem;
+      font-weight: 500;
+    }
+
+    .cta__divider {
+      width: 50px;
+      border: none;
+      border-top: 1px solid #e8e5df;
+      margin: 1.5rem auto;
+    }
+
+    .cta__share-text {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.75rem;
+      line-height: 1.5;
+    }
+
+    .share-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.55rem 1.5rem;
+      background: transparent;
+      color: var(--primary);
+      font-family: var(--font);
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 2px solid var(--primary);
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    .share-button:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .share-button svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    /* Time note (e.g. "Please arrive 15 minutes early") */
+    .card__time-note {
+      font-size: 0.72rem;
+      color: var(--text-light);
+      font-style: italic;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Dual CTA buttons */
+    .cta__buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      width: 100%;
+      max-width: 440px;
+      margin-bottom: 0.5rem;
+    }
+
+    .cta-button--row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.9rem 1.5rem;
+      background: var(--booking-blue);
+      color: white;
+      font-family: var(--font);
+      font-size: 0.95rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 15px rgba(11, 122, 232, 0.3);
+      letter-spacing: 0.01em;
+      text-align: left;
+    }
+
+    .cta-button--row:hover {
+      background: var(--booking-blue-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(11, 122, 232, 0.4);
+    }
+
+    .cta-button--row:active { transform: translateY(0); }
+
+    .cta-button__price {
+      font-size: 0.8rem;
+      font-weight: 600;
+      opacity: 0.85;
+      white-space: nowrap;
+    }
+
+    .cta-button__label {
+      flex: 1;
+    }
+
+    .cta-button__note {
+      font-size: 0.7rem;
+      font-weight: 400;
+      opacity: 0.85;
+      display: block;
+      margin-top: 0.15rem;
+    }
+
+    /* ========================================
+       STEP COUNTER
+       ======================================== */
+    .step-counter {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: white;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--primary);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+      z-index: 100;
+      transition: opacity 0.4s ease;
+      opacity: 0;
+      border: 1px solid #e8e5df;
+    }
+
+    .step-counter.visible { opacity: 1; }
+
+
+    /* ========================================
+       MAP MARKERS
+       ======================================== */
+    .marker {
+      width: 28px;
+      height: 28px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font);
+      font-size: 0.7rem;
+      font-weight: 700;
+      border: 2.5px solid white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+
+    .marker.active {
+      background: #d4a017;
+      transform: scale(1.35);
+      z-index: 10;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.3);
+    }
+
+    .marker-label {
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--primary);
+      color: white;
+      font-family: var(--font);
+      font-size: 0.6rem;
+      font-weight: 600;
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .marker.active .marker-label { opacity: 1; }
+
+
+
+    /* ========================================
+       RESPONSIVE
+       ======================================== */
+    @media (max-width: 900px) {
+      .scrolly { flex-direction: column; }
+
+      .scrolly__map-wrap {
+        width: 100%;
+        height: 28vh;
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        order: 1;
+        transition: height 0.5s ease, opacity 0.5s ease;
+      }
+
+      /* Hide map when CTA is active */
+      .scrolly.cta-active .scrolly__map-wrap {
+        height: 0;
+        opacity: 0;
+        overflow: hidden;
+      }
+
+      .scrolly__map-wrap::after {
+        width: 100%; height: 24px;
+        top: auto; bottom: 0; right: 0;
+        background: linear-gradient(to top, var(--bg), transparent);
+      }
+
+      .scrolly__story {
+        width: 100%;
+        padding: 0 1rem;
+        order: 2;
+      }
+
+      /* Stack cards vertically on mobile — image on top, body below */
+      .card {
+        flex-direction: column;
+      }
+
+      .card__image-wrap {
+        width: 100%;
+        min-width: 100%;
+        height: 200px;
+        order: 1;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .card__image {
+        height: 120%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center 30%;
+        transition: transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1),
+                    object-position 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+      }
+
+      /* Parallax-style image reveal on active card */
+      .step.is-active .card__image {
+        transform: scale(1.08);
+        object-position: center 50%;
+      }
+
+      .card__body {
+        order: 2;
+      }
+
+      /* Snap cards into place one at a time */
+      .step {
+        margin-bottom: 18vh;
+        scroll-margin-top: 28vh;
+        scroll-snap-align: start;
+        scroll-snap-stop: normal;
+      }
+
+      .step:first-of-type {
+        margin-top: 1rem;
+      }
+
+      /* CTA card takes over full viewport on mobile */
+      .step--cta {
+        margin-bottom: 2rem;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        scroll-margin-top: 0;
+      }
+
+      .scrolly.cta-active .step--cta {
+        min-height: 100vh;
+      }
+
+      .card--cta {
+        min-height: 70vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .step-counter {
+        right: 50%;
+        transform: translateX(50%);
+        bottom: 1rem;
+      }
+
+      /* Connectors take less space on mobile */
+      .connector {
+        padding: 0.4rem 0 0.4rem 1.5rem;
+      }
+
+      .day-header {
+        padding: 1.25rem 0 0.75rem;
+      }
+
+    }
+
+    @media (max-width: 480px) {
+      .hero { height: 65vh; min-height: 380px; }
+      .hero__content { padding: 2rem 1.5rem; }
+
+      .card__image-wrap { height: 180px; }
+      .card__body { padding: 0.75rem 1rem; }
+
+      .card__desc {
+        font-size: 0.8rem;
+      }
+
+      .cta-button { padding: 0.85rem 2rem; font-size: 1rem; }
+      .card--cta { padding: 2rem 1.5rem; }
+
+      .step { margin-bottom: 15vh; }
+    }
+
+    /* ========================================
+       LOADING
+       ======================================== */
+    .loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-size: 1rem;
+      color: var(--text-light);
+      background: var(--bg);
+    }
+
+    .loading__spinner {
+      width: 28px; height: 28px;
+      border: 3px solid #e8e5df;
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-right: 0.75rem;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in { animation: fadeIn 0.5s ease forwards; }
+
   </style>
 </head>
 <body>
-  <div class="header">
-    <h1 class="header__title">Trip Itineraries</h1>
-    <p class="header__sub">Explore our interactive trip guides</p>
+
+  <div class="loading" id="loading">
+    <div class="loading__spinner"></div>
+    <span>Loading your trip...</span>
   </div>
 
-  <div class="trips" id="trips"></div>
+  <div id="app" style="display:none;">
 
-  <div class="footer">
-    <p><a href="https://www.parkbus.ca" target="_blank">Parkbus</a> — car-free adventures to Canada's national and provincial parks</p>
+    <div class="progress-bar" id="progress-bar"></div>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="hero__bg" id="hero-bg"></div>
+      <div class="hero__overlay"></div>
+      <!-- Parkbus "Your Trip" badge -->
+      <img class="hero__badge" src="https://cdn.prod.website-files.com/682513f5b15a80758dd87582/69a776e45078e08e81cb8e98_ChatGPT%20Image%20Mar%203%2C%202026%2C%2003_04_10%20PM.png" alt="Your Trip — Parkbus">
+      <div class="hero__content fade-in">
+        <div class="hero__tags" id="hero-tags"></div>
+        <h1 class="hero__title" id="hero-title"></h1>
+        <p class="hero__subtitle" id="hero-subtitle"></p>
+        <p class="hero__date" id="hero-date"></p>
+        <p class="hero__season" id="hero-season"></p>
+        <a href="#scrolly" class="hero__cta">
+          Start exploring
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 5v14M19 12l-7 7-7-7"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- Scrollytelling -->
+    <section class="scrolly" id="scrolly">
+      <div class="scrolly__map-wrap">
+        <div id="map"></div>
+      </div>
+      <div class="scrolly__story" id="story"></div>
+    </section>
+
+    <!-- Step counter -->
+    <div class="step-counter" id="step-counter"></div>
+
+
   </div>
 
   <script>
-    // Add trips here as you create them.
-    // Each entry becomes a card on the landing page.
-    const trips = [
-      {
-        folder: 'tulip-festival',
-        title: "Mother's Day Among 3 Million Tulips",
-        image: 'https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/68a5cbb5f5d7d501ad8edeb6_E~4157887.jpg',
-        region: 'Ontario',
-        type: 'Guided',
-        date: 'May 9, 2026',
-        season: 'Limited Spring Departure'
-      },
-      {
-        folder: 'point-pelee',
-        title: 'Perseids at Point Pelee',
-        image: 'https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/699f531db89868bc61c9250c_peele4.jpg',
-        region: 'Ontario',
-        type: 'Overnight',
-        date: 'August 11–12, 2026',
-        season: 'In partnership with Parks Canada'
-      }
-      // To add a new trip, copy the block above and change the values.
-      // Make sure the "folder" matches the folder name in the repo.
-    ];
+    // =============================================
+    // CONFIG
+    // =============================================
+    const MAPBOX_TOKEN = 'pk.eyJ1IjoibWF0dGhhcmR5dGhvbWFzIiwiYSI6ImNtbWF3dHExczBneGIycHB6bm1hcjVwbHkifQ.Cf_erP9A4LdvApP5iiGCOg';
+    const DATA_PATH = 'data/trip.json';
 
-    const container = document.getElementById('trips');
-    container.innerHTML = trips.map(t => `
-      <a href="${t.folder}/" class="trip-card">
-        <img class="trip-card__image" src="${t.image}" alt="${t.title}">
-        <div class="trip-card__body">
-          <div class="trip-card__tags">
-            ${t.region ? `<span class="trip-card__tag">${t.region}</span>` : ''}
-            ${t.type ? `<span class="trip-card__tag">${t.type}</span>` : ''}
+    let map, markers = [], scroller, tripData, currentStopIndex = 0;
+
+
+    // =============================================
+    // INIT
+    // =============================================
+    async function init() {
+      try {
+        const resp = await fetch(DATA_PATH);
+        if (!resp.ok) throw new Error('Could not load trip data');
+        tripData = await resp.json();
+
+        applyTheme(tripData.theme);
+        buildHero(tripData);
+        buildStoryCards(tripData);
+
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('app').style.display = 'block';
+
+        initMap(tripData);
+      } catch (err) {
+        console.error('Init failed:', err);
+        document.getElementById('loading').innerHTML =
+          `<p style="color:#c0392b;padding:2rem;">Failed to load trip data. Make sure <code>${DATA_PATH}</code> exists and you're running from a web server.</p>`;
+      }
+    }
+
+    // =============================================
+    // THEME
+    // =============================================
+    function applyTheme(theme) {
+      if (!theme) return;
+      const r = document.documentElement;
+      if (theme.primaryColor) {
+        r.style.setProperty('--primary', theme.primaryColor);
+        r.style.setProperty('--accent', theme.accentColor || theme.primaryColor);
+        r.style.setProperty('--card-border-active', theme.primaryColor);
+      }
+      if (theme.background) r.style.setProperty('--bg', theme.background);
+      if (theme.fontFamily) r.style.setProperty('--font', theme.fontFamily);
+    }
+
+    // =============================================
+    // HERO
+    // =============================================
+    function buildHero(data) {
+      document.title = data.title + ' | Parkbus';
+      document.getElementById('hero-title').textContent = data.title;
+      document.getElementById('hero-subtitle').textContent = data.subtitle || '';
+      document.getElementById('hero-bg').style.backgroundImage = `url('${data.heroImage}')`;
+
+      if (data.date) document.getElementById('hero-date').textContent = data.date;
+      if (data.season) document.getElementById('hero-season').textContent = data.season;
+
+      const tagsEl = document.getElementById('hero-tags');
+      let tagsHTML = '';
+      if (data.region) tagsHTML += `<span class="hero__tag">${data.region}</span>`;
+      if (data.type) tagsHTML += `<span class="hero__tag hero__tag--outline">${data.type}</span>`;
+      tagsEl.innerHTML = tagsHTML;
+    }
+
+
+    // =============================================
+    // BUILD STORY CARDS
+    // =============================================
+    function buildStoryCards(data) {
+      const container = document.getElementById('story');
+      const stops = data.stops;
+      const days = data.days || [];
+      let html = '';
+      let currentDay = null;
+
+      stops.forEach((stop, i) => {
+        // Day header with transition divider
+        if (stop.day && stop.day !== currentDay) {
+          currentDay = stop.day;
+          const dayInfo = days[currentDay - 1];
+
+
+          html += `
+            <div class="day-header${currentDay === 1 ? '' : ''}">
+              <span class="day-header__icon">${currentDay === 1 ? '☀️' : '🌅'}</span>
+              <span class="day-header__label">${dayInfo ? dayInfo.label : 'Day ' + currentDay}</span>
+              ${dayInfo && dayInfo.totalDistance ? `<span class="day-header__distance">&middot; ${dayInfo.totalDistance}</span>` : ''}
+            </div>
+          `;
+        }
+
+        // Distance connector
+        if (i > 0 && stop.distanceFromPrev) {
+          html += `
+            <div class="connector">
+              <span class="connector__dot"></span>
+              <span>${stop.distanceFromPrev} to next stop</span>
+            </div>
+          `;
+        }
+
+        // Tags
+        let tagsHTML = '';
+        if (stop.tags) {
+          stop.tags.forEach(t => {
+            if (t === 'Start' || t === 'End') {
+              tagsHTML += `<span class="tag tag--filled">${t}</span>`;
+            } else if (t === 'Featured') {
+              tagsHTML += `<span class="tag tag--featured">${t}</span>`;
+            } else {
+              tagsHTML += `<span class="tag tag--outline">${t}</span>`;
+            }
+          });
+        }
+
+        // Time info (customizable label)
+        let timesHTML = '';
+        if (stop.time) {
+          const timeLabel = stop.timeLabel || 'Estimated arrival';
+          timesHTML = `
+            <div class="card__times">
+              <span>${timeLabel}</span><span>${stop.time}</span>
+            </div>
+          `;
+          if (stop.timeNote) {
+            timesHTML += `<p class="card__time-note">${stop.timeNote}</p>`;
+          }
+        }
+
+        // Actions
+        let actionsHTML = '';
+        if (stop.learnMoreUrl) {
+          actionsHTML += `
+            <a class="card__link" href="${stop.learnMoreUrl}" target="_blank" rel="noopener">
+              ${stop.learnMoreText || 'Learn more'}
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          `;
+        }
+        if (stop.googleMapsUrl) {
+          actionsHTML += `<a class="card__gmaps" href="${stop.googleMapsUrl}" target="_blank" rel="noopener">Google Maps</a>`;
+        }
+
+        html += `
+          <div class="step" data-step="${i}">
+            <article class="card">
+              <div class="card__body">
+                <div class="card__stop-number">${stop.id}</div>
+                <h2 class="card__title">${stop.title}</h2>
+                ${stop.location ? `<p class="card__location">${stop.location}</p>` : ''}
+                <div class="card__tags">${tagsHTML}</div>
+                ${timesHTML}
+                <p class="card__desc">${stop.description}</p>
+                ${actionsHTML ? `<div class="card__actions">${actionsHTML}</div>` : ''}
+              </div>
+              <div class="card__image-wrap">
+                <img class="card__image" src="${stop.image}" alt="${stop.title}" loading="lazy">
+              </div>
+            </article>
           </div>
-          <h2 class="trip-card__title">${t.title}</h2>
-          ${t.date ? `<p class="trip-card__date">${t.date}</p>` : ''}
-          ${t.season ? `<p class="trip-card__season">${t.season}</p>` : ''}
+        `;
+      });
+
+      // CTA card — the final "stop"
+      const bookingUrl = data.bookingUrl || 'https://www.parkbus.ca';
+      const bookingButtons = data.bookingButtons;
+      let ctaButtonsHTML = '';
+
+      if (bookingButtons && bookingButtons.length > 0) {
+        ctaButtonsHTML = '<div class="cta__buttons">';
+        bookingButtons.forEach(btn => {
+          const noteHTML = btn.note ? `<span class="cta-button__note">${btn.note}</span>` : '';
+          ctaButtonsHTML += `
+            <a href="${btn.url}" target="_blank" rel="noopener" class="cta-button--row">
+              <span class="cta-button__label">${btn.label}${noteHTML}</span>
+              <span class="cta-button__price">${btn.price}</span>
+            </a>
+          `;
+        });
+        ctaButtonsHTML += '</div>';
+      } else {
+        ctaButtonsHTML = `<a href="${bookingUrl}" target="_blank" rel="noopener" class="cta-button">Book Now</a>`;
+      }
+
+      html += `
+        <div class="step step--cta" data-step="${stops.length}" data-is-cta="true">
+          <article class="card card--cta">
+            <h2 class="cta__heading">Ready to go?</h2>
+            <p class="cta__sub">Secure your seat on the Parkbus and experience this trip for yourself.</p>
+            ${ctaButtonsHTML}
+            <p class="cta__seats">Seats are limited. Book early to guarantee your spot.</p>
+            <hr class="cta__divider">
+            <p class="cta__share-text">This trip is better with friends.<br>Share this itinerary.</p>
+            <button class="share-button" onclick="shareItinerary()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+              </svg>
+              Share
+            </button>
+          </article>
         </div>
-      </a>
-    `).join('');
+      `;
+
+      container.innerHTML = html;
+    }
+
+    // =============================================
+    // SHARE
+    // =============================================
+    function shareItinerary() {
+      const title = tripData.title;
+      const text = tripData.subtitle
+        ? title + ' — ' + tripData.subtitle
+        : title;
+      const url = window.location.href;
+
+      if (navigator.share) {
+        navigator.share({ title, text, url }).catch(() => {});
+      } else {
+        // Fallback: copy link to clipboard
+        navigator.clipboard.writeText(url).then(() => {
+          const btn = document.querySelector('.share-button');
+          const orig = btn.innerHTML;
+          btn.innerHTML = `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Link copied!`;
+          setTimeout(() => { btn.innerHTML = orig; }, 2500);
+        }).catch(() => {
+          window.prompt('Copy this link to share:', url);
+        });
+      }
+    }
+
+    // =============================================
+    // MAP
+    // =============================================
+    function initMap(data) {
+      mapboxgl.accessToken = MAPBOX_TOKEN;
+
+      map = new mapboxgl.Map({
+        container: 'map',
+        style: data.mapStyle || 'mapbox://styles/mapbox/outdoors-v12',
+        center: data.initialView.center,
+        zoom: data.initialView.zoom,
+        bearing: data.initialView.bearing || 0,
+        pitch: data.initialView.pitch || 0,
+        interactive: true,
+        projection: 'mercator'
+      });
+
+      map.addControl(new mapboxgl.NavigationControl({ showCompass: true }), 'top-right');
+
+      map.on('load', () => {
+        addMarkers(data.stops);
+        if (data.route && data.route.show) addRouteLine(data.stops, data.route);
+        initScrollama();
+      });
+    }
+
+    function addMarkers(stops) {
+      stops.forEach((stop, i) => {
+        const el = document.createElement('div');
+        el.className = 'marker';
+        el.innerHTML = `${stop.id}<span class="marker-label">${stop.title.length > 20 ? stop.title.substring(0,20) + '…' : stop.title}</span>`;
+
+        el.addEventListener('click', () => {
+          const stepEl = document.querySelector(`.step[data-step="${i}"]`);
+          if (stepEl) stepEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+
+        const marker = new mapboxgl.Marker({ element: el })
+          .setLngLat(stop.coordinates)
+          .addTo(map);
+
+        markers.push(marker);
+      });
+    }
+
+    async function addRouteLine(stops, config) {
+      // De-duplicate consecutive stops at the same coordinates
+      const uniqueCoords = [];
+      stops.forEach(s => {
+        const last = uniqueCoords[uniqueCoords.length - 1];
+        if (!last || last[0] !== s.coordinates[0] || last[1] !== s.coordinates[1]) {
+          uniqueCoords.push(s.coordinates);
+        }
+      });
+
+      // Add source and layer first with empty data (filled after API call)
+      map.addSource('route', {
+        type: 'geojson',
+        data: { type: 'Feature', properties: {}, geometry: { type: 'LineString', coordinates: [] } }
+      });
+
+      map.addLayer({
+        id: 'route-line',
+        type: 'line',
+        source: 'route',
+        layout: { 'line-join': 'round', 'line-cap': 'round' },
+        paint: {
+          'line-color': config.color || '#2E5137',
+          'line-width': config.width || 3,
+          'line-opacity': 0.5,
+          'line-dasharray': [2, 3]
+        }
+      });
+
+      // Mapbox Directions API: up to 25 waypoints per request
+      // Build coordinate string: lng,lat;lng,lat;...
+      const coordStr = uniqueCoords.map(c => c[0] + ',' + c[1]).join(';');
+      const url = `https://api.mapbox.com/directions/v5/mapbox/driving/${coordStr}?geometries=geojson&overview=full&access_token=${MAPBOX_TOKEN}`;
+
+      try {
+        const resp = await fetch(url);
+        const data = await resp.json();
+        if (data.routes && data.routes.length > 0) {
+          map.getSource('route').setData({
+            type: 'Feature',
+            properties: {},
+            geometry: data.routes[0].geometry
+          });
+        } else {
+          // Fallback: straight lines if directions fail
+          map.getSource('route').setData({
+            type: 'Feature',
+            properties: {},
+            geometry: { type: 'LineString', coordinates: uniqueCoords }
+          });
+        }
+      } catch (err) {
+        console.warn('Directions API failed, using straight lines:', err);
+        map.getSource('route').setData({
+          type: 'Feature',
+          properties: {},
+          geometry: { type: 'LineString', coordinates: uniqueCoords }
+        });
+      }
+    }
+
+    // =============================================
+    // SCROLLAMA — smooth easing
+    // =============================================
+    function initScrollama() {
+      scroller = scrollama();
+
+      // On mobile, trigger earlier so cards activate as soon as they appear below the map
+      const scrollOffset = isMobile() ? 0.55 : 0.4;
+
+      scroller
+        .setup({
+          step: '.step',
+          offset: scrollOffset,
+          progress: true
+        })
+        .onStepEnter(handleStepEnter);
+
+      window.addEventListener('resize', scroller.resize);
+      window.addEventListener('scroll', updateProgressBar, { passive: true });
+    }
+
+    let flyToTimeout = null;
+    const isMobile = () => window.innerWidth <= 900;
+
+    function handleStepEnter(response) {
+      const { index } = response;
+      currentStopIndex = index;
+      const isCTA = index >= tripData.stops.length;
+
+      // Active card
+      document.querySelectorAll('.step').forEach((el, i) => {
+        el.classList.toggle('is-active', i === index);
+      });
+
+      // Active marker — clear all if CTA
+      document.querySelectorAll('.marker').forEach((el, i) => {
+        el.classList.toggle('active', !isCTA && i === index);
+      });
+
+      // Toggle CTA full-screen mode on mobile (hides map)
+      const scrollyEl = document.getElementById('scrolly');
+      if (isMobile()) {
+        scrollyEl.classList.toggle('cta-active', isCTA);
+      } else {
+        scrollyEl.classList.remove('cta-active');
+      }
+
+
+      // Clear any pending second-step flyTo
+      if (flyToTimeout) { clearTimeout(flyToTimeout); flyToTimeout = null; }
+
+      const easeFn = function(t) {
+        return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2;
+      };
+
+      // Mobile uses faster, simpler transitions
+      const mobile = isMobile();
+      const durationMult = mobile ? 0.55 : 1;
+      const pauseTime = mobile ? 800 : 2000;
+
+      if (isCTA) {
+        // Zoom out to show the full trip
+        map.flyTo({
+          center: tripData.initialView.center,
+          zoom: tripData.initialView.zoom,
+          bearing: 0,
+          pitch: 0,
+          duration: 2800 * durationMult,
+          essential: true,
+          curve: 1.6,
+          easing: easeFn
+        });
+      } else {
+        const stop = tripData.stops[index];
+        const prevStop = index > 0 ? tripData.stops[index - 1] : null;
+
+        // If there's a previous stop, do a two-step fly:
+        // 1) Zoom out to show both stops (the journey)
+        // 2) Then ease into the destination
+        if (prevStop && (prevStop.coordinates[0] !== stop.coordinates[0] || prevStop.coordinates[1] !== stop.coordinates[1])) {
+          const midLng = (prevStop.coordinates[0] + stop.coordinates[0]) / 2;
+          const midLat = (prevStop.coordinates[1] + stop.coordinates[1]) / 2;
+
+          // Calculate distance-based zoom: farther apart = zoom out more
+          const dLng = Math.abs(stop.coordinates[0] - prevStop.coordinates[0]);
+          const dLat = Math.abs(stop.coordinates[1] - prevStop.coordinates[1]);
+          const maxDelta = Math.max(dLng, dLat);
+          let midZoom;
+          if (maxDelta < 0.05) midZoom = 11;
+          else if (maxDelta < 0.2) midZoom = 10;
+          else if (maxDelta < 1) midZoom = 8;
+          else if (maxDelta < 3) midZoom = 7;
+          else midZoom = 6;
+
+          // On mobile, don't zoom out as far (keeps context tighter)
+          if (mobile) midZoom = Math.min(midZoom + 1, 12);
+
+          // Step 1: zoom out to show both stops
+          map.flyTo({
+            center: [midLng, midLat],
+            zoom: midZoom,
+            bearing: 0,
+            pitch: mobile ? 0 : 15,
+            duration: 1800 * durationMult,
+            essential: true,
+            curve: 1.2,
+            easing: easeFn
+          });
+
+          // Step 2: after a pause, ease into the destination
+          flyToTimeout = setTimeout(() => {
+            map.flyTo({
+              center: stop.coordinates,
+              zoom: stop.zoom || 12,
+              bearing: stop.bearing || 0,
+              pitch: stop.pitch || 0,
+              duration: 2200 * durationMult,
+              essential: true,
+              curve: 1.4,
+              easing: easeFn
+            });
+          }, pauseTime);
+        } else {
+          // First stop or same location — just fly directly
+          map.flyTo({
+            center: stop.coordinates,
+            zoom: stop.zoom || 12,
+            bearing: stop.bearing || 0,
+            pitch: stop.pitch || 0,
+            duration: 2800 * durationMult,
+            essential: true,
+            curve: 1.6,
+            easing: easeFn
+          });
+        }
+      }
+
+      updateStepCounter(index);
+    }
+
+    // =============================================
+    // UI UPDATES
+    // =============================================
+    function updateStepCounter(index) {
+      const c = document.getElementById('step-counter');
+      if (index >= tripData.stops.length) {
+        c.textContent = '✓ Trip complete';
+      } else {
+        c.textContent = `${index + 1} / ${tripData.stops.length}`;
+      }
+      c.classList.add('visible');
+    }
+
+    function updateProgressBar() {
+      const s = document.getElementById('scrolly');
+      const rect = s.getBoundingClientRect();
+      const top = rect.top + window.scrollY;
+      const h = rect.height;
+      const pos = window.scrollY - top;
+      const prog = Math.max(0, Math.min(1, pos / (h - window.innerHeight)));
+
+      document.getElementById('progress-bar').style.width = `${prog * 100}%`;
+
+      const c = document.getElementById('step-counter');
+      if (pos < 0 || prog >= 1) c.classList.remove('visible');
+      else c.classList.add('visible');
+    }
+
+    // =============================================
+    // HERO PARALLAX (with requestAnimationFrame)
+    // =============================================
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const hero = document.getElementById('hero');
+          if (hero) {
+            const y = window.scrollY;
+            if (y < hero.offsetHeight) {
+              document.getElementById('hero-bg').style.transform = `scale(1.05) translateY(${y * 0.25}px)`;
+            }
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+
+    // =============================================
+    // START
+    // =============================================
+    document.addEventListener('DOMContentLoaded', () => {
+      init();
+    });
   </script>
 </body>
 </html>
