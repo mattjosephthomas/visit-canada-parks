@@ -198,6 +198,62 @@
     }
 
     /* ========================================
+       TRIP RECAP — overview section between hero and map
+       ======================================== */
+    .trip-recap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3.5rem 2rem 3rem;
+      text-align: center;
+    }
+
+    .trip-recap__heading {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(1.4rem, 3vw, 1.75rem);
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 1.75rem;
+      letter-spacing: -0.01em;
+    }
+
+    .trip-recap__list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      text-align: left;
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    .trip-recap__item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    .trip-recap__icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+      color: var(--primary);
+      opacity: 0.7;
+    }
+
+    @media (max-width: 480px) {
+      .trip-recap {
+        padding: 2.5rem 1.5rem 2rem;
+      }
+      .trip-recap__item {
+        font-size: 0.85rem;
+      }
+    }
+
+    /* ========================================
        PROGRESS BAR
        ======================================== */
     .progress-bar {
@@ -968,6 +1024,9 @@
       </div>
     </section>
 
+    <!-- Trip Recap -->
+    <section class="trip-recap" id="trip-recap"></section>
+
     <!-- Scrollytelling -->
     <section class="scrolly" id="scrolly">
       <div class="scrolly__map-wrap">
@@ -1003,6 +1062,7 @@
 
         applyTheme(tripData.theme);
         buildHero(tripData);
+        buildTripRecap(tripData);
         buildStoryCards(tripData);
 
         document.getElementById('loading').style.display = 'none';
@@ -1050,6 +1110,27 @@
       tagsEl.innerHTML = tagsHTML;
     }
 
+
+    // =============================================
+    // TRIP RECAP
+    // =============================================
+    function buildTripRecap(data) {
+      const container = document.getElementById('trip-recap');
+      if (!data.tripRecap) {
+        container.style.display = 'none';
+        return;
+      }
+      const recap = data.tripRecap;
+      const checkSVG = '<svg class="trip-recap__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>';
+      const bulletsHTML = recap.bullets.map(b =>
+        `<li class="trip-recap__item">${checkSVG}<span>${b}</span></li>`
+      ).join('');
+
+      container.innerHTML = `
+        <h2 class="trip-recap__heading">${recap.heading}</h2>
+        <ul class="trip-recap__list">${bulletsHTML}</ul>
+      `;
+    }
 
     // =============================================
     // BUILD STORY CARDS

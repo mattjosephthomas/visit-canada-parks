@@ -129,6 +129,16 @@
     "background": "#F7F5F0",
     "fontFamily": "'Figtree', sans-serif"
   },
+  "tripRecap": {
+    "heading": "Your day at a glance",
+    "bullets": [
+      "A brand-new museum exhibit that opens on the day you arrive",
+      "European-style gardens and a hedge maze you didn't know existed",
+      "An 18-metre waterfall at full spring volume on the Niagara Escarpment",
+      "Dinner at a craft brewery inside a restored 1947 rail station",
+      "Two and a half hours each way in a coach with reclining seats"
+    ]
+  },
   "bookingUrl": "https://www.parkbus.com/reserve?parkline=9301&triptype=2&ride1id=81819&ride2id=81820",
   "bookingButtons": [
     {

@@ -172,6 +172,16 @@
     "background": "#F7F5F0",
     "fontFamily": "'Figtree', sans-serif"
   },
+  "tripRecap": {
+    "heading": "Your overnight at a glance",
+    "bullets": [
+      "Canada's first designated Dark Sky Preserve — zero light pollution",
+      "Peak Perseids: 60–100 shooting stars per hour under a new moon",
+      "A guided night event with astronomer Caroline El Khoury",
+      "Stay in Parks Canada oTENTiks at Camp Henry",
+      "Kayak, canoe, or hike to the southernmost point of mainland Canada"
+    ]
+  },
   "bookingUrl": "https://parkbus.com/perseids",
   "bookingButtons": [
     {
