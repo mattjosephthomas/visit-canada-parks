@@ -1,0 +1,140 @@
+{
+  "title": "Inglis Falls",
+  "subtitle": "The waterfall that carved its own canyon",
+  "date": "May 16, 2026",
+  "season": "Limited Spring Departure",
+  "region": "Ontario",
+  "type": "Guided",
+  "heroImage": "https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/682ebe44758ffa3c7ff84ec9_682295512000a557987f2c69_2022-08-03%2520copy.webp",
+  "mapStyle": "mapbox://styles/mapbox/outdoors-v12",
+  "initialView": {
+    "center": [-80.6, 44.2],
+    "zoom": 7.5,
+    "bearing": 0,
+    "pitch": 0
+  },
+  "stops": [
+    {
+      "id": 1,
+      "title": "Departure from Toronto",
+      "location": "34 Asquith Avenue, Toronto, ON",
+      "description": "Meet your fellow hikers at 34 Asquith Avenue, just north of the Yonge & Bloor subway station. Please arrive by 8:45 AM to allow time for check-in and loading. The drive north takes roughly two and a half hours through rolling Ontario farmland toward the Niagara Escarpment.",
+      "image": "https://cdn.prod.website-files.com/682513f5b15a80758dd87582/69a8474d0e4eb2c80d457f48_pick-up-parkbus.png",
+      "coordinates": [-79.3868, 43.6711],
+      "zoom": 14,
+      "bearing": 0,
+      "pitch": 40,
+      "tags": ["Start"],
+      "time": "9:00 AM",
+      "timeLabel": "Departs at",
+      "timeNote": "Please arrive 15 minutes early",
+      "learnMoreUrl": "https://www.parkbus.ca",
+      "learnMoreText": "About Parkbus",
+      "googleMapsUrl": "https://www.google.com/maps/place/34+Asquith+Ave,+Toronto,+ON"
+    },
+    {
+      "id": 2,
+      "title": "Grey Roots Museum & Archives",
+      "location": "Grey Roots Museum, Owen Sound, ON",
+      "description": "Your first stop is Grey Roots Museum & Archives, where the brand-new Wild Weather exhibit opens on May 16—the very day you arrive. You'll have about an hour to explore the exhibit and the museum's wider collection of local history. Your admission is included with the trip.",
+      "image": "https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/68c9b1cb75022cbf5c576bd1_1-grey-roots-2_1.jpg",
+      "coordinates": [-80.8890, 44.5480],
+      "zoom": 13,
+      "bearing": 0,
+      "pitch": 40,
+      "tags": [],
+      "time": "11:45 AM – 12:00 PM",
+      "timeLabel": "Arrive",
+      "distanceFromPrev": "~170 km (2.5 hrs)",
+      "learnMoreUrl": "https://www.greyroots.com",
+      "learnMoreText": "Grey Roots Museum",
+      "googleMapsUrl": "https://www.google.com/maps/place/Grey+Roots+Museum+%26+Archives"
+    },
+    {
+      "id": 3,
+      "title": "Morland Place Gardens",
+      "location": "Adjacent to Grey Roots Museum, Owen Sound, ON",
+      "description": "Right next door sits Morland Place, a 1920s estate with formal French and Italian-style gardens, a hedge maze, and hand-poured concrete statues. It is strange and beautiful and completely free. European gardens you didn't know existed in rural Ontario.",
+      "image": "https://www.ruralgardens.ca/wp-content/uploads/2015/01/Morland04.jpg",
+      "coordinates": [-80.8870, 44.5475],
+      "zoom": 15,
+      "bearing": 10,
+      "pitch": 45,
+      "tags": [],
+      "time": "12:00 – 2:00 PM",
+      "timeLabel": "Explore & lunch",
+      "googleMapsUrl": "https://www.google.com/maps/place/Morland+Place"
+    },
+    {
+      "id": 4,
+      "title": "Inglis Falls Conservation Area",
+      "location": "Inglis Falls, Owen Sound, ON",
+      "description": "The main event. The Sydenham River drops 18 metres off the Niagara Escarpment here, plunging into a gorge it has spent millennia carving. With spring meltwater pushing it to full volume in mid-May, it is one of the most powerful waterfalls in southern Ontario. The 200-hectare conservation area has 7.4 km of trails through old-growth cedar forest, dense fern colonies, and geological potholes carved by ancient glaciers. Trails connect directly to the Bruce Trail.",
+      "image": "https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/682ebe44758ffa3c7ff84ecf_68227223bb2da701e175bc48_Inglis-Falls.webp",
+      "coordinates": [-80.8764, 44.5340],
+      "zoom": 14,
+      "bearing": -5,
+      "pitch": 50,
+      "tags": ["Featured"],
+      "time": "2:00 – 4:30 PM",
+      "timeLabel": "Hike",
+      "distanceFromPrev": "~5 km (10 min)",
+      "learnMoreUrl": "https://www.greybruce.com/listing/inglis-falls-conservation-area",
+      "learnMoreText": "Inglis Falls",
+      "googleMapsUrl": "https://www.google.com/maps/place/Inglis+Falls"
+    },
+    {
+      "id": 5,
+      "title": "Owen Sound & Mudtown Station",
+      "location": "Owen Sound, ON",
+      "description": "After the hike, the bus drops you in Owen Sound with time to explore. Mudtown Station is housed in a beautifully restored 1947 CPR rail station, with a dozen local craft beers on tap. Owen Sound itself is a small city with outsized cultural weight—Tom Thomson grew up just outside town, and the harbour has reinvented itself with craft breweries, independent restaurants, and a thriving arts scene.",
+      "image": "https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/69cc0b9904a7fcbb91e015f6_mudtown20station20patio.jpg",
+      "coordinates": [-80.9434, 44.5763],
+      "zoom": 13,
+      "bearing": 0,
+      "pitch": 35,
+      "tags": [],
+      "time": "4:30 – 6:00 PM",
+      "timeLabel": "Explore & dinner",
+      "distanceFromPrev": "~8 km (15 min)",
+      "learnMoreUrl": "https://www.mudtownstation.com",
+      "learnMoreText": "Mudtown Station",
+      "googleMapsUrl": "https://www.google.com/maps/place/Owen+Sound,+ON"
+    },
+    {
+      "id": 6,
+      "title": "Return to Toronto",
+      "location": "34 Asquith Avenue, Toronto, ON",
+      "description": "The bus departs Owen Sound at 6:00 PM. You will be tired in the best possible way. The coach has reclining seats, air conditioning, a washroom, and large windows. Nobody is judging you for the post-hike bus nap. Expect to arrive back in Toronto around 8:30 PM, depending on traffic.",
+      "image": "https://cdn.prod.website-files.com/682513f5b15a80758dd87582/69a8474d0e4eb2c80d457f48_pick-up-parkbus.png",
+      "coordinates": [-79.3868, 43.6711],
+      "zoom": 12,
+      "bearing": 0,
+      "pitch": 30,
+      "tags": ["End"],
+      "time": "~8:30 PM",
+      "timeLabel": "Arrive back",
+      "distanceFromPrev": "~185 km (2.5 hrs)",
+      "googleMapsUrl": "https://www.google.com/maps/place/34+Asquith+Ave,+Toronto,+ON"
+    }
+  ],
+  "route": {
+    "show": true,
+    "color": "#2E5137",
+    "width": 3
+  },
+  "theme": {
+    "primaryColor": "#2E5137",
+    "accentColor": "#2E5137",
+    "background": "#F7F5F0",
+    "fontFamily": "'Figtree', sans-serif"
+  },
+  "bookingUrl": "https://www.parkbus.com/reserve?parkline=9301&triptype=2&ride1id=81819&ride2id=81820",
+  "bookingButtons": [
+    {
+      "label": "Book Your Seat",
+      "price": "Book Now",
+      "url": "https://www.parkbus.com/reserve?parkline=9301&triptype=2&ride1id=81819&ride2id=81820"
+    }
+  ]
+}
