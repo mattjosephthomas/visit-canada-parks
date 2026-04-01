@@ -1,0 +1,199 @@
+{
+  "title": "Perseids at Point Pelee",
+  "subtitle": "Watch the Year's Best Meteor Shower Under a Moonless Sky",
+  "date": "August 11–12, 2026",
+  "season": "In partnership with Parks Canada",
+  "region": "Ontario",
+  "type": "Overnight",
+  "heroImage": "https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/699f531db89868bc61c9250c_peele4.jpg",
+  "mapStyle": "mapbox://styles/mapbox/outdoors-v12",
+  "initialView": {
+    "center": [-80.8, 42.8],
+    "zoom": 7,
+    "bearing": 0,
+    "pitch": 0
+  },
+  "days": [
+    { "label": "Day 1 — August 11", "totalDistance": "370 km" },
+    { "label": "Day 2 — August 12", "totalDistance": "370 km" }
+  ],
+  "stops": [
+    {
+      "id": 1,
+      "day": 1,
+      "title": "Departure from Toronto",
+      "location": "34 Asquith Avenue, Toronto, ON",
+      "description": "Meet your fellow stargazers at 34 Asquith Avenue, just north of the Yonge & Bloor subway station. Please arrive by 10:15 AM to allow time for check-in and loading. From the moment we leave Toronto, your guide will begin setting the stage for the night ahead—sharing facts about the Perseids meteor shower, the unique ecology of Point Pelee, and what to expect during our overnight adventure.",
+      "image": "https://cdn.prod.website-files.com/682513f5b15a80758dd87582/69a8474d0e4eb2c80d457f48_pick-up-parkbus.png",
+      "coordinates": [-79.3868, 43.6711],
+      "zoom": 14,
+      "bearing": 0,
+      "pitch": 40,
+      "tags": ["Start"],
+      "time": "10:30 AM",
+      "timeLabel": "Departs at",
+      "timeNote": "Please arrive 15 minutes early",
+      "learnMoreUrl": "https://www.parkbus.ca",
+      "learnMoreText": "About Parkbus",
+      "googleMapsUrl": "https://www.google.com/maps/place/34+Asquith+Ave,+Toronto,+ON"
+    },
+    {
+      "id": 2,
+      "day": 1,
+      "title": "Point Pelee National Park",
+      "location": "Visitor Centre, Point Pelee National Park, Leamington, ON",
+      "description": "Welcome to Canada's first designated Dark Sky Preserve and the southernmost point of mainland Canada. Upon arrival, check into Camp Henry, where your oTENTik—an innovative hybrid tent-cabin structure—awaits. The Visitor Centre provides orientation to the park's trails, facilities, and wildlife. This is your gateway to a 3,700-hectare sanctuary of Carolinian forest, freshwater marshes, and pristine beaches.",
+      "image": "https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/699c69d7f6c410c822fe9739_Point-Pelee-Marsh-Boardwalk-Canoeing.jpg",
+      "coordinates": [-82.5154, 41.9628],
+      "zoom": 12,
+      "bearing": 0,
+      "pitch": 45,
+      "tags": [],
+      "time": "~3:00 PM",
+      "distanceFromPrev": "370 km (~4.5 hrs)",
+      "learnMoreUrl": "https://parks.canada.ca/pn-np/on/pelee",
+      "learnMoreText": "Parks Canada",
+      "googleMapsUrl": "https://www.google.com/maps/place/Point+Pelee+National+Park"
+    },
+    {
+      "id": 3,
+      "day": 1,
+      "title": "oTENTik at Camp Henry",
+      "location": "Camp Henry, Point Pelee National Park, ON",
+      "description": "Check into your oTENTik—comfortable, park-based shelters that blend the feel of camping with the ease of a cabin stay. Once settled, the rest of the afternoon is yours. Walk the Woodland Nature Trail through old-growth Carolinian forest, rent a canoe at the Marsh Boardwalk, or take the shuttle to the Tip—the actual southernmost point of mainland Canada. Point Pelee sits at the same latitude as Rome and Barcelona.",
+      "image": "https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/699f8459e3136ac6f1844b23_point1-scaled.jpg",
+      "coordinates": [-82.5119, 41.9625],
+      "zoom": 15,
+      "bearing": 10,
+      "pitch": 50,
+      "tags": ["Overnight"],
+      "learnMoreUrl": "https://parks.canada.ca/pn-np/on/pelee/activ/camping",
+      "learnMoreText": "Camp Henry",
+      "detailDescription": "Check into your oTENTik—comfortable, park-based shelters that blend the feel of camping with the ease of a cabin stay. Each oTENTik sleeps up to six and comes equipped with beds, a table, chairs, and a BBQ outside. Once settled, the rest of the afternoon is yours.\n\nWalk the Woodland Nature Trail through old-growth Carolinian forest—one of the rarest ecosystems in Canada. Rent a canoe at the Marsh Boardwalk and paddle through a freshwater marsh teeming with turtles, herons, and dragonflies. Or take the shuttle to the Tip—the actual southernmost point of mainland Canada, extending into Lake Erie like a finger pointing south.\n\nPoint Pelee sits at the same latitude as Rome and Barcelona, giving it a microclimate that supports species found nowhere else in Canada.",
+      "gallery": [
+        "https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/699f8459e3136ac6f1844b23_point1-scaled.jpg",
+        "https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/699c69d7f6c410c822fe9739_Point-Pelee-Marsh-Boardwalk-Canoeing.jpg",
+        "https://cdn.prod.website-files.com/682513f5b15a80758dd87582/69a842142cc45d8e2da0f17c_point-pelee-canoeing%20.jpg"
+      ]
+    },
+    {
+      "id": 4,
+      "day": 1,
+      "title": "Guided Night Event with Astronomer Caroline El Khoury",
+      "location": "Point Pelee National Park, ON",
+      "description": "As dusk settles, astronomer Caroline El Khoury leads the group through a guided night event before the sky fully reveals itself. With her expertise in astrophysics, Caroline will introduce the Perseid meteor shower, explain the mechanics behind it, and point out constellations as twilight deepens. She'll also share tips for astrophotography, whether you're using a smartphone or a full camera setup.",
+      "image": "https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/699f5f9b480170c39a6ca7be_Screenshot%202026-02-25%20at%203.38.44%E2%80%AFPM.png",
+      "coordinates": [-82.5130, 41.9400],
+      "zoom": 13,
+      "bearing": 0,
+      "pitch": 60,
+      "tags": ["Featured"],
+      "time": "After dusk",
+      "nightMode": true,
+      "detailDescription": "As dusk settles over Point Pelee, astronomer Caroline El Khoury leads the group through an unforgettable guided night event. With her expertise in astrophysics and deep sky observation, Caroline will introduce the Perseid meteor shower, explain the orbital mechanics of Comet Swift-Tuttle that creates this annual spectacle, and help you identify key constellations as twilight deepens into true darkness.\n\nShe'll share practical tips for astrophotography—whether you're shooting with a smartphone or a full DSLR setup—and guide the group through the transition from civil twilight to astronomical darkness. This is your warm-up for the main event: the Perseids peak.",
+      "gallery": [
+        "https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/699f5f9b480170c39a6ca7be_Screenshot%202026-02-25%20at%203.38.44%E2%80%AFPM.png",
+        "https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/699f567159da15437143dfa2_stargazing.jpg"
+      ]
+    },
+    {
+      "id": 5,
+      "day": 1,
+      "title": "Perseids Meteor Shower",
+      "location": "Dark Sky Preserve, Point Pelee National Park, ON",
+      "description": "The peak of the Perseid meteor shower—the most popular and brightest of the year. Peak rates reach 60 to 100 shooting stars per hour. This year's new moon means zero moonlight interference and maximum visibility.",
+      "image": "https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/699f567159da15437143dfa2_stargazing.jpg",
+      "coordinates": [-82.5077, 41.9100],
+      "zoom": 13,
+      "bearing": -10,
+      "pitch": 40,
+      "tags": ["Featured"],
+      "nightMode": true,
+      "detailDescription": "The peak of the Perseid meteor shower—the most popular and brightest of the year. Peak rates reach 60 to 100 shooting stars per hour, with fast-moving, luminous streaks visible to the naked eye. This year's new moon on August 12 means zero moonlight interference and maximum visibility.\n\nFar from Toronto's light pollution, Point Pelee's Dark Sky Preserve ensures the sky is as dark as it gets in southern Ontario. Lie on a beach at the southernmost point of mainland Canada, look up, and watch the night sky come alive. The Perseids are caused by Earth passing through the debris trail of Comet Swift-Tuttle, a comet that last visited the inner solar system in 1992 and won't return until 2126.\n\nBring a blanket, lie back, and give your eyes 20 minutes to adjust to the darkness. You won't need a telescope—the best way to see meteors is with the naked eye, scanning as wide an area of sky as possible.",
+      "gallery": [
+        "https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/699f567159da15437143dfa2_stargazing.jpg",
+        "https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/699f531db89868bc61c9250c_peele4.jpg"
+      ]
+    },
+    {
+      "id": 6,
+      "day": 2,
+      "title": "Morning Exploration",
+      "location": "Point Pelee National Park, ON",
+      "description": "Wake up surrounded by nature. Take the shuttle to the Tip Tower for a 360-degree view of open water with the faint suggestion of Ohio on the horizon. Walk the Woodland Nature Trail through Carolinian forest so thick that summer light barely reaches the ground. Rent a canoe at the Marsh Boardwalk and paddle a freshwater marsh older than the country—or book a spot on Parks Canada's Freighter Canoe Tour.",
+      "image": "https://cdn.prod.website-files.com/682513f5b15a80758dd87582/69a842142cc45d8e2da0f17c_point-pelee-canoeing%20.jpg",
+      "coordinates": [-82.5120, 41.9550],
+      "zoom": 13,
+      "bearing": 15,
+      "pitch": 35,
+      "tags": [],
+      "learnMoreUrl": "https://parks.canada.ca/pn-np/on/pelee/activ",
+      "learnMoreText": "Park activities"
+    },
+    {
+      "id": 7,
+      "day": 2,
+      "title": "Bus Departs Point Pelee",
+      "location": "Visitor Centre, Point Pelee National Park, ON",
+      "description": "The bus leaves at 11:00 AM. Please pack all belongings, check your oTENTik thoroughly, and meet at the main parking area near the Visitor Centre with all luggage loaded. Our team will do a final headcount before we depart for the return journey to Toronto.",
+      "image": "https://cdn.prod.website-files.com/682513f5b15a80758dd87582/69a847664c8fffe87bda4ba5_pick-up-parbus2.png",
+      "coordinates": [-82.5154, 41.9628],
+      "zoom": 12,
+      "bearing": 0,
+      "pitch": 30,
+      "tags": ["En Route"],
+      "time": "11:00 AM — Bus departs"
+    },
+    {
+      "id": 8,
+      "day": 2,
+      "title": "Return to Toronto",
+      "location": "34 Asquith Avenue, Toronto, ON",
+      "description": "As we drive north, you'll have time to reflect on the night under the stars, share photos with fellow travellers, and catch up on some rest. You'll arrive back at 34 Asquith Avenue by mid-afternoon, ready to return home with memories of one of the year's most spectacular natural phenomena.",
+      "image": "https://cdn.prod.website-files.com/682513f5b15a80758dd87582/69a8474d0e4eb2c80d457f48_pick-up-parkbus.png",
+      "coordinates": [-79.3868, 43.6711],
+      "zoom": 12,
+      "bearing": 0,
+      "pitch": 30,
+      "tags": ["End"],
+      "time": "~3:30 PM",
+      "distanceFromPrev": "370 km (~4.5 hrs)",
+      "googleMapsUrl": "https://www.google.com/maps/place/34+Asquith+Ave,+Toronto,+ON"
+    }
+  ],
+  "route": {
+    "show": true,
+    "color": "#2E5137",
+    "width": 3
+  },
+  "theme": {
+    "primaryColor": "#2E5137",
+    "accentColor": "#2E5137",
+    "background": "#F7F5F0",
+    "fontFamily": "'Figtree', sans-serif"
+  },
+  "tripRecap": {
+    "heading": "Your overnight at a glance",
+    "bullets": [
+      "Canada's first designated Dark Sky Preserve — zero light pollution",
+      "Peak Perseids: 60–100 shooting stars per hour under a new moon",
+      "A guided night event with astronomer Caroline El Khoury",
+      "Stay in Parks Canada oTENTiks at Camp Henry",
+      "Kayak, canoe, or hike to the southernmost point of mainland Canada"
+    ]
+  },
+  "bookingUrl": "https://parkbus.com/perseids",
+  "bookingButtons": [
+    {
+      "label": "Book the Individual Ticket",
+      "price": "$235",
+      "url": "https://parkbus.com/reserve?parkline=9356"
+    },
+    {
+      "label": "Book the Tent Package",
+      "price": "$905",
+      "note": "Each \"Person\" is a TENT — you only need one passenger selected to book a tent",
+      "url": "https://parkbus.com/reserve?parkline=9357"
+    }
+  ]
+}
