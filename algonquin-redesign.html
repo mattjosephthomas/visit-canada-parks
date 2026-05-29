@@ -325,44 +325,23 @@
   }
   .section-dark .section-header p { color: rgba(255,255,255,0.7); }
 
-  /* TRUST BADGES (no emojis) */
-  .trust-badges {
+  /* TRUST STRIP — single horizontal line */
+  .trust-strip {
     display: flex;
     justify-content: center;
-    gap: 48px;
-    padding: 48px 24px;
-    max-width: 900px;
+    align-items: center;
+    gap: 8px;
+    padding: 20px 24px;
+    max-width: 1100px;
     margin: 0 auto;
     flex-wrap: wrap;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-mid);
   }
-  .trust-badge {
-    text-align: center;
-    max-width: 160px;
-  }
-  .trust-badge-icon {
-    width: 48px;
-    height: 48px;
-    margin: 0 auto 10px;
-    background: var(--cream);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .trust-badge-icon svg {
-    width: 22px;
-    height: 22px;
-    stroke: var(--green-dark);
-    fill: none;
-    stroke-width: 1.8;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-  .trust-badge-label {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--green-dark);
-    line-height: 1.4;
+  .trust-strip .separator {
+    color: var(--gold);
+    font-weight: 400;
   }
 
   /* REVIEW QUOTE — inline */
@@ -659,29 +638,38 @@
     gap: 32px;
   }
   .pickup-card {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.12);
+    background: var(--white);
+    border: 1px solid #E8E4DC;
     border-radius: 12px;
-    padding: 32px;
+    padding: 28px;
+    overflow: hidden;
   }
   .pickup-card h3 {
     font-family: 'Playfair Display', serif;
     font-size: 22px; font-weight: 700;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
+    color: var(--green-dark);
   }
   .pickup-card p {
     font-size: 14px; line-height: 1.6;
-    opacity: 0.75; margin-bottom: 16px;
+    color: var(--text-mid); margin-bottom: 16px;
   }
-  .pickup-times { display: flex; gap: 32px; }
+  .pickup-times { display: flex; gap: 32px; margin-bottom: 16px; }
   .pickup-time-label {
     text-transform: uppercase; letter-spacing: 1px;
     font-weight: 600; font-size: 11px;
-    opacity: 0.5; margin-bottom: 4px;
+    color: var(--text-light); margin-bottom: 4px;
   }
   .pickup-time-value {
     font-size: 20px; font-weight: 700;
-    color: var(--gold-light);
+    color: var(--green-dark);
+  }
+  .pickup-map {
+    width: 100%;
+    height: 200px;
+    border: 0;
+    border-radius: 8px;
+    margin-top: 4px;
   }
 
   /* DATES SECTION */
@@ -853,7 +841,7 @@
     .section { padding: 64px 20px; }
     .section-full { padding: 64px 20px; }
     .section-header h2 { font-size: 30px; }
-    .trust-badges { gap: 24px; }
+    .trust-strip { font-size: 12px; gap: 6px; }
     .sticky-bar { gap: 12px; padding: 10px 16px; }
     .sticky-bar-text { font-size: 13px; }
     .btn-fat { padding: 14px 28px; font-size: 15px; }
@@ -884,7 +872,7 @@
 
 <!-- BADGE BAR -->
 <div class="badge-bar">
-  Day & Weekend Trips &nbsp;&middot;&nbsp; Park Admission Included &nbsp;&middot;&nbsp; 15% Off Gear Rentals
+  Day & Weekend Trips &nbsp;&middot;&nbsp; Park Admission Included &nbsp;&middot;&nbsp; 15% Off Canoe & Bike Rentals
 </div>
 
 <!-- HERO -->
@@ -921,45 +909,66 @@
     <p>Same bus, but you stay. We drop you Friday, pick you up Sunday. Glamping, hostels, and campgrounds. From $75 per person.</p>
   </div>
   <div class="value-card">
-    <div class="value-card-number">15% Off Gear</div>
-    <h3>Gear is waiting for you</h3>
-    <p>We've partnered with Algonquin Outfitters. Canoes, bikes, SUPs — book through us and your gear is ready at your stop.</p>
+    <div class="value-card-number">15% Off Rentals</div>
+    <h3>Your canoe is waiting</h3>
+    <p>We've partnered with Algonquin Outfitters. Canoes, bikes, SUPs — book through us and your rental is ready at your stop.</p>
   </div>
 </div>
 
-<!-- TRUST BADGES — SVG icons, no emojis -->
-<div class="trust-badges">
-  <div class="trust-badge">
-    <div class="trust-badge-icon">
-      <svg viewBox="0 0 24 24"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"/><polyline points="12 3 12 15"/><path d="M8 8l4-5 4 5"/><rect x="2" y="12" width="20" height="2" rx="1"/></svg>
-    </div>
-    <div class="trust-badge-label">Park admission included</div>
-  </div>
-  <div class="trust-badge">
-    <div class="trust-badge-icon">
-      <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/><circle cx="7" cy="15" r="1.5"/><circle cx="17" cy="15" r="1.5"/></svg>
-    </div>
-    <div class="trust-badge-label">Bathroom on board</div>
-  </div>
-  <div class="trust-badge">
-    <div class="trust-badge-icon">
-      <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M8 7h8"/><path d="M8 11h6"/></svg>
-    </div>
-    <div class="trust-badge-label">15% off gear rentals</div>
-  </div>
-  <div class="trust-badge">
-    <div class="trust-badge-icon">
-      <svg viewBox="0 0 24 24"><path d="M10 5.172C10 3.782 8.423 2.679 6.5 3c-2.823.47-4.113 6.006-4 7 .08.703 1.725 1.722 3.656 1 1.261-.472 1.96-1.45 2.344-2.5"/><path d="M14.267 5.172c0-1.39 1.577-2.493 3.5-2.172 2.823.47 4.113 6.006 4 7-.08.703-1.725 1.722-3.656 1-1.261-.472-1.855-1.45-2.239-2.5"/><path d="M8 14v.5"/><path d="M16 14v.5"/><path d="M11.25 16.25h1.5L12 17l-.75-.75z"/><path d="M4.42 11.247A13.152 13.152 0 0 0 4 14.556C4 18.728 7.582 21 12 21s8-2.272 8-6.444a11.702 11.702 0 0 0-.493-3.309"/></svg>
-    </div>
-    <div class="trust-badge-label">Pet-friendly ($20)</div>
-  </div>
-  <div class="trust-badge">
-    <div class="trust-badge-icon">
-      <svg viewBox="0 0 24 24"><circle cx="18.5" cy="17.5" r="3.5"/><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="15" cy="5" r="1"/><path d="M12 17.5V14l-3-3 4-3 2 3h2"/></svg>
-    </div>
-    <div class="trust-badge-label">Bikes welcome (3 per bus)</div>
-  </div>
+<!-- TRUST STRIP — single line -->
+<div class="trust-strip">
+  <span>Park admission included</span>
+  <span class="separator">&middot;</span>
+  <span>Bathroom on board</span>
+  <span class="separator">&middot;</span>
+  <span>15% off canoe & bike rentals</span>
+  <span class="separator">&middot;</span>
+  <span>Pet-friendly ($20)</span>
+  <span class="separator">&middot;</span>
+  <span>Bikes welcome (3 per bus)</span>
 </div>
+
+<!-- PICKUP LOCATIONS — early on page so people know where to go -->
+<section class="section-full section-cream" id="pickup">
+  <div class="section-header">
+    <h2>Where to catch the bus</h2>
+    <p>Two pickup points in the GTA. Get there 15 minutes early.</p>
+  </div>
+  <div style="max-width:1100px; margin:0 auto; padding:0 24px;">
+    <div class="pickup-grid">
+      <div class="pickup-card">
+        <h3>Downtown Toronto</h3>
+        <p>34 Asquith Ave — just north of Yonge & Bloor subway station.</p>
+        <div class="pickup-times">
+          <div>
+            <div class="pickup-time-label">Departs</div>
+            <div class="pickup-time-value">7:30 AM</div>
+          </div>
+          <div>
+            <div class="pickup-time-label">Returns</div>
+            <div class="pickup-time-value">8:30 PM</div>
+          </div>
+        </div>
+        <iframe class="pickup-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.0!2d-79.3882!3d43.6711!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34ae3002baf7%3A0x5f0bd7d5e6e8e8a!2s34%20Asquith%20Ave%2C%20Toronto%2C%20ON!5e0!3m2!1sen!2sca!4v1" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+      <div class="pickup-card">
+        <h3>Major Mackenzie Park & Ride</h3>
+        <p>Hwy 400 at Major Mackenzie Dr., Maple. Free parking available.</p>
+        <div class="pickup-times">
+          <div>
+            <div class="pickup-time-label">Departs</div>
+            <div class="pickup-time-value">8:15 AM</div>
+          </div>
+          <div>
+            <div class="pickup-time-label">Returns</div>
+            <div class="pickup-time-value">7:30 PM</div>
+          </div>
+        </div>
+        <iframe class="pickup-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2880.0!2d-79.5325!3d43.7725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b2e1234567890%3A0x1234567890abcdef!2sMajor%20Mackenzie%20Park%20%26%20Ride%2C%20Maple%2C%20ON!5e0!3m2!1sen!2sca!4v1" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- TWO OPTIONS -->
 <section class="section" id="options">
@@ -1161,9 +1170,9 @@
   <div class="section" style="padding-top:0;padding-bottom:0;">
     <div class="gear-section">
       <div class="gear-text">
-        <h2>15% off gear rentals</h2>
-        <p>We've partnered with Algonquin Outfitters — the outfitter that operates at three of our stops (Oxtongue Lake, Canoe Lake, and Lake of Two Rivers). Book through us after checkout and you get 15% off canoes, bikes, and stand-up paddleboards.</p>
-        <p>Your gear will be waiting at your stop when you step off the bus.</p>
+        <h2>15% off canoe & bike rentals</h2>
+        <p>Get off at Oxtongue Lake and canoe to Ragged Falls. Hop off at Lake of Two Rivers and bike the Rail Trail all afternoon. Grab a stand-up paddleboard at Canoe Lake and spend the day on the water.</p>
+        <p>We've partnered with Algonquin Outfitters at three of our stops. Book your rental through us after checkout, get 15% off, and your canoe, bike, or board will be waiting at your stop when you step off the bus.</p>
         <p class="gear-tagline">No scrambling. No lineups. Just walk up and go.</p>
       </div>
       <div class="gear-img">
@@ -1260,55 +1269,17 @@
   </div>
 </section>
 
-<!-- PICKUP LOCATIONS -->
-<section class="section-full section-dark">
-  <div class="section-header">
-    <h2>Where to catch the bus</h2>
-  </div>
-  <div style="max-width:1100px; margin:0 auto; padding:0 24px;">
-    <img src="https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/69f9fb72efdc1126a8391e19_pick-up-parkbus.png" alt="Parkbus coach at pickup location" class="pickup-hero-img">
-    <div class="pickup-grid">
-      <div class="pickup-card">
-        <h3>Downtown Toronto</h3>
-        <p>34 Asquith Ave — just north of Yonge & Bloor subway. Get there 15 minutes early.</p>
-        <div class="pickup-times">
-          <div>
-            <div class="pickup-time-label">Departs</div>
-            <div class="pickup-time-value">7:30 AM</div>
-          </div>
-          <div>
-            <div class="pickup-time-label">Returns</div>
-            <div class="pickup-time-value">8:30 PM</div>
-          </div>
-        </div>
-      </div>
-      <div class="pickup-card">
-        <h3>Major Mackenzie Park & Ride</h3>
-        <p>Hwy 400 at Major Mackenzie Dr., Maple. Free parking available.</p>
-        <div class="pickup-times">
-          <div>
-            <div class="pickup-time-label">Departs</div>
-            <div class="pickup-time-value">8:15 AM</div>
-          </div>
-          <div>
-            <div class="pickup-time-label">Returns</div>
-            <div class="pickup-time-value">7:30 PM</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- (Pickup section moved higher on page) -->
 
 <!-- FAQ -->
 <section class="section">
   <div class="section-header">
-    <h2>Before you go</h2>
+    <h2>FAQ: Before you go</h2>
   </div>
   <div class="faq-container">
     <div class="faq-item open">
       <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">What's included in the ticket?</div>
-      <div class="faq-answer">Round-trip coach transportation and park admission. Gear rentals, food, and accommodation are separate.</div>
+      <div class="faq-answer">Round-trip coach transportation and park admission. Canoe/bike rentals, food, and accommodation are separate.</div>
     </div>
     <div class="faq-item">
       <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Can I bring my bike?</div>
@@ -1364,7 +1335,7 @@
     </table>
     <ul class="check-list" style="text-align:left; display:inline-block; margin-bottom:32px;">
       <li>Park admission included on all tickets</li>
-      <li>15% off gear rentals when booked through Parkbus</li>
+      <li>15% off canoe & bike rentals when booked through Parkbus</li>
       <li>Bathroom on board</li>
     </ul>
     <div class="cta-buttons">
