@@ -333,6 +333,64 @@
   }
   .section-dark .section-header p { color: rgba(255,255,255,0.7); }
 
+  /* SOCIAL PROOF BAR */
+  .proof-bar {
+    background: var(--cream);
+    padding: 48px 24px 16px;
+  }
+  .proof-stats {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  .proof-stat {
+    min-width: 180px;
+  }
+  .proof-stat-number {
+    font-family: 'True North', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--green-dark);
+    line-height: 1.2;
+  }
+  .proof-stat-label {
+    font-size: 13px;
+    color: var(--text-mid);
+    margin-top: 4px;
+  }
+  .press-quotes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    max-width: 800px;
+    margin: 0 auto 40px;
+  }
+  .press-quote {
+    text-align: center;
+    padding: 24px;
+  }
+  .press-quote blockquote {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-mid);
+    font-style: italic;
+    margin-bottom: 16px;
+  }
+  .press-quote blockquote em {
+    color: var(--gold);
+    font-style: italic;
+    font-weight: 600;
+  }
+  .press-quote-logo {
+    height: 22px;
+    filter: grayscale(100%);
+    opacity: 0.6;
+  }
+
   /* TRUST STRIP — single horizontal line */
   .trust-strip {
     display: flex;
@@ -839,6 +897,8 @@
     .value-card { border-radius: 0 !important; }
     .value-card:first-child { border-radius: 12px 12px 0 0 !important; }
     .value-card:last-child { border-radius: 0 0 12px 12px !important; }
+    .proof-stats { gap: 24px; }
+    .press-quotes { grid-template-columns: 1fr; gap: 16px; }
     .options-grid { grid-template-columns: 1fr; }
     .accom-grid { grid-template-columns: 1fr; }
     .gear-section { grid-template-columns: 1fr; }
@@ -898,10 +958,33 @@
   </div>
 </section>
 
-<!-- STAR RATING STRIP -->
-<div class="star-strip">
-  <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-  <strong>4.8/5.0</strong> on Google &nbsp;&middot;&nbsp; Thousands of passengers served
+<!-- SOCIAL PROOF BAR -->
+<div class="proof-bar">
+  <div class="proof-stats">
+    <div class="proof-stat">
+      <div class="proof-stat-number">300,000+</div>
+      <div class="proof-stat-label">Riders since 2010</div>
+    </div>
+    <div class="proof-stat">
+      <div class="proof-stat-number">96%</div>
+      <div class="proof-stat-label">Recommend on Facebook</div>
+    </div>
+    <div class="proof-stat">
+      <div class="proof-stat-number">4.6 &#9733;</div>
+      <div class="proof-stat-label">Google Reviews</div>
+    </div>
+  </div>
+
+  <div class="press-quotes">
+    <div class="press-quote">
+      <blockquote>"Factor in the cost of gas, parking and renting a car, it's <em>a lot cheaper</em> than taking a personal vehicle."</blockquote>
+      <img src="https://cdn.prod.website-files.com/682513f5b15a80758dd87582/69f8c45dbfa19cf0c00f3002_Toronto-Star-Logo.svg.png" alt="Toronto Star" class="press-quote-logo">
+    </div>
+    <div class="press-quote">
+      <blockquote>"Parkbus is a <em>great option</em> for nature lovers, whether it's a day trip or overnight camping getaway."</blockquote>
+      <img src="https://cdn.prod.website-files.com/682513f5b15a80758dd87582/69f8efb62e5aea709dadaa2e_The_Globe_and_Mail_(2019-10-31).svg.png" alt="The Globe and Mail" class="press-quote-logo">
+    </div>
+  </div>
 </div>
 
 <!-- VALUE CARDS -->
