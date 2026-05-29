@@ -162,30 +162,39 @@
     margin-bottom: 36px;
   }
   .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary, .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px 14px 28px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    border: 3px solid var(--white);
+    transition: background 0.2s;
+  }
   .btn-primary {
-    background: var(--gold);
+    background: var(--green-mid);
     color: var(--white);
-    padding: 16px 36px;
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 16px;
-    text-decoration: none;
-    border: 3px solid var(--white);
-    transition: background 0.2s;
   }
-  .btn-primary:hover { background: #b3862e; }
+  .btn-primary:hover { background: var(--green-dark); }
   .btn-secondary {
-    color: var(--white);
-    padding: 16px 36px;
-    font-weight: 700;
-    font-size: 16px;
-    text-decoration: none;
-    border: 3px solid var(--white);
-    border-radius: 8px;
     background: transparent;
-    transition: background 0.2s;
+    color: var(--white);
   }
-  .btn-secondary:hover { background: rgba(255,255,255,0.15); }
+  .btn-secondary:hover { background: rgba(255,255,255,0.12); }
+  .btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border: 2px solid var(--white);
+    border-radius: 50%;
+    font-size: 14px;
+    line-height: 1;
+  }
 
   /* FAT 3D BUTTONS */
   .btn-fat {
@@ -951,8 +960,8 @@
     <h1>Algonquin Park from Toronto</h1>
     <p>7,653 square kilometres of wilderness, and you don't have to drive a single one of them. Board the coach in downtown Toronto, settle into a reclining seat with big windows — by 11:00 AM you're at Oxtongue Lake.</p>
     <div class="hero-buttons">
-      <a href="https://www.parkbus.com/reserve?parkline=1&triptype=2&ride1id=81623&ride2id=81624" class="btn-primary">Book Your Trip</a>
-      <a href="#options" class="btn-secondary">See dates & pricing</a>
+      <a href="https://www.parkbus.com/reserve?parkline=1&triptype=2&ride1id=81623&ride2id=81624" class="btn-primary">Book Tickets <span class="btn-icon">&#8599;</span></a>
+      <a href="#options" class="btn-secondary">View Calendar <span class="btn-icon">&#8595;</span></a>
     </div>
     <p style="margin-top:12px; font-size:13px; color:rgba(255,255,255,0.7);">Full refund if you cancel 14+ days before departure</p>
   </div>
