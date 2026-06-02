@@ -3,1444 +3,333 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Algonquin Park from Toronto — Day Trips & Weekends | Parkbus</title>
-<meta name="description" content="Bus to Algonquin Park from downtown Toronto. Day trips from $37.50, weekends from $75. Park admission included. 15% off canoe & bike rentals. No car needed.">
-<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  @font-face {
-    font-family: 'True North';
-    src: url('https://cdn.prod.website-files.com/682513f5b15a80758dd87582/682514ababf43ec93b7be7cc_Cultivated%20Mind%20-%20True%20North.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  :root {
-    --green-dark: #2D3B2D;
-    --green-mid: #3D5A3D;
-    --green-light: #5A7A5A;
-    --cream: #F5F0E8;
-    --cream-dark: #EDE5D8;
-    --gold: #C4943A;
-    --gold-light: #E8D5A8;
-    --white: #FFFFFF;
-    --text: #1A1A1A;
-    --text-mid: #4A4A4A;
-    --text-light: #6B6B6B;
-    --red-badge: #C0392B;
-  }
-  body {
-    font-family: 'Nunito Sans', -apple-system, sans-serif;
-    font-synthesis: none;
-    color: var(--text);
-    line-height: 1.6;
-    background: var(--white);
-    padding-bottom: 72px;
-  }
-
-  /* STICKY BOTTOM BAR */
-  .sticky-bar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: var(--green-dark);
-    color: var(--white);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 24px;
-    padding: 14px 24px;
-    z-index: 200;
-    box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
-  }
-  .sticky-bar-text {
-    font-size: 15px;
-    font-weight: 500;
-  }
-  .sticky-bar-text strong { color: var(--gold-light); }
-  .sticky-bar .btn-sticky {
-    background: var(--gold);
-    color: var(--white);
-    padding: 10px 28px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 14px;
-    white-space: nowrap;
-  }
-
-  /* NAV */
-  .nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 48px;
-    background: var(--white);
-    border-bottom: 1px solid #eee;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  .nav-logo {
-    font-family: 'True North', serif;
-    font-size: 24px;
-    font-weight: 800;
-    color: var(--green-dark);
-    text-decoration: none;
-    letter-spacing: 2px;
-  }
-  .nav-links { display: flex; gap: 32px; align-items: center; }
-  .nav-links a { text-decoration: none; color: var(--text-mid); font-size: 14px; font-weight: 500; }
-  .nav-cta {
-    background: var(--green-dark);
-    color: var(--white) !important;
-    padding: 10px 24px;
-    border-radius: 6px;
-    font-weight: 600 !important;
-  }
-
-  /* BADGE BAR */
-  .badge-bar {
-    background: var(--green-dark);
-    color: var(--gold-light);
-    text-align: center;
-    padding: 10px 24px;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-  }
-
-  /* HERO */
-  .hero {
-    position: relative;
-    min-height: 600px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--white);
-    overflow: hidden;
-  }
-  .hero-bg {
-    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-    background: url('https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/688b67b4ac574ef0391402a0_67cf2c56bddd527096207d31_Whitefish%20Lake%20-%20Algonquin-11.jpeg') center/cover;
-  }
-  .hero-overlay {
-    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.6));
-  }
-  .hero-content {
-    position: relative; z-index: 2;
-    max-width: 720px; padding: 80px 24px;
-  }
-  .hero-tag {
-    display: inline-block;
-    background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255,255,255,0.25);
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 24px;
-  }
-  .hero h1 {
-    font-family: 'True North', serif;
-    font-size: 56px;
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 24px;
-  }
-  .hero p {
-    font-size: 19px;
-    line-height: 1.7;
-    opacity: 0.92;
-    margin-bottom: 36px;
-  }
-  .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-  .btn-primary, .btn-secondary {
-    display: inline-block;
-    padding: 16px 36px;
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 16px;
-    text-decoration: none;
-    transition: transform 0.1s, box-shadow 0.1s;
-  }
-  .btn-primary {
-    background: var(--gold);
-    color: var(--white);
-    box-shadow: 3px 4px 0 0 var(--white);
-  }
-  .btn-primary:hover { transform: translate(1px, 1px); box-shadow: 2px 3px 0 0 var(--white); }
-  .btn-primary:active { transform: translate(3px, 4px); box-shadow: 0 0 0 0 var(--white); }
-  .btn-secondary {
-    background: transparent;
-    color: var(--white);
-    border: 2px solid var(--white);
-    box-shadow: 3px 4px 0 0 var(--white);
-  }
-  .btn-secondary:hover { transform: translate(1px, 1px); box-shadow: 2px 3px 0 0 var(--white); }
-  .btn-secondary:active { transform: translate(3px, 4px); box-shadow: 0 0 0 0 var(--white); }
-
-  /* FAT 3D BUTTONS */
-  .btn-fat {
-    display: inline-block;
-    padding: 18px 40px;
-    font-size: 17px;
-    font-weight: 700;
-    font-family: 'Nunito Sans', sans-serif;
-    text-decoration: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.15s ease;
-    position: relative;
-    text-align: center;
-  }
-  .btn-fat-primary {
-    background: var(--green-dark);
-    color: var(--white);
-    border: 2px solid var(--green-dark);
-    box-shadow: 3px 4px 0 0 #1a261a;
-  }
-  .btn-fat-primary:hover {
-    background: var(--green-mid);
-    border-color: var(--green-mid);
-    box-shadow: 2px 3px 0 0 #1a261a;
-    transform: translate(1px, 1px);
-  }
-  .btn-fat-primary:active {
-    box-shadow: 0px 0px 0 0 #1a261a;
-    transform: translate(3px, 4px);
-  }
-  .btn-fat-secondary {
-    background: var(--white);
-    color: var(--green-dark);
-    border: 2px solid var(--green-dark);
-    box-shadow: 3px 4px 0 0 var(--green-dark);
-  }
-  .btn-fat-secondary:hover {
-    background: var(--cream);
-    box-shadow: 2px 3px 0 0 var(--green-dark);
-    transform: translate(1px, 1px);
-  }
-  .btn-fat-secondary:active {
-    box-shadow: 0px 0px 0 0 var(--green-dark);
-    transform: translate(3px, 4px);
-  }
-  .btn-fat-gold {
-    background: var(--gold);
-    color: var(--white);
-    border: 2px solid #a67d2e;
-    box-shadow: 3px 4px 0 0 #8a6824;
-  }
-  .btn-fat-gold:hover {
-    background: #b3862e;
-    box-shadow: 2px 3px 0 0 #8a6824;
-    transform: translate(1px, 1px);
-  }
-  .btn-fat-gold:active {
-    box-shadow: 0px 0px 0 0 #8a6824;
-    transform: translate(3px, 4px);
-  }
-  .cta-buttons {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 32px;
-  }
-
-  /* STAR RATING STRIP */
-  .star-strip {
-    background: var(--cream);
-    padding: 16px 24px;
-    text-align: center;
-    font-size: 14px;
-    color: var(--text-mid);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-  .stars { color: #F5A623; font-size: 16px; letter-spacing: 2px; }
-  .star-strip strong { color: var(--green-dark); }
-
-  /* VALUE CARDS */
-  .value-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-  .value-card {
-    background: var(--white);
-    padding: 36px 32px;
-    border: 1px solid #E8E4DC;
-    text-align: center;
-  }
-  .value-card:first-child { border-radius: 12px 0 0 12px; }
-  .value-card:last-child { border-radius: 0 12px 12px 0; }
-  .value-card-number {
-    font-family: 'True North', serif;
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--gold);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 12px;
-  }
-  .value-card h3 {
-    font-family: 'Nunito Sans', sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 12px;
-    color: var(--green-dark);
-  }
-  .value-card p {
-    font-size: 15px;
-    line-height: 1.6;
-    color: var(--text-mid);
-  }
-
-  /* SECTIONS */
-  .section {
-    padding: 96px 24px;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  .section-full { padding: 96px 24px; }
-  .section-cream { background: var(--cream); }
-  .section-dark { background: var(--green-dark); color: var(--white); }
-  .section-header {
-    text-align: center;
-    max-width: 640px;
-    margin: 0 auto 64px;
-  }
-  .section-header h2 {
-    font-family: 'True North', serif;
-    font-size: 40px;
-    font-weight: 700;
-    margin-bottom: 16px;
-  }
-  .section-header p {
-    font-size: 17px;
-    line-height: 1.7;
-    color: var(--text-mid);
-  }
-  .section-dark .section-header p { color: rgba(255,255,255,0.7); }
-
-  /* SOCIAL PROOF BAR */
-  .proof-bar {
-    background: var(--cream);
-    padding: 48px 24px 32px;
-  }
-  .proof-stats {
-    display: flex;
-    justify-content: center;
-    gap: 48px;
-    max-width: 800px;
-    margin: 0 auto 40px;
-    flex-wrap: wrap;
-    text-align: center;
-  }
-  .proof-stat {
-    min-width: 180px;
-  }
-  .proof-stat-number {
-    font-family: 'True North', serif;
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--green-dark);
-    line-height: 1.2;
-  }
-  .proof-stat-label {
-    font-size: 13px;
-    color: var(--text-mid);
-    margin-top: 4px;
-  }
-  .press-quotes {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 28px;
-    max-width: 800px;
-    margin: 0 auto 40px;
-  }
-  .press-quote {
-    text-align: center;
-    padding: 24px;
-  }
-  .press-quote blockquote {
-    font-size: 15px;
-    line-height: 1.6;
-    color: var(--text-mid);
-    font-style: italic;
-    margin-bottom: 16px;
-  }
-  .press-quote blockquote em {
-    color: var(--gold);
-    font-style: italic;
-    font-weight: 600;
-  }
-  .press-quote-logo {
-    height: 22px;
-    filter: grayscale(100%);
-    opacity: 0.6;
-  }
-
-  /* TRUST STRIP — single horizontal line */
-  .trust-strip {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    padding: 20px 24px;
-    max-width: 1100px;
-    margin: 0 auto;
-    flex-wrap: wrap;
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--text-mid);
-  }
-  .trust-strip .separator {
-    color: var(--gold);
-    font-weight: 400;
-  }
-
-  /* REVIEW QUOTE — inline */
-  .review-inline {
-    background: var(--cream);
-    border-radius: 12px;
-    padding: 24px 28px;
-    margin: 32px 0;
-    position: relative;
-  }
-  .review-inline::before {
-    content: '\201C';
-    font-family: 'True North', serif;
-    font-size: 48px;
-    color: var(--gold);
-    position: absolute;
-    top: 8px;
-    left: 16px;
-    line-height: 1;
-  }
-  .review-inline blockquote {
-    font-size: 15px;
-    line-height: 1.6;
-    color: var(--text-mid);
-    font-style: italic;
-    padding-left: 24px;
-  }
-  .review-inline cite {
-    display: block;
-    font-size: 13px;
-    font-style: normal;
-    font-weight: 600;
-    color: var(--green-dark);
-    margin-top: 8px;
-    padding-left: 24px;
-  }
-  .review-stars {
-    color: #F5A623;
-    font-size: 14px;
-    letter-spacing: 1px;
-    padding-left: 24px;
-    margin-bottom: 4px;
-  }
-
-  /* TWO OPTIONS */
-  .options-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  .option-card {
-    background: var(--white);
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid #E8E4DC;
-  }
-  .option-card-img {
-    width: 100%;
-    height: 240px;
-    object-fit: cover;
-  }
-  .option-card-header { padding: 28px 32px 0; }
-  .option-label {
-    display: inline-block;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--green-light);
-    margin-bottom: 8px;
-  }
-  .option-card h3 {
-    font-family: 'Nunito Sans', sans-serif;
-    font-size: 26px;
-    font-weight: 700;
-    margin-bottom: 16px;
-    color: var(--green-dark);
-  }
-  .option-card-body { padding: 0 32px 32px; }
-  .option-card-body p {
-    font-size: 15px;
-    line-height: 1.7;
-    color: var(--text-mid);
-    margin-bottom: 16px;
-  }
-  .price-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-    font-size: 14px;
-  }
-  .price-table td {
-    padding: 10px 0;
-    border-bottom: 1px solid #f0ece4;
-  }
-  .price-table td:last-child {
-    text-align: right;
-    font-weight: 600;
-    color: var(--green-dark);
-  }
-  .price-table tr:last-child td { border-bottom: none; }
-  .check-list { list-style: none; margin-bottom: 24px; }
-  .check-list li {
-    font-size: 14px;
-    color: var(--text-mid);
-    padding: 4px 0 4px 24px;
-    position: relative;
-  }
-  .check-list li::before {
-    content: "\2713";
-    position: absolute;
-    left: 0;
-    color: var(--green-light);
-    font-weight: 700;
-  }
-  .btn-option {
-    display: block;
-    text-align: center;
-    background: var(--green-dark);
-    color: var(--white);
-    padding: 16px 24px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 16px;
-    border: 2px solid var(--green-dark);
-    box-shadow: 3px 4px 0 0 #1a261a;
-    transition: all 0.15s ease;
-  }
-  .btn-option:hover {
-    background: var(--green-mid);
-    border-color: var(--green-mid);
-    box-shadow: 2px 3px 0 0 #1a261a;
-    transform: translate(1px, 1px);
-  }
-  .btn-option:active {
-    box-shadow: 0 0 0 0 #1a261a;
-    transform: translate(3px, 4px);
-  }
-
-  /* ACCOM CARDS */
-  .accom-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  .accom-card {
-    background: var(--white);
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid #E8E4DC;
-  }
-  .accom-card img { width: 100%; height: 200px; object-fit: cover; }
-  .accom-card-body { padding: 24px; }
-  .accom-badge {
-    display: inline-block;
-    background: var(--red-badge);
-    color: var(--white);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 4px 10px;
-    border-radius: 4px;
-    margin-bottom: 10px;
-  }
-  .accom-card h3 {
-    font-family: 'Nunito Sans', sans-serif;
-    font-size: 19px;
-    font-weight: 700;
-    margin-bottom: 8px;
-    color: var(--green-dark);
-  }
-  .accom-card-subtitle {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--gold);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 12px;
-  }
-  .accom-card p { font-size: 14px; line-height: 1.6; color: var(--text-mid); }
-
-  /* STOPS */
-  .stops-container {
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative;
-  }
-  .stops-container::before {
-    content: '';
-    position: absolute;
-    left: 24px;
-    top: 0; bottom: 0;
-    width: 2px;
-    background: var(--gold-light);
-  }
-  .stop-item {
-    display: grid;
-    grid-template-columns: 48px 1fr;
-    gap: 24px;
-    margin-bottom: 40px;
-    position: relative;
-  }
-  .stop-number {
-    width: 48px; height: 48px;
-    background: var(--green-dark);
-    color: var(--white);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Nunito Sans', sans-serif;
-    font-weight: 700; font-size: 18px;
-    position: relative; z-index: 2;
-  }
-  .stop-number.new-badge { background: var(--red-badge); }
-  .stop-content {
-    background: var(--white);
-    border-radius: 12px;
-    padding: 0;
-    border: 1px solid #E8E4DC;
-    overflow: hidden;
-  }
-  .stop-img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    display: block;
-  }
-  .stop-body {
-    padding: 24px;
-  }
-  .stop-content h3 {
-    font-family: 'Nunito Sans', sans-serif;
-    font-size: 19px; font-weight: 700;
-    color: var(--green-dark);
-    margin-bottom: 4px;
-  }
-  .stop-times {
-    font-size: 13px; color: var(--text-light);
-    font-weight: 500; margin-bottom: 12px;
-  }
-  .stop-content p {
-    font-size: 14px; line-height: 1.6;
-    color: var(--text-mid); margin-bottom: 12px;
-  }
-  .stop-tags {
-    font-size: 13px; font-weight: 600;
-    color: var(--green-light);
-  }
-
-  /* GEAR */
-  .gear-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px; align-items: center;
-    max-width: 1100px; margin: 0 auto;
-  }
-  .gear-text h2 {
-    font-family: 'True North', serif;
-    font-size: 36px; font-weight: 700;
-    margin-bottom: 16px;
-  }
-  .gear-text p {
-    font-size: 16px; line-height: 1.7;
-    color: var(--text-mid); margin-bottom: 12px;
-  }
-  .gear-tagline {
-    font-size: 18px; font-weight: 600;
-    color: var(--green-dark); font-style: italic;
-  }
-  .gear-img { border-radius: 16px; overflow: hidden; }
-  .gear-img img { width: 100%; height: 380px; object-fit: cover; }
-
-  /* PICKUP */
-  .pickup-section {
-    position: relative;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  .pickup-hero-img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 16px;
-    margin-bottom: 40px;
-  }
-  .pickup-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-  }
-  .pickup-card {
-    background: var(--white);
-    border: 1px solid #E8E4DC;
-    border-radius: 12px;
-    padding: 28px;
-    overflow: hidden;
-  }
-  .pickup-card h3 {
-    font-family: 'Nunito Sans', sans-serif;
-    font-size: 20px; font-weight: 700;
-    margin-bottom: 6px;
-    color: var(--green-dark);
-  }
-  .pickup-card p {
-    font-size: 14px; line-height: 1.6;
-    color: var(--text-mid); margin-bottom: 16px;
-  }
-  .pickup-times { display: flex; gap: 32px; margin-bottom: 16px; }
-  .pickup-time-label {
-    text-transform: uppercase; letter-spacing: 1px;
-    font-weight: 600; font-size: 11px;
-    color: var(--text-light); margin-bottom: 4px;
-  }
-  .pickup-time-value {
-    font-size: 20px; font-weight: 700;
-    color: var(--green-dark);
-  }
-  .pickup-map {
-    width: 100%;
-    height: 200px;
-    border: 0;
-    border-radius: 8px;
-    margin-top: 4px;
-  }
-
-  /* DATES SECTION */
-  .dates-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 10px;
-    max-width: 800px;
-    margin: 0 auto 40px;
-  }
-  .date-chip {
-    background: var(--white);
-    border: 1px solid #E8E4DC;
-    border-radius: 8px;
-    padding: 10px 16px;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--green-dark);
-  }
-  .date-chip.low-seats {
-    border-color: var(--gold);
-    background: #FDF8EF;
-  }
-  .date-chip .seats-note {
-    display: block;
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--gold);
-    margin-top: 2px;
-  }
-
-  /* REVIEWS SECTION */
-  .reviews-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  .review-card {
-    background: var(--white);
-    border: 1px solid #E8E4DC;
-    border-radius: 12px;
-    padding: 28px;
-  }
-  .review-card .review-stars {
-    padding-left: 0;
-    margin-bottom: 8px;
-  }
-  .review-card blockquote {
-    font-size: 15px;
-    line-height: 1.6;
-    color: var(--text-mid);
-    font-style: italic;
-    margin-bottom: 12px;
-  }
-  .review-card cite {
-    font-size: 13px;
-    font-style: normal;
-    font-weight: 600;
-    color: var(--green-dark);
-  }
-  .review-source {
-    font-size: 11px;
-    color: var(--text-light);
-    font-weight: 400;
-    margin-left: 4px;
-  }
-
-  /* PHOTO GALLERY */
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-  .gallery-grid a {
-    display: block;
-    overflow: hidden;
-    border-radius: 8px;
-  }
-  .gallery-grid img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.3s ease;
-  }
-  .gallery-grid a:hover img {
-    transform: scale(1.05);
-  }
-  .gallery-grid a:first-child {
-    grid-column: span 2;
-    grid-row: span 2;
-  }
-  .gallery-grid a:first-child img {
-    height: 100%;
-  }
-
-  /* FAQ */
-  .faq-container { max-width: 720px; margin: 0 auto; }
-  .faq-item {
-    border-bottom: 1px solid #E8E4DC;
-    padding: 20px 0; cursor: pointer;
-  }
-  .faq-question {
-    font-weight: 600; font-size: 16px;
-    display: flex; justify-content: space-between; align-items: center;
-    color: var(--green-dark);
-  }
-  .faq-question::after {
-    content: "+"; font-size: 24px; font-weight: 300;
-    color: var(--text-light); transition: transform 0.2s;
-    flex-shrink: 0; margin-left: 16px;
-  }
-  .faq-item.open .faq-question::after { content: "\2212"; }
-  .faq-answer {
-    display: none; padding-top: 12px;
-    font-size: 15px; line-height: 1.7; color: var(--text-mid);
-  }
-  .faq-item.open .faq-answer { display: block; }
-
-  /* PRICING */
-  .pricing-summary { max-width: 640px; margin: 0 auto; text-align: center; }
-  .pricing-table-full {
-    width: 100%; border-collapse: collapse;
-    margin-bottom: 28px; font-size: 15px;
-  }
-  .pricing-table-full th {
-    background: var(--green-dark); color: var(--white);
-    padding: 14px 20px; font-weight: 600;
-    font-size: 13px; letter-spacing: 1px; text-transform: uppercase;
-  }
-  .pricing-table-full th:first-child { border-radius: 8px 0 0 0; text-align: left; }
-  .pricing-table-full th:last-child { border-radius: 0 8px 0 0; }
-  .pricing-table-full td {
-    padding: 14px 20px; border-bottom: 1px solid #f0ece4;
-  }
-  .pricing-table-full td:first-child { text-align: left; font-weight: 500; }
-  .pricing-table-full td:not(:first-child) { text-align: center; font-weight: 600; color: var(--green-dark); }
-  .pricing-table-full tr:last-child td { border-bottom: none; }
-  .pricing-table-full tbody tr:nth-child(even) { background: var(--cream); }
-
-  .footer {
-    background: var(--green-dark); color: rgba(255,255,255,0.6);
-    padding: 48px 24px; text-align: center; font-size: 14px;
-  }
-  .footer a { color: var(--gold-light); text-decoration: none; }
-
-  @media (max-width: 768px) {
-    .nav { padding: 12px 20px; }
-    .nav-links { display: none; }
-    .hero h1 { font-size: 36px; }
-    .hero p { font-size: 16px; }
-    .value-cards { grid-template-columns: 1fr; }
-    .value-card { border-radius: 0 !important; }
-    .value-card:first-child { border-radius: 12px 12px 0 0 !important; }
-    .value-card:last-child { border-radius: 0 0 12px 12px !important; }
-    .proof-stats { gap: 24px; }
-    .press-quotes { grid-template-columns: 1fr; gap: 16px; }
-    .options-grid { grid-template-columns: 1fr; }
-    .accom-grid { grid-template-columns: 1fr; }
-    .gear-section { grid-template-columns: 1fr; }
-    .pickup-grid { grid-template-columns: 1fr; }
-    .reviews-grid { grid-template-columns: 1fr; }
-    .gallery-grid { grid-template-columns: 1fr 1fr; }
-    .gallery-grid a:first-child { grid-column: span 2; }
-    .section { padding: 64px 20px; }
-    .section-full { padding: 64px 20px; }
-    .section-header h2 { font-size: 30px; }
-    .trust-strip { font-size: 12px; gap: 6px; }
-    .sticky-bar { gap: 12px; padding: 10px 16px; }
-    .sticky-bar-text { font-size: 13px; }
-    .btn-fat { padding: 14px 28px; font-size: 15px; }
-    .cta-buttons { gap: 12px; }
-    .dates-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-  .nav-logo, .hero h1, .value-card-number, .section-header h2,
-  .proof-stat-number, .gear-text h2, .final-cta h2, .faq-group-label,
-  .stop-number, h1, h2 { font-weight: normal; }
-</style>
+<title>Dinosaur Provincial Park from Calgary — Guided Bus Tour | Parkbus</title>
+<meta name="description" content="Bus to Dinosaur Provincial Park from Calgary. New guided day trip from $65. Park admission and Explorers Bus Tour into the restricted fossil preserve included. No car needed.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>@font-face{font-family:'True North';src:url('https://matthewhardythomas.com/visit-canada-parks/tna-webfont.woff2') format('woff2'),url('https://matthewhardythomas.com/visit-canada-parks/tna-webfont.ttf') format('truetype');font-weight:normal;font-style:normal;font-display:swap;}:root{--green-dark:#2D3B2D;--green-mid:#3D5A3D;--green-light:#5A7A5A;--cream:#F5F0E8;--cream-dark:#EDE5D8;--gold:#C4943A;--gold-light:#E8D5A8;--white:#FFFFFF;--text:#1A1A1A;--text-mid:#4A4A4A;--text-light:#6B6B6B;--red-badge:#C0392B;--border:#E8E4DC;}*{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}body{font-family:'Nunito Sans',sans-serif;color:var(--text);background:var(--white);line-height:1.6;padding-bottom:64px;}.display{font-family:'True North','Oswald',sans-serif;font-weight:normal;letter-spacing:.5px;line-height:1.05;}.wrap{max-width:1120px;margin:0 auto;padding:0 24px;}section{padding:72px 0;}h2.display{font-size:40px;color:var(--green-dark);margin-bottom:8px;}.section-intro{color:var(--text-mid);max-width:680px;margin-bottom:40px;font-size:18px;}a{color:var(--gold);text-decoration:none;}.sticky-bar{position:fixed;bottom:0;left:0;right:0;background:var(--gold-light);border-top:1px solid var(--gold);display:flex;align-items:center;justify-content:center;gap:20px;padding:12px 24px;z-index:200;flex-wrap:wrap;}.sticky-bar .price{font-weight:800;color:var(--green-dark);}.sticky-bar .incl{color:var(--text-mid);font-size:14px;}.btn{display:inline-block;font-weight:700;border-radius:10px;cursor:pointer;border:none;transition:all .15s ease;font-size:16px;}.btn-fat{padding:16px 34px;font-size:17px;border-radius:10px;}.btn-primary{background:var(--green-dark);color:#fff;box-shadow:3px 4px 0 0 #16201a;}.btn-primary:hover{box-shadow:2px 3px 0 0 #16201a;transform:translate(1px,1px);}.btn-primary:active{box-shadow:0 0 0 0 #16201a;transform:translate(3px,4px);}.btn-gold{background:var(--gold);color:#fff;box-shadow:3px 4px 0 0 #8a6526;}.btn-gold:hover{box-shadow:2px 3px 0 0 #8a6526;transform:translate(1px,1px);}.btn-gold:active{box-shadow:0 0 0 0 #8a6526;transform:translate(3px,4px);}.btn-secondary{background:#fff;color:var(--green-dark);border:2px solid var(--green-dark);box-shadow:3px 4px 0 0 var(--green-dark);}.btn-secondary:hover{box-shadow:2px 3px 0 0 var(--green-dark);transform:translate(1px,1px);}.btn-sm{padding:8px 18px;font-size:15px;}nav{background:var(--green-dark);position:sticky;top:0;z-index:150;}nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;}.logo{font-family:'True North','Oswald',sans-serif;font-weight:normal;font-size:30px;letter-spacing:2px;color:#fff;}.nav-links{display:flex;align-items:center;gap:26px;}.nav-links a{color:#fff;font-weight:600;font-size:15px;}.nav-links a.book{background:var(--gold);padding:8px 18px;border-radius:8px;}.hero{position:relative;min-height:640px;display:flex;align-items:center;background:linear-gradient(rgba(20,16,10,.45),rgba(20,16,10,.65)),url('https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/696d077eca678be77b543fe7_Dinosaur%20Provincial%20Park%20Parkbus.avif') center/cover no-repeat;color:#fff;}.hero .wrap{padding-top:80px;padding-bottom:80px;}.pill{display:inline-flex;align-items:center;gap:8px;background:var(--red-badge);color:#fff;font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;padding:7px 16px;border-radius:999px;margin-bottom:20px;}.pill .dot{width:8px;height:8px;border-radius:50%;background:#fff;animation:pulse 1.4s infinite;}@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}.hero h1{font-size:62px;max-width:840px;margin-bottom:20px;text-shadow:0 2px 12px rgba(0,0,0,.4);}.hero .sub{font-size:21px;max-width:660px;margin-bottom:14px;}.hero .lead{font-size:18px;max-width:660px;color:#f0ece4;margin-bottom:30px;}.hero-btns{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px;}.hero .btn-gold{box-shadow:3px 4px 0 0 rgba(255,255,255,.85);}.hero .btn-ghost{background:transparent;color:#fff;border:2px solid #fff;box-shadow:3px 4px 0 0 rgba(255,255,255,.85);}.hero .btn-ghost:hover,.hero .btn-gold:hover{transform:translate(1px,1px);}.refund{font-size:14px;color:rgba(255,255,255,.85);}.proof{background:var(--cream);}.stats{display:flex;justify-content:center;gap:64px;flex-wrap:wrap;text-align:center;margin-bottom:48px;}.stat .num{font-family:'True North','Oswald',sans-serif;font-size:46px;font-weight:normal;color:var(--green-dark);}.stat .lbl{color:var(--text-mid);font-size:15px;}.quotes{display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:900px;margin:0 auto;}blockquote{font-style:italic;font-size:18px;color:var(--text-mid);border-left:3px solid var(--gold);padding-left:18px;}blockquote em{color:var(--gold);font-style:italic;font-weight:600;}blockquote .attr{display:block;margin-top:8px;font-style:normal;font-size:14px;color:var(--text-light);}.press{margin-top:48px;text-align:center;}.press .label{font-size:13px;text-transform:uppercase;letter-spacing:2px;color:var(--text-light);margin-bottom:22px;}.press .logos{display:flex;justify-content:center;align-items:center;gap:48px;flex-wrap:wrap;}.press .logos img{height:34px;width:auto;filter:grayscale(100%);opacity:.6;transition:all .2s ease;}.press .logos img:hover{filter:grayscale(0);opacity:1;}.press .logos img.np{height:80px;margin:-20px 0;}.reviews-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}.review{background:#fff;border:1px solid var(--border);border-radius:12px;padding:26px;}.review .stars{color:var(--gold);font-size:18px;letter-spacing:2px;margin-bottom:12px;}.review p{color:var(--text-mid);font-style:italic;margin-bottom:14px;}.review .attr{font-weight:700;color:var(--green-dark);font-size:14px;}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}.step{background:#fff;border:1px solid var(--border);border-radius:12px;padding:28px;}.step .n{font-size:14px;font-weight:800;text-transform:uppercase;color:var(--gold);letter-spacing:1.5px;margin-bottom:10px;}.step h3{font-size:21px;font-weight:800;color:var(--green-dark);margin-bottom:10px;}.step p{color:var(--text-mid);font-size:16px;}.band{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;border-radius:16px;overflow:hidden;border:1px solid var(--border);}.band .copy{padding:48px;display:flex;flex-direction:column;justify-content:center;background:#fff;}.band .copy h2{font-size:32px;}.band img{width:100%;height:100%;object-fit:cover;min-height:340px;}.band p{color:var(--text-mid);margin-bottom:14px;}.partner{text-align:center;}.partner img.logo-img{max-width:280px;width:100%;margin:0 auto 24px;display:block;}.guide{display:grid;grid-template-columns:300px 1fr;gap:40px;align-items:start;}.guide img{width:100%;border-radius:12px;border:1px solid var(--border);}.guide .tag{display:inline-block;background:var(--green-light);color:#fff;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 12px;border-radius:6px;margin-bottom:12px;}.guide h3{font-size:26px;color:var(--green-dark);margin-bottom:4px;}.guide .handle{color:var(--gold);font-weight:700;margin-bottom:16px;}.guide p{color:var(--text-mid);margin-bottom:14px;}.pickups{display:grid;grid-template-columns:1fr 1fr;gap:28px;}.pickup{background:#fff;border:1px solid var(--border);border-radius:12px;padding:28px;}.pickup h3{font-size:22px;font-weight:800;color:var(--green-dark);margin-bottom:6px;}.pickup .addr{color:var(--text-mid);margin-bottom:16px;}.times{display:flex;gap:40px;}.times .t .k{font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--text-light);}.times .t .v{font-size:24px;font-weight:800;color:var(--green-dark);}.map{width:100%;height:200px;border:0;border-radius:10px;margin-top:18px;}.arrival .map{margin-top:0;height:220px;}.arrival{background:var(--green-dark);color:#fff;border-radius:12px;padding:32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;margin-top:28px;}.arrival h3{font-family:'True North','Oswald',sans-serif;font-size:26px;}.arrival p{color:rgba(255,255,255,.8);max-width:540px;font-size:15px;}.arrival .at{display:flex;gap:40px;}.arrival .at .k{font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--gold-light);}.arrival .at .v{font-size:24px;font-weight:800;}.pricing{background:var(--cream);}table.price{width:100%;max-width:520px;border-collapse:collapse;margin-bottom:24px;background:#fff;border-radius:12px;overflow:hidden;border:1px solid var(--border);}table.price td{padding:14px 22px;border-bottom:1px solid var(--border);font-size:17px;}table.price tr:last-child td{border-bottom:none;}table.price td:last-child{text-align:right;font-weight:800;color:var(--green-dark);}table.price tr td:last-child.highlight{color:var(--gold);}.incl-list{list-style:none;margin:20px 0 28px;}.incl-list li{padding-left:28px;position:relative;margin-bottom:10px;color:var(--text-mid);}.incl-list li::before{content:"✓";position:absolute;left:0;color:var(--gold);font-weight:800;}.gallery{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:200px;gap:14px;}.gallery img{width:100%;height:100%;object-fit:cover;border-radius:10px;}.gallery img:first-child{grid-column:span 2;grid-row:span 2;}.faq details{border:1px solid var(--border);border-radius:10px;margin-bottom:12px;background:#fff;overflow:hidden;}.faq summary{padding:18px 24px;font-weight:700;cursor:pointer;color:var(--green-dark);font-size:17px;list-style:none;display:flex;justify-content:space-between;align-items:center;}.faq summary::-webkit-details-marker{display:none;}.faq summary::after{content:"+";font-size:24px;color:var(--gold);font-weight:400;}.faq details[open] summary::after{content:"–";}.faq .body{padding:0 24px 20px;color:var(--text-mid);}.faq h3.group{font-family:'True North','Oswald',sans-serif;color:var(--gold);font-size:20px;letter-spacing:1.5px;margin:32px 0 14px;}.faq h3.group:first-child{margin-top:0;}footer{background:var(--green-dark);color:#fff;padding:48px 0;text-align:center;}footer a{color:var(--gold-light);}footer .small{color:rgba(255,255,255,.6);font-size:14px;margin-top:10px;}.center{text-align:center;}.cta-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:8px;}@media(max-width:768px){.hero h1{font-size:38px;}.hero .sub{font-size:18px;}h2.display{font-size:30px;}.nav-links a:not(.book){display:none;}.steps,.pickups,.quotes,.guide,.band,.reviews-grid{grid-template-columns:1fr;}.press .logos{gap:28px;}.band img{min-height:240px;}.gallery{grid-template-columns:1fr 1fr;}.stats{gap:32px;}.arrival{flex-direction:column;align-items:flex-start;}}</style>
 </head>
 <body>
-
-<!-- STICKY BOTTOM BAR -->
 <div class="sticky-bar">
-  <span class="sticky-bar-text">Day trips from <strong>$37.50</strong> · Park admission included</span>
-  <a href="https://www.parkbus.com/reserve?parkline=1&triptype=2&ride1id=81623&ride2id=81624" class="btn-sticky">Book Now</a>
+<span class="price">New guided day trip from $65</span>
+<span class="incl">Park admission + Explorers Bus Tour included</span>
+<a class="btn btn-gold btn-sm" href="https://www.parkbus.com/reserve?parkline=9362&triptype=2&ride1id=81999&ride2id=82000">Book Now</a>
 </div>
-
-<!-- NAV -->
-<nav class="nav">
-  <a href="/" class="nav-logo">PARKBUS</a>
-  <div class="nav-links">
-    <a href="/about-us">About Us</a>
-    <a href="/destinations">Destinations</a>
-    <a href="/blog">Blog</a>
-    <a href="/active-days">ActiveDays</a>
-    <a href="https://www.parkbus.com/reserve?parkline=1&triptype=2&ride1id=81623&ride2id=81624" class="nav-cta">Book Tickets</a>
-  </div>
+<nav>
+<div class="wrap">
+<a class="logo" href="https://www.parkbus.ca">Parkbus</a>
+<div class="nav-links">
+<a href="https://www.parkbus.ca/about-us">About Us</a>
+<a href="#how">How it works</a>
+<a href="#pickup">Pickups</a>
+<a href="#pricing">Pricing</a>
+<a href="#faq">FAQ</a>
+<a class="book" href="https://www.parkbus.com/reserve?parkline=9362&triptype=2&ride1id=81999&ride2id=82000">Book Tickets</a>
+</div>
+</div>
 </nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-tag">Self-Guided</div>
-    <h1>Algonquin Park from Toronto</h1>
-    <p>7,653 square kilometres of wilderness, and you don't have to drive a single one of them. Board the coach in downtown Toronto, settle into a reclining seat with big windows — by 11:00 AM you're at Oxtongue Lake.</p>
-    <div class="hero-buttons">
-      <a href="https://www.parkbus.com/reserve?parkline=1&triptype=2&ride1id=81623&ride2id=81624" class="btn-primary">Book Tickets</a>
-      <a href="#dates" class="btn-secondary">View Dates</a>
-    </div>
-    <p style="margin-top:12px; font-size:13px; color:rgba(255,255,255,0.7);">Full refund if you cancel 14+ days before departure</p>
-  </div>
-</section>
-
-<!-- SOCIAL PROOF BAR -->
-<div class="proof-bar">
-  <div class="proof-stats">
-    <div class="proof-stat">
-      <div class="proof-stat-number">300,000+</div>
-      <div class="proof-stat-label">Riders since 2010</div>
-    </div>
-    <div class="proof-stat">
-      <div class="proof-stat-number">96%</div>
-      <div class="proof-stat-label">Recommend on Facebook</div>
-    </div>
-    <div class="proof-stat">
-      <div class="proof-stat-number">4.6 &#9733;</div>
-      <div class="proof-stat-label">Google Reviews</div>
-    </div>
-  </div>
-
-  <div class="press-quotes">
-    <div class="press-quote">
-      <blockquote>"Factor in the cost of gas, parking and renting a car, it's <em>a lot cheaper</em> than taking a personal vehicle."</blockquote>
-      <img src="https://cdn.prod.website-files.com/682513f5b15a80758dd87582/69f8c45dbfa19cf0c00f3002_Toronto-Star-Logo.svg.png" alt="Toronto Star" class="press-quote-logo">
-    </div>
-    <div class="press-quote">
-      <blockquote>"Parkbus is a <em>great option</em> for nature lovers, whether it's a day trip or overnight camping getaway."</blockquote>
-      <img src="https://cdn.prod.website-files.com/682513f5b15a80758dd87582/69f8efb62e5aea709dadaa2e_The_Globe_and_Mail_(2019-10-31).svg.png" alt="The Globe and Mail" class="press-quote-logo">
-    </div>
-  </div>
-
-<div class="value-cards">
-  <div class="value-card">
-    <div class="value-card-number">Day Trip</div>
-    <h3>Out & back in one day</h3>
-    <p>Leave Toronto at 7:30 AM. Arrive by 11:00 AM. Five-plus hours in the park. Home by 8:30 PM. Adults from $74.</p>
-  </div>
-  <div class="value-card">
-    <div class="value-card-number">Weekend Trip</div>
-    <h3>Stay Friday to Sunday</h3>
-    <p>Same bus, but you stay. We drop you Friday, pick you up Sunday. Glamping, hostels, and campgrounds. From $75 per person.</p>
-  </div>
-  <div class="value-card">
-    <div class="value-card-number">15% Off Rentals</div>
-    <h3>Your canoe is waiting</h3>
-    <p>We've partnered with Algonquin Outfitters. Canoes, bikes, SUPs — book through us and your rental is ready at your stop.</p>
-  </div>
+<header class="hero">
+<div class="wrap">
+<span class="pill"><span class="dot"></span>New for 2026 · First of its kind</span>
+<h1 class="display">Dinosaur Provincial Park from Calgary</h1>
+<p class="sub">Skip the two-hour drive. Touch a 75-million-year-old dinosaur bone instead.</p>
+<p class="lead">A brand-new guided trip with Parks Alberta interpreters takes you deep into the restricted fossil preserve that most visitors never see. We handle the coach from Calgary — you handle the badlands. In partnership with Dinosaur Trips.</p>
+<div class="hero-btns">
+<a class="btn btn-fat btn-gold" href="https://www.parkbus.com/reserve?parkline=9362&triptype=2&ride1id=81999&ride2id=82000">Book Tickets</a>
+<a class="btn btn-fat btn-ghost" href="#how">See how it works</a>
 </div>
-
-<!-- TRUST STRIP — single line -->
-<div class="trust-strip">
-  <span>Park admission included</span>
-  <span class="separator">&middot;</span>
-  <span>Bathroom on board</span>
-  <span class="separator">&middot;</span>
-  <a href="https://algonquinoutfitters.com/" style="color:var(--gold);text-decoration:none;font-weight:600;">15% off canoe & bike rentals</a>
-  <span class="separator">&middot;</span>
-  <span>Pet-friendly ($20)</span>
-  <span class="separator">&middot;</span>
-  <span>Bikes welcome (3 per bus)</span>
+<p class="refund">Full refund if you cancel 14+ days before departure</p>
 </div>
-</div><!-- end proof-bar cream background -->
-
-<!-- PICKUP LOCATIONS — early on page so people know where to go -->
-<section class="section-full section-cream" id="pickup">
-  <div class="section-header">
-    <h2>Where to catch the bus</h2>
-    <p>Two pickup points in the GTA. Get there 15 minutes early.</p>
-  </div>
-  <div style="max-width:1100px; margin:0 auto; padding:0 24px;">
-    <div class="pickup-grid">
-      <div class="pickup-card">
-        <h3>Downtown Toronto</h3>
-        <p>34 Asquith Ave — just north of Yonge & Bloor subway station.</p>
-        <div class="pickup-times">
-          <div>
-            <div class="pickup-time-label">Departs</div>
-            <div class="pickup-time-value">7:30 AM</div>
-          </div>
-          <div>
-            <div class="pickup-time-label">Returns</div>
-            <div class="pickup-time-value">8:30 PM</div>
-          </div>
-        </div>
-        <iframe class="pickup-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.0!2d-79.3882!3d43.6711!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34ae3002baf7%3A0x5f0bd7d5e6e8e8a!2s34%20Asquith%20Ave%2C%20Toronto%2C%20ON!5e0!3m2!1sen!2sca!4v1" allowfullscreen="" loading="lazy"></iframe>
-      </div>
-      <div class="pickup-card">
-        <h3>Major Mackenzie Park & Ride</h3>
-        <p>Hwy 400 at Major Mackenzie Dr., Maple. Free parking available.</p>
-        <div class="pickup-times">
-          <div>
-            <div class="pickup-time-label">Departs</div>
-            <div class="pickup-time-value">8:15 AM</div>
-          </div>
-          <div>
-            <div class="pickup-time-label">Returns</div>
-            <div class="pickup-time-value">7:30 PM</div>
-          </div>
-        </div>
-        <iframe class="pickup-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2880.0!2d-79.5325!3d43.7725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b2e1234567890%3A0x1234567890abcdef!2sMajor%20Mackenzie%20Park%20%26%20Ride%2C%20Maple%2C%20ON!5e0!3m2!1sen!2sca!4v1" allowfullscreen="" loading="lazy"></iframe>
-      </div>
-    </div>
-  </div>
+</header>
+<section class="proof">
+<div class="wrap">
+<div class="stats">
+<div class="stat"><div class="num">300,000+</div><div class="lbl">Riders since 2010</div></div>
+<div class="stat"><div class="num">96%</div><div class="lbl">Recommend on Facebook</div></div>
+<div class="stat"><div class="num">4.6 ★</div><div class="lbl">Google Reviews</div></div>
+</div>
+<div class="quotes">
+<blockquote>Dinosaur Provincial Park holds <em>the greatest concentration of Late Cretaceous fossils</em> on Earth — museums in 30 cities display skeletons pulled from this valley.</blockquote>
+<blockquote>The Explorers Bus Tour takes you into the Natural Preserve to <em>see and touch real fossils</em> still emerging from the ground, led by a Parks Alberta interpreter.</blockquote>
+</div>
+<div class="press">
+<p class="label">As seen in</p>
+<div class="logos">
+<img loading="lazy" decoding="async" src="https://cdn.prod.website-files.com/682513f5b15a80758dd87582/69f8c377f98d8af10c8a72f2_Natgeologo.svg" alt="National Geographic">
+<img class="np" loading="lazy" decoding="async" src="https://cdn.prod.website-files.com/682513f5b15a80758dd87582/6a1d9079068a5f159a9642b9_NationalPost_Logo-1.png" alt="National Post">
+<img loading="lazy" decoding="async" src="https://cdn.prod.website-files.com/682513f5b15a80758dd87582/69f8efb62e5aea709dadaa2e_The_Globe_and_Mail_(2019-10-31).svg-p-500.png" alt="The Globe and Mail">
+<img loading="lazy" decoding="async" src="https://cdn.prod.website-files.com/682513f5b15a80758dd87582/69f8c3ae5a8a949e25457ca1_CBC_logo.svg.png" alt="CBC">
+</div>
+</div>
+</div>
 </section>
-
-<!-- TWO OPTIONS -->
-<section class="section" id="options">
-  <div class="section-header">
-    <h2>One park, two ways to do it</h2>
-    <p>Algonquin works as a day trip or a full weekend. Both leave from the same downtown Toronto stop. The difference is whether you sleep in a tent, a glamping dome, or your own bed that night.</p>
-  </div>
-
-  <div class="options-grid">
-    <!-- DAY TRIP -->
-    <div class="option-card">
-      <img src="https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/686d783185416beb7f2dfa03_AOCanoeLake038.jpg" alt="Canoeing on Canoe Lake in Algonquin Park" class="option-card-img">
-      <div class="option-card-header">
-        <div class="option-label">Option 1</div>
-        <h3>The Day Trip</h3>
-      </div>
-      <div class="option-card-body">
-        <p>The bus leaves 34 Asquith Ave (Yonge & Bloor) at 7:30 AM. There's a second pickup at Major Mackenzie Park & Ride at 8:15 AM if you're coming from the north end.</p>
-        <p>By 11:00 AM you're in the park. You pick your stop — Oxtongue Lake for paddling, Canoe Lake for a sit-down lunch, Lake of Two Rivers for mountain biking the old Rail Trail. Five-plus hours to do whatever you want. Back in Toronto by 8:30 PM.</p>
-        <p style="font-weight:600; color: var(--green-dark);">No car, no gas, no parking, no Highway 400 on a Sunday evening.</p>
-
-        <table class="price-table">
-          <tr><td>Adult</td><td>$74.00</td></tr>
-          <tr><td>Student</td><td>$74.00</td></tr>
-          <tr><td>Senior (60+)</td><td>Discounted</td></tr>
-          <tr><td>Child (12 & under)</td><td>$37.50</td></tr>
-        </table>
-        <ul class="check-list">
-          <li>Park admission included</li>
-          <li>15% off canoe & bike rentals</li>
-          <li>Bathroom on board + rest stop on the way</li>
-        </ul>
-        <a href="https://www.parkbus.com/reserve?parkline=1&triptype=2&ride1id=81623&ride2id=81624" class="btn-option">Book a Day Trip</a>
-        <p style="margin-top:8px; font-size:12px; color:var(--text-light);">Full refund if you cancel 14+ days before departure</p>
-      </div>
-    </div>
-
-    <!-- WEEKEND TRIP -->
-    <div class="option-card">
-      <img src="https://cdn.prod.website-files.com/682513f5b15a80758dd87582/6a19b447c9a204dd3a40dac1_03a512_a7ab579c8de84834aa58b6dbe0850707~mv2.avif" alt="Glamping at Four Corners Algonquin" class="option-card-img">
-      <div class="option-card-header">
-        <div class="option-label">Option 2</div>
-        <h3>Stay for the Weekend</h3>
-      </div>
-      <div class="option-card-body">
-        <p>Same bus, same Friday departure — but instead of coming home that evening, you stay.</p>
-        <p>We drop you at your stop on Friday. You spend Saturday doing whatever the park puts in front of you. Sunday afternoon, the bus picks you up and brings you home.</p>
-        <p>Where you sleep is up to you — and there are real options now.</p>
-
-        <table class="price-table">
-          <tr><td>Adult</td><td>$149.00</td></tr>
-          <tr><td>Student</td><td>$138.00</td></tr>
-          <tr><td>Senior (60+)</td><td>$138.00</td></tr>
-          <tr><td>Child (12 & under)</td><td>$75.00</td></tr>
-        </table>
-        <ul class="check-list">
-          <li>Park admission included</li>
-          <li>Round-trip Friday-Sunday</li>
-          <li>15% off canoe & bike rentals</li>
-        </ul>
-        <a href="https://www.parkbus.com/reserve?parkline=1&triptype=2&ride1id=81623&ride2id=81624" class="btn-option">Book a Weekend Trip</a>
-        <p style="margin-top:8px; font-size:12px; color:var(--text-light);">Full refund if you cancel 14+ days before departure</p>
-      </div>
-    </div>
-  </div>
-
+<section id="how">
+<div class="wrap">
+<h2 class="display">How it works: three parts</h2>
+<p class="section-intro">One ticket, one day, three distinct experiences — logistics handled from the moment you board in Calgary.</p>
+<div class="steps">
+<div class="step">
+<div class="n">Part 1</div>
+<h3>We drive. You relax.</h3>
+<p>Parkbus handles the two-hour drive from Calgary in a comfortable, air-conditioned coach. Big windows, plenty of storage, and the prairies slowly turning into badlands. We get you there and back — no highway, no navigating, no parking.</p>
+</div>
+<div class="step">
+<div class="n">Part 2</div>
+<h3>The Explorers Bus Tour</h3>
+<p>Join a park-guided tour led by Parks Alberta interpreters deep into the Natural Preserve — the 80% of the park most people never see. Four off-bus stops to view real fossils eroding from the ground, touch 75-million-year-old bone, and maybe lay a protective casting just like field paleontologists do.</p>
+</div>
+<div class="step">
+<div class="n">Part 3</div>
+<h3>The park is yours</h3>
+<p>After the tour, explore at your own pace. Hike the Badlands Interpretive Trail (1.3 km) and the Trail of the Fossil Hunters (0.9 km), climb the hoodoos, scramble the coulees, visit the Visitor Centre, and grab a cold drink at the Cretaceous Café. Several hours of free time.</p>
+</div>
+</div>
+</div>
 </section>
-
-<!-- WHERE TO SLEEP -->
-<section class="section-full section-cream">
-  <div class="section-header">
-    <h2>Where to sleep</h2>
-    <p>Parkbus handles the transportation — accommodation is up to you. Book your stay separately through any of the options below.</p>
-  </div>
-  <div class="accom-grid" style="max-width:1100px; margin:0 auto; padding: 0 24px;">
-    <div class="accom-card">
-      <img src="https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/68ada6f0ef12425101549049_03a512_1494342049bd45568204855e28f356dd~mv2.jpg" alt="Four Corners Algonquin glamping tent">
-      <div class="accom-card-body">
-        <div class="accom-badge">New for 2026</div>
-        <h3>Four Corners Algonquin</h3>
-        <div class="accom-card-subtitle">Glamping</div>
-        <p>Luxury glamping on the east end of the park, near Whitney. Domes and cabins with real beds. Four Corners runs a daily shuttle to popular Algonquin Park spots along the Highway 60 corridor, so you're not stuck at camp. We drop you Friday by noon, pick you up Sunday at 4:30 PM.</p>
-        <p><a href="https://www.fourcornersalgonquin.ca/" style="color:var(--gold);font-weight:600;">Book at Four Corners &rarr;</a></p>
-      </div>
-    </div>
-    <div class="accom-card">
-      <img src="https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/685b134338cb0bfef7646174_wold-den.png" alt="Wolf Den Bunkhouse interior">
-      <div class="accom-card-body">
-        <h3>Wolf Den Bunkhouse</h3>
-        <div class="accom-card-subtitle">Budget-Friendly</div>
-        <p>The go-to for Parkbus weekenders for years. Cozy cabins, private and semi-private rooms, communal vibe. 6 km from the park gate, but the setting feels like you're already in it. Hiking trails and Oxtongue Lake are walking distance.</p>
-        <p style="font-weight:600; color: var(--text-mid);">Call to book: (705) 635-9336</p>
-      </div>
-    </div>
-    <div class="accom-card">
-      <img src="https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/685b10052fc587e2741b7bbe_pog-lake.jpg" alt="Pog Lake campground">
-      <div class="accom-card-body">
-        <h3>Campgrounds</h3>
-        <div class="accom-card-subtitle">Inside the Park</div>
-        <p>Lake of Two Rivers (biggest), Mew Lake, and Pog Lake (quieter). All connected by the Rail Trail so you can bike between them. Book through Ontario Parks well in advance — summer weekends sell out.</p>
-        <p><a href="https://reservations.ontarioparks.com/" style="color:var(--gold);font-weight:600;">Book at Ontario Parks &rarr;</a></p>
-      </div>
-    </div>
-  </div>
-  <p style="max-width:720px; margin:32px auto 0; text-align:center; font-size:14px; color:var(--text-light); padding: 0 24px;">
-    Other roofed options near our stops: Algonquin Lakeside Inn, Blue Spruce Inn, Blue Spruce Resort. Inside the park, Killarney Lodge, Arowhon Pines Resort, and Bartlett Lodge can arrange shuttle service to our stops.
-  </p>
+<section style="background:var(--cream);">
+<div class="wrap">
+<div class="band">
+<div class="copy">
+<h2 class="display">Walk where dinosaurs roamed</h2>
+<p>Over 75 million years ago this region was an inland sea. Dinosaurs died in river channels and were buried in layers of sand and mud. Those layers have since eroded into some of the most extraordinary badlands in North America — towering hoodoos, sculpted coulees, terrain that feels genuinely Martian.</p>
+<p>More than 300 complete skeletons have been pulled from this valley since the 1880s. You'll walk where paleontologists still uncover bones from the Late Cretaceous, and stand where a Centrosaurus or Hadrosaur once moved.</p>
+<p>The heat is real — it's one of Alberta's warmest, driest regions in midsummer — but that's part of the deal. The badlands look even more dramatic in harsh light.</p>
+</div>
+<img loading="lazy" decoding="async" src="https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/699f2f61286870c788d86557_DinosaurProvincialPark.jpg" alt="The badlands landscape of Dinosaur Provincial Park">
+</div>
+</div>
 </section>
-
-<!-- STOPS -->
-<section class="section">
-  <div class="section-header">
-    <h2>Choose your stop</h2>
-    <p>The bus follows the Highway 60 corridor through the park, stopping at six points. You pick the one that matches what you want to do.</p>
-  </div>
-  <div class="stops-container">
-    <div class="stop-item">
-      <div class="stop-number">1</div>
-      <div class="stop-content">
-        <img src="https://cdn.prod.website-files.com/682513f5b15a80758dd87582/6a19b850f1bbd4795f99ff01_untitled-5308-600x400.jpg" alt="Oxtongue Lake" class="stop-img">
-        <div class="stop-body">
-          <h3>Oxtongue Lake</h3>
-          <div class="stop-times">Arrive 11:00 AM &middot; Depart 4:40 PM</div>
-          <p>The most popular stop for paddlers. Algonquin Outfitters' base is here — rent a canoe for a self-guided paddle to Ragged Falls or book a guided North Canoe trip. Calm, sheltered water, good for all levels. Short hike at Beetle Lake trail, right from the drop-off. Small caf&eacute; on site.</p>
-          <div class="stop-tags">Good for: Canoeing, kayaking, short hikes, waterfall access</div>
-        </div>
-      </div>
-    </div>
-    <div class="stop-item">
-      <div class="stop-number">2</div>
-      <div class="stop-content">
-        <img src="https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/685b134338cb0bfef7646174_wold-den.png" alt="Wolf Den Bunkhouse" class="stop-img">
-        <div class="stop-body">
-          <h3>Wolf Den Bunkhouse</h3>
-          <div class="stop-times">Arrive 11:05 AM &middot; Depart 4:30 PM</div>
-          <p>Primarily a weekend stop — this is where you get off if you're staying at the Wolf Den. Ten-minute walk to Oxtongue Lake and Algonquin Outfitters.</p>
-          <div class="stop-tags">Good for: Weekend accommodation, access to Oxtongue Lake activities</div>
-        </div>
-      </div>
-    </div>
-    <div class="stop-item">
-      <div class="stop-number">3</div>
-      <div class="stop-content">
-        <img src="https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/686d783185416beb7f2dfa03_AOCanoeLake038.jpg" alt="Canoe Lake Portage Store" class="stop-img">
-        <div class="stop-body">
-          <h3>Canoe Lake (Portage Store)</h3>
-          <div class="stop-times">Arrive 11:25 AM &middot; Depart 4:25 PM</div>
-          <p>The main activity hub on Highway 60. Licensed sit-down restaurant, guided North Canoe trips, self-guided rentals, and an Ontario Parks permit office. This is also the launch point for backcountry canoe routes.</p>
-          <div class="stop-tags">Good for: Lunch, guided paddles, starting backcountry trips, gear rentals</div>
-        </div>
-      </div>
-    </div>
-    <div class="stop-item">
-      <div class="stop-number">4</div>
-      <div class="stop-content">
-        <img src="https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/685b1145885d227dd5088cd8_lake-of-two-rivers-store.jpg" alt="Lake of Two Rivers Store" class="stop-img">
-        <div class="stop-body">
-          <h3>Lake of Two Rivers Store</h3>
-          <div class="stop-times">Arrive 11:35 AM &middot; Depart 4:10 PM</div>
-          <p>The only stop with bike rentals. Grab a mountain bike and ride the old Rail Trail connecting the campgrounds — a former rail line, flat and scenic. Restaurant and small grocery store. The Highland Backpacking Trail starts a short walk from here.</p>
-          <div class="stop-tags">Good for: Mountain biking, Rail Trail access, groceries, Highland Trail</div>
-        </div>
-      </div>
-    </div>
-    <div class="stop-item">
-      <div class="stop-number">5</div>
-      <div class="stop-content">
-        <img src="https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/685b10052fc587e2741b7bbe_pog-lake.jpg" alt="Pog Lake campground" class="stop-img">
-        <div class="stop-body">
-          <h3>Pog Lake / Whitefish Campground</h3>
-          <div class="stop-times">Arrive 11:40 AM &middot; Depart 4:00 PM</div>
-          <p>Quieter campground on the east side. Access point for Whitefish Group Campground. Connected to other campgrounds by the Rail Trail. <strong>This stop operates until Labour Day only.</strong></p>
-          <div class="stop-tags">Good for: Camping (quieter option), cycling between campgrounds</div>
-        </div>
-      </div>
-    </div>
-    <div class="stop-item">
-      <div class="stop-number new-badge">6</div>
-      <div class="stop-content">
-        <img src="https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/68ada6f0ef12425101549049_03a512_1494342049bd45568204855e28f356dd~mv2.jpg" alt="Four Corners Algonquin glamping" class="stop-img">
-        <div class="stop-body">
-          <div class="accom-badge" style="margin-bottom:8px;">New for 2026</div>
-          <h3>Four Corners Algonquin</h3>
-          <div class="stop-times">Arrive 12:00 PM &middot; Depart Sundays at 4:30 PM — no same-day return</div>
-          <p>The glamping stop. We drop you Friday, and Four Corners runs a daily shuttle to Algonquin Park trailheads, lakes, and activity spots along Highway 60 — so you can explore the park without a car. Whitney has outfitters for day adventures and the old rail trail runs right through.</p>
-          <div class="stop-tags">Good for: Glamping weekends, access to Whitney and the Rail Trail</div>
-        </div>
-      </div>
-    </div>
-  </div>
+<section>
+<div class="wrap">
+<div class="band">
+<img loading="lazy" decoding="async" src="https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/696d07855d5033c8692bcab5_dinosaur_provincial_park_-_travel_alberta_roth_ramberg.webp" alt="Visitors examining dinosaur bones in the field">
+<div class="copy">
+<h2 class="display">Real bones. Restricted ground.</h2>
+<p>This isn't a museum behind glass. On the guided tour you'll board a bus into restricted areas you can only reach with a Parks Alberta interpreter, stopping four times to get out and explore fossils still emerging from the rock.</p>
+<p>You'll hear stories about the Blackfoot nation — who called the hoodoos <em>matapiiski</em>, "the people" — early fossil hunters from the 1880s, and the modern paleontologists who made discoveries in this exact landscape. Part history, part geology, part storytelling.</p>
+<p>It's roughly two hours, designed for all ages and abilities. You're not just sightseeing. You're part of a small expedition.</p>
+</div>
+</div>
+</div>
 </section>
-
-<!-- GEAR DEAL -->
-<section class="section-full section-cream">
-  <div class="section" style="padding-top:0;padding-bottom:0;">
-    <div class="gear-section">
-      <div class="gear-text">
-        <h2>15% off canoe & bike rentals</h2>
-        <p>Get off at Oxtongue Lake and canoe to Ragged Falls. Hop off at Lake of Two Rivers and bike the Rail Trail all afternoon. Grab a stand-up paddleboard at Canoe Lake and spend the day on the water.</p>
-        <p>We've partnered with Algonquin Outfitters at three of our stops. Book your rental through us after checkout, get 15% off, and your canoe, bike, or board will be waiting at your stop when you step off the bus.</p>
-        <p class="gear-tagline">No scrambling. No lineups. Just walk up and go.</p>
-        <a href="https://algonquinoutfitters.com/" class="btn-fat btn-fat-primary" style="margin-top: 16px; display: inline-block;">Browse Rentals at Algonquin Outfitters</a>
-      </div>
-      <div class="gear-img">
-        <img src="https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/686d77dffa5124b6ac10e3c2_AOOxtongueB226.jpg" alt="Algonquin Outfitters at Oxtongue Lake">
-      </div>
-    </div>
-  </div>
+<section style="background:var(--cream);">
+<div class="wrap">
+<h2 class="display">Meet your Parkbus guide</h2>
+<p class="section-intro">This new trip comes with someone special along for the ride.</p>
+<div class="guide">
+<img loading="lazy" decoding="async" src="https://i.pinimg.com/736x/d5/cb/78/d5cb78618a15d1d8ca6e002bee498a4e.jpg" alt="Brennan Martens, paleontologist and Parkbus guide">
+<div>
+<span class="tag">Your guide</span>
+<h3>Brennan Martens</h3>
+<p class="handle">@BrennanThePaleoDude · <a href="https://www.instagram.com/paleodudebrennan/#">23.7K followers</a></p>
+<p>To much of the paleontology community, Brennan Martens is better known as BrennanThePaleoDude — a passionate educator, fossil hunter, and researcher, and one of the most recognizable young voices bringing prehistory to modern audiences. Over nearly a decade on Instagram and YouTube, he's built a devoted following by making paleontology feel immediate, tangible, and genuinely exciting for all ages.</p>
+<p>His fascination started in the field. Much of his youth was spent exploring fossil sites across British Columbia and Alberta — searching riverbanks, badlands, and exposed shorelines for remnants of ancient life. Today he serves as Director of the Vancouver Paleontological Society, leading excursions and presenting at schools, museums, and science centres.</p>
+<p>After four years studying paleontology at the University of Alberta, Brennan became an active researcher whose work has taken him from California and North Carolina to the fossil beds of Morocco. In 2022 he helped name a new species of mosasaur, and he's presented at conferences across Canada, the United States, and Europe.</p>
+</div>
+</div>
+</div>
 </section>
-
-<!-- DATES SECTION -->
-<section class="section" id="dates">
-  <div class="section-header">
-    <h2>2026 Departure Dates</h2>
-    <p>Trips run from late June through mid-October. Seats are limited — dates with low availability are marked below.</p>
-  </div>
-  <div class="dates-grid">
-    <div class="date-chip">June 26</div>
-    <div class="date-chip">June 28</div>
-    <div class="date-chip">July 03</div>
-    <div class="date-chip">July 05</div>
-    <div class="date-chip">July 10</div>
-    <div class="date-chip">July 12</div>
-    <div class="date-chip">July 17</div>
-    <div class="date-chip">July 19</div>
-    <div class="date-chip low-seats">July 24<span class="seats-note">2 seats left</span></div>
-    <div class="date-chip low-seats">July 26<span class="seats-note">4 seats left</span></div>
-    <div class="date-chip">August 01</div>
-    <div class="date-chip">August 03</div>
-    <div class="date-chip low-seats">August 09<span class="seats-note">8 seats left</span></div>
-    <div class="date-chip">August 14</div>
-    <div class="date-chip">August 21</div>
-    <div class="date-chip">August 23</div>
-    <div class="date-chip">August 28</div>
-    <div class="date-chip">August 30</div>
-    <div class="date-chip">September 25</div>
-    <div class="date-chip">September 27</div>
-    <div class="date-chip">October 02</div>
-    <div class="date-chip">October 04</div>
-    <div class="date-chip low-seats">October 10<span class="seats-note">2 seats left</span></div>
-    <div class="date-chip">October 12</div>
-  </div>
-  <div class="cta-buttons">
-    <a href="https://www.parkbus.com/reserve?parkline=1&triptype=2&ride1id=81623&ride2id=81624" class="btn-fat btn-fat-primary">Book Tickets</a>
-    <a href="#" class="btn-fat btn-fat-secondary">View Dates</a>
-  </div>
+<section class="partner">
+<div class="wrap">
+<h2 class="display">In partnership with Dinosaur Trips</h2>
+<p class="section-intro" style="margin:0 auto 28px;">We've teamed up with the experts at Dinosaur Trips to build a guided experience you can't get any other way.</p>
+<img class="logo-img" loading="lazy" decoding="async" src="https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/69ab328e68dab48eca8c7a14_Dinosaur%20Trips%20Header%20-%20White%20-%20Black%20Logo%20and%20letters-Recovered.jpg" alt="Dinosaur Trips logo">
+<div class="cta-row"><a class="btn btn-fat btn-secondary" href="https://dinosaurtrips.com/">Visit Dinosaur Trips</a></div>
+</div>
 </section>
-
-<!-- REVIEWS SECTION -->
-<section class="section-full section-cream">
-  <div class="section-header">
-    <h2>What passengers are saying</h2>
-    <p>
-      <span class="stars" style="font-size:18px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>&nbsp;
-      <strong>4.8/5.0</strong> on Google
-    </p>
-  </div>
-  <div class="reviews-grid" style="padding: 0 24px;">
-    <div class="review-card">
-      <div class="review-stars" style="padding-left:0;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <blockquote>I have always had excellent experiences with Parkbus. The ambassadors have been knowledgeable and friendly. The drivers drive safely, and with the passengers' comfort in mind.</blockquote>
-      <cite>Sharlene H. <span class="review-source">&middot; Google</span></cite>
-    </div>
-    <div class="review-card">
-      <div class="review-stars" style="padding-left:0;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <blockquote>It's convenient, destinations are all great and staff is nice, polite and funny. I recommend Parkbus to everyone, especially if you don't have a car but want to explore Ontario.</blockquote>
-      <cite>Natalie N. <span class="review-source">&middot; Google</span></cite>
-    </div>
-    <div class="review-card">
-      <div class="review-stars" style="padding-left:0;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <blockquote>Booked in minutes, had an unreal day in Algonquin, and was home by dinner.</blockquote>
-      <cite>Cameron <span class="review-source">&middot; Happy Parkbus customer</span></cite>
-    </div>
-    <div class="review-card">
-      <div class="review-stars" style="padding-left:0;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <blockquote>Used this service for a weekend in Algonquin. These guys stuck to the schedule well and ambassadors checked everyone in at their pickups. Convenient drop offs all across the park and across the city. Reasonably priced and no need to think about a rental car to get to the wilderness.</blockquote>
-      <cite>James Johnson <span class="review-source">&middot; Happy Parkbus adventurer</span></cite>
-    </div>
-  </div>
+<section id="pickup" style="background:var(--cream);">
+<div class="wrap">
+<h2 class="display">Where to catch the bus</h2>
+<p class="section-intro">Two pickup points in Calgary. Get there 15 minutes early — it's a full day, but you're sitting down for the whole drive.</p>
+<div class="pickups">
+<div class="pickup">
+<h3>Anderson Station Way SW</h3>
+<p class="addr">South Calgary, easy LRT and parking access.</p>
+<div class="times">
+<div class="t"><div class="k">Departs</div><div class="v">8:00 AM</div></div>
+<div class="t"><div class="k">Returns</div><div class="v">6:00 PM</div></div>
+</div>
+<iframe class="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Anderson%20Station%20Way%20SW%2C%20Calgary%2C%20AB&z=14&output=embed" title="Map of Anderson Station Way SW pickup"></iframe>
+</div>
+<div class="pickup">
+<h3>Calgary Stampede Trailblazer Centre</h3>
+<p class="addr">Central Calgary near Stampede Park.</p>
+<div class="times">
+<div class="t"><div class="k">Departs</div><div class="v">7:45 AM</div></div>
+<div class="t"><div class="k">Returns</div><div class="v">6:20 PM</div></div>
+</div>
+<iframe class="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Calgary%20Stampede%20Park%2C%20Calgary%2C%20AB&z=14&output=embed" title="Map of Calgary Stampede Trailblazer Centre pickup"></iframe>
+</div>
+</div>
+<div class="arrival">
+<div>
+<h3>Dinosaur Provincial Park</h3>
+<p>A UNESCO World Heritage Site about 220 km east of Calgary, near Brooks — renowned for its badlands and dinosaur fossils. Roughly two hours each way.</p>
+</div>
+<div class="at">
+<div><div class="k">Arrive</div><div class="v">10:00 AM</div></div>
+<div><div class="k">Depart</div><div class="v">4:00 PM</div></div>
+</div>
+</div>
+<iframe class="map" style="height:300px;margin-top:20px;" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Dinosaur%20Provincial%20Park%2C%20Alberta&z=9&output=embed" title="Map of Dinosaur Provincial Park drop-off"></iframe>
+</div>
 </section>
-
-<!-- PHOTO GALLERY -->
-<section class="section">
-  <div class="section-header">
-    <h2>Algonquin in photos</h2>
-  </div>
-  <div class="gallery-grid">
-    <a href="#"><img src="https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/688b67b4ac574ef0391402a0_67cf2c56bddd527096207d31_Whitefish%20Lake%20-%20Algonquin-11.jpeg" alt="Whitefish Lake lookout"></a>
-    <a href="#"><img src="https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/682ebe42499b373d04b5303f_68234e9fd62ff1cc720d0704_Algonquin.Pronvicla.Park_Motion.and.Still.webp" alt="Algonquin Provincial Park lake"></a>
-    <a href="#"><img src="https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/682ebe42499b373d04b5304a_68234eab55a7b9c7702967a3_IMG_2788.webp" alt="Canoe on the lake"></a>
-    <a href="#"><img src="https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/686d78c13f65cf667a4559cb_AOCanoeLake193.jpg" alt="Canoeing at sunset"></a>
-    <a href="#"><img src="https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/682ebe42499b373d04b53053_68234eb3b8911ebf9587053d_IMG_2795.webp" alt="Lake and forest"></a>
-    <a href="#"><img src="https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/685b144c2c72c7fd9d30e93a_about-hero.jpg" alt="Parkbus group"></a>
-    <a href="#"><img src="https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/6a0f4d247e3232ba005d6385_parkbus-guided-trip.png" alt="Guided trip on the water"></a>
-  </div>
+<section>
+<div class="wrap">
+<div class="band">
+<div class="copy">
+<h2 class="display">About the coach</h2>
+<p>You're not cramped in a minivan. The Parkbus coach is a full-size bus with air conditioning, comfortable seating, and large windows so you can watch the prairies become badlands without missing a moment.</p>
+<p>Plenty of storage for your gear. It's comfortable enough that many people nap on the way back — don't worry, you won't miss anything. The good stuff happens at the park.</p>
+</div>
+<img loading="lazy" decoding="async" src="https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/69f9fb72efdc1126a8391e19_pick-up-parkbus.png" alt="Parkbus coach at the pickup location">
+</div>
+</div>
 </section>
-
-<!-- (Pickup section moved higher on page) -->
-
-<!-- FAQ -->
-<section class="section">
-  <div class="section-header">
-    <h2>FAQ: Before you go</h2>
-  </div>
-  <div class="faq-container">
-    <div class="faq-item open">
-      <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">What's included in the ticket?</div>
-      <div class="faq-answer">Round-trip coach transportation and park admission. Canoe/bike rentals, food, and accommodation are separate.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Can I bring my bike?</div>
-      <div class="faq-answer">Up to 3 regular bikes per bus (no e-bikes), first-come first-served. Email help@parkbus.ca in advance to reserve a spot. Folding bikes don't need pre-approval as long as they fit in a large-suitcase footprint.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">How much luggage can I bring?</div>
-      <div class="faq-answer">Suitcases, backpacks, coolers, camping gear — the bus has a full luggage compartment. No canoes, kayaks, fireworks, firewood, or firearms.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Is there a bathroom on the bus?</div>
-      <div class="faq-answer">Yes, on most buses. There's also a 15-minute rest stop about halfway.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Can I bring my dog?</div>
-      <div class="faq-answer">Yes. Pet ticket is $20 each way. Pets must be in a carrier or muzzled on the bus. Dogs must be leashed in the park. Owner is responsible for any cleaning fees.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Is there cell service in the park?</div>
-      <div class="faq-answer">Spotty. You'll get signal on hilltops and some larger lakes, but don't count on it. Coverage varies by carrier.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Where do I buy food in the park?</div>
-      <div class="faq-answer">Lake of Two Rivers Store has basic groceries and a fast-food restaurant (burgers, pizza, ice cream). The Portage Store at Canoe Lake has similar. Call ahead if you need something specific — options are limited.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">What about bears?</div>
-      <div class="faq-answer">They're in the park but generally avoid people. Store food properly. If you're camping at Lake of Two Rivers, Mew Lake, or Pog Lake, park staff provides free food lockers (key requires a $25 refundable cash deposit at the park office). See <a href="https://www.ontario.ca/page/prevent-bear-encounters-bear-wise" style="color:var(--gold);">Ontario's BearWise guide</a> for more.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Can I request a custom stop?</div>
-      <div class="faq-answer">No — for safety and logistics reasons, we stick to our published stops. But we're always reviewing the route. Email us with suggestions: help@parkbus.ca.</div>
-    </div>
-  </div>
+<section id="pricing" class="pricing">
+<div class="wrap center" style="display:flex;flex-direction:column;align-items:center;">
+<h2 class="display">Pricing</h2>
+<p class="section-intro" style="text-align:center;">One ticket covers the round-trip coach, park admission, and the guided Explorers Bus Tour into the restricted preserve.</p>
+<table class="price">
+<tr><td>Adult</td><td>$130.00</td></tr>
+<tr><td>Student / Senior</td><td>$117.00</td></tr>
+<tr><td>Kids</td><td class="highlight">$65.00</td></tr>
+</table>
+<ul class="incl-list" style="text-align:left;">
+<li>Round-trip coach transportation from Calgary</li>
+<li>Park admission</li>
+<li>Explorers Bus Tour into the protected Palaeontological Preserve</li>
+<li>Guided experience with a Parks Alberta interpreter</li>
+</ul>
+<div class="cta-row">
+<a class="btn btn-fat btn-gold" href="https://www.parkbus.com/reserve?parkline=9362&triptype=2&ride1id=81999&ride2id=82000">Book Tickets</a>
+</div>
+<p class="refund" style="color:var(--text-light);margin-top:12px;">Full refund if you cancel 14+ days before departure</p>
+</div>
 </section>
-
-<!-- PRICING SUMMARY -->
-<section class="section-full section-cream" id="pricing">
-  <div class="section-header">
-    <h2>Pricing</h2>
-  </div>
-  <div class="pricing-summary">
-    <table class="pricing-table-full">
-      <thead>
-        <tr><th></th><th>Day Trip</th><th>Weekend</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Adult</td><td>$74.00</td><td>$149.00</td></tr>
-        <tr><td>Student</td><td>Discounted</td><td>$138.00</td></tr>
-        <tr><td>Senior (60+)</td><td>Discounted</td><td>$138.00</td></tr>
-        <tr><td>Child (12 & under)</td><td>$37.50</td><td>$75.00</td></tr>
-      </tbody>
-    </table>
-    <ul class="check-list" style="text-align:left; display:inline-block; margin-bottom:32px;">
-      <li>Park admission included on all tickets</li>
-      <li>15% off canoe & bike rentals when booked through Parkbus</li>
-      <li>Bathroom on board</li>
-    </ul>
-    <div class="cta-buttons">
-      <a href="https://www.parkbus.com/reserve?parkline=1&triptype=2&ride1id=81623&ride2id=81624" class="btn-fat btn-fat-gold">Book Now</a>
-      <a href="#dates" class="btn-fat btn-fat-secondary">View Dates</a>
-    </div>
-    <p style="margin-top:12px; font-size:13px; color:var(--text-light);">Full refund if you cancel 14+ days before departure</p>
-  </div>
+<section>
+<div class="wrap">
+<h2 class="display">The park in photos</h2>
+<p class="section-intro">Badlands, bones, and hoodoos that don't look like anywhere else in Canada.</p>
+<div class="gallery">
+<img loading="lazy" decoding="async" src="https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/696d077eca678be77b543fe7_Dinosaur%20Provincial%20Park%20Parkbus.avif" alt="Dinosaur Provincial Park badlands">
+<img loading="lazy" decoding="async" src="https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/696d07851fd67ed8ef3f6345_Dinosaur%20Provincial%20Park-%20parksbus.jpg" alt="Hoodoo formations">
+<img loading="lazy" decoding="async" src="https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/696d07855d5033c8692bcab5_dinosaur_provincial_park_-_travel_alberta_roth_ramberg.webp" alt="Examining dinosaur bones">
+<img loading="lazy" decoding="async" src="https://cdn.prod.website-files.com/682e24e4911aef8f324313f1/699f2f61286870c788d86557_DinosaurProvincialPark.jpg" alt="Visitors exploring the park">
+</div>
+</div>
 </section>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <p>Parkbus Inc. &middot; 192 Spadina Ave, Toronto, ON M5T 2C2 &middot; <a href="mailto:help@parkbus.ca">help@parkbus.ca</a></p>
-  <p style="margin-top:8px;">Canada's National Outdoor Transportation &nbsp;&middot;&nbsp; &copy; 2026. All rights reserved.</p>
+<section style="background:var(--cream);">
+<div class="wrap">
+<h2 class="display">What passengers are saying</h2>
+<p class="section-intro">★★★★★ 4.6/5.0 on Google · 96% recommend on Facebook</p>
+<div class="reviews-grid">
+<div class="review">
+<div class="stars">★★★★★</div>
+<p>I have always had excellent experiences with Parkbus. The ambassadors have been knowledgeable and friendly. The drivers drive safely, and with the passengers' comfort in mind.</p>
+<div class="attr">Sharlene H. · Google</div>
+</div>
+<div class="review">
+<div class="stars">★★★★★</div>
+<p>It's convenient, destinations are all great and staff is nice, polite and funny. I recommend Parkbus to everyone, especially if you don't have a car but want to explore Ontario.</p>
+<div class="attr">Natalie N. · Google</div>
+</div>
+<div class="review">
+<div class="stars">★★★★★</div>
+<p>Booked in minutes, had an unreal day in Algonquin, and was home by dinner.</p>
+<div class="attr">Cameron · Happy Parkbus customer</div>
+</div>
+<div class="review">
+<div class="stars">★★★★★</div>
+<p>Used this service for a weekend in Algonquin. These guys stuck to the schedule well and ambassadors checked everyone in at their pickups. Convenient drop offs all across the park and across the city. Reasonably priced and no need to think about a rental car to get to the wilderness.</p>
+<div class="attr">James Johnson · Happy Parkbus adventurer</div>
+</div>
+</div>
+</div>
+</section>
+<section id="faq" class="faq">
+<div class="wrap">
+<h2 class="display">FAQ: before you go</h2>
+<p class="section-intro">Everything you need to know about Alberta's strangest, most ancient day trip.</p>
+<h3 class="group">Trip basics & logistics</h3>
+<details open><summary>What's the pickup point and timing?</summary><div class="body">We depart Calgary early morning (exact time confirmed with your booking — 8:00 AM from Anderson Station Way SW, 7:45 AM from the Stampede Trailblazer Centre). The drive takes about two hours, and we return to Calgary late afternoon. It's a full day, but you're sitting down the whole drive, so pace yourself on the hikes.</div></details>
+<details><summary>Is this a day trip only, or can I stay overnight?</summary><div class="body">This Parkbus trip is a day trip — you'll return to Calgary the same day. The park does have a campground if you'd like to extend your stay separately.</div></details>
+<details><summary>How far is the park from Calgary?</summary><div class="body">About 220 kilometres east, near Brooks. Roughly two hours of drive time. That distance is exactly why Parkbus exists — we remove the hassle of navigating the highway yourself.</div></details>
+<details><summary>What's included in my ticket?</summary><div class="body">Round-trip transportation from Calgary on our coach and the Explorers Bus Tour into the protected Palaeontological Preserve. You get a guided experience with access to restricted fossil areas and off-bus stops to view formations and fossils up close. Your guide is a Parks Alberta interpreter who knows the geology, paleontology, and human history of the site.</div></details>
+<details><summary>What's not included?</summary><div class="body">Meals, snacks, and additional activities beyond the bus tour (hiking trails are free). Visitor Centre admission and the café are separate. Some guided hikes beyond the bus tour can be booked on-site separately.</div></details>
+<h3 class="group">The Explorers Bus Tour itself</h3>
+<details><summary>How long is the guided bus tour?</summary><div class="body">Approximately two hours. You'll be on and off the bus about four times to view significant fossils, formations, and landscapes.</div></details>
+<details><summary>Will I actually see real fossils, or is this just scenery?</summary><div class="body">Real fossils. The guided tour takes you to areas where fossils are still eroding out of the ground. You'll have the chance to see — and touch — real dinosaur bones discovered in the field, and you might place a protective casting on a fossil exactly like paleontologists do. To protect the sites, digging isn't permitted, but standing where a Centrosaurus or Hadrosaur once roamed is unforgettable.</div></details>
+<details><summary>What will the guide tell us?</summary><div class="body">Stories about the people who explored this landscape: the Blackfoot nation (who called the hoodoos <em>matapiiski</em>, "the people"), early fossil hunters from the 1880s onward, and modern paleontologists. You'll learn how the badlands formed, why this area has so many fossils, and what species you're looking at. It's part history, part geology, part paleontology, part storytelling.</div></details>
+<details><summary>Is the bus tour accessible for people with mobility challenges?</summary><div class="body">Unfortunately the guided bus tour isn't suitable for wheelchairs or strollers due to the terrain. However, the Visitor Centre and some paved areas of the park are accessible.</div></details>
+<details><summary>Can kids come on the bus tour?</summary><div class="body">Absolutely. Children of all ages are welcome (infants included), though kids under 14 must be accompanied by a paying adult. Fair warning: your dinosaur-obsessed child may never want to leave.</div></details>
+<details><summary>Do I need prior experience or a special fitness level?</summary><div class="body">Not at all. The Explorers Bus Tour is designed for all ages and abilities — you travel by comfortable bus into the preserve with short stops to view fossils and scenery. If you'd prefer more adventure, the park offers hiking options you can explore on your own during free time.</div></details>
+<details><summary>Will I get bored if I'm not into dinosaurs specifically?</summary><div class="body">You might be surprised. Even people who think they don't care about paleontology get absorbed. The landscape itself is spectacular — the hoodoos and erosion patterns are geological art — and the human stories add real depth. There's something primal about standing in a place where you can see 75 million years of time on display.</div></details>
+<h3 class="group">After the tour: hiking & free time</h3>
+<details><summary>What can I do after the bus tour?</summary><div class="body">Plenty. The park has five self-guided hiking trails, outdoor fossil displays along the scenic loop road, and a Visitor Centre with interactive exhibits and a theatre. Hike the Badlands Interpretive Trail (1.3 km, easy), follow the Trail of the Fossil Hunters (0.9 km) and keep your eyes down for bone fragments, climb the hoodoos, and scramble the coulees.</div></details>
+<details><summary>How long will I want to stay after the bus tour?</summary><div class="body">Three to four hours minimum if you're hiking. Less if you just want a coffee and the Badlands Trail; more if you're climbing hoodoos or doing multiple trails. We coordinate a return time that gives everyone free time but gets you back to Calgary at a reasonable hour.</div></details>
+<details><summary>Are there other guided experiences I can add?</summary><div class="body">Yes. The park offers additional guided hikes (Great Badlands Hike, Centrosaurus Bonebed Hike, and others) that go deeper into the preserve, bookable separately on-site. There's also a Fossil Safari program and hands-on fossil casting classes. These book up quickly in summer, so check availability when you arrive.</div></details>
+<details><summary>Can I bring my own hiking gear?</summary><div class="body">You don't need specialized gear, but closed-toe, sturdy walking shoes are required (no sandals, flip-flops, or Crocs). Hiking boots or solid running shoes are preferred — participants without appropriate footwear will not be able to attend the program. Wear light clothing, bring a hat and sunglasses, and pack a layer for the air-conditioned ride back.</div></details>
+<h3 class="group">What to pack & prepare</h3>
+<details><summary>What should I wear and bring?</summary><div class="body">Closed-toe, sturdy walking shoes are required (no sandals, flip-flops, or Crocs); hiking boots or solid running shoes preferred. The badlands are hot and exposed with almost no shade, so bring a hat, sunscreen, and plenty of water, plus layers. Weather in June in Alberta can be variable, so check the forecast in advance. Bring insect repellent with DEET, and a camera or phone for photos.</div></details>
+<details><summary>Is there a café or place to buy food?</summary><div class="body">The Cretaceous Café operates seasonally (May to mid-October) with snacks and light meals. Outside that window, pack your own lunch. The Visitor Centre also has a gift shop for souvenirs.</div></details>
+<details><summary>How hot does it get?</summary><div class="body">Midsummer highs reach 25–30°C (sometimes hotter), and the near-total lack of shade makes it feel hotter still. Bring tons of water. The heat is part of the experience — the landscape looks more dramatic in harsh light — but it's real. Dress in layers and check the forecast.</div></details>
+<details><summary>What if the weather turns bad?</summary><div class="body">The park may cancel guided tours during extreme weather, including heavy rain or excessive heat. If conditions are questionable, check with Parkbus or the park before departure. In the event of rain, wet or unsafe road conditions, or anything that threatens participant safety and comfort, we may not be able to deliver the program as planned. We'll do our very best to offer an alternate program, but this can't be guaranteed.</div></details>
+<h3 class="group">Solo travellers & community</h3>
+<details><summary>I'm travelling solo. Will I feel out of place?</summary><div class="body">No. Solo travellers are regulars on Parkbus trips. The guided tour creates natural conversation — everyone's looking at the same fossils, asking the same questions — and by the end of the day you'll likely have chatted with someone interesting. The Facebook group before the trip helps too; you can introduce yourself before you board.</div></details>
+<details><summary>How does the Parkbus community work?</summary><div class="body">Before your trip, join the Parkbus ActiveDays Facebook group (we'll send the link). It's where travellers ask practical questions, share excitement, and meet each other. Some exchange contact info and stay in touch after the trip — it turns "I'm taking a tour" into "I'm part of a group exploring something extraordinary together."</div></details>
+<h3 class="group">The park itself: what you're seeing</h3>
+<details><summary>Why is this a UNESCO World Heritage Site?</summary><div class="body">Three reasons: it holds the greatest concentration of Late Cretaceous dinosaur fossils on Earth (300+ complete skeletons removed since the 1880s, displayed in 30 cities); the badlands are a geological masterpiece carved by the Red Deer River over 13,000 years; and the ecosystem is unique — prairie grasslands at the rim, badlands in the valley, and cottonwood riparian forests along the river, three habitats in one protected area.</div></details>
+<details><summary>What dinosaurs lived here?</summary><div class="body">About 58 species have been discovered, from massive carnivores like Albertosaurus to herds of Centrosaurus (a horned dinosaur similar to Triceratops). Your guide will point out what you're seeing. The fossils date to about 75 million years ago, in the Late Cretaceous.</div></details>
+<details><summary>How do I know if I'm looking at a real fossil?</summary><div class="body">Your guide will point them out. There's an old trick: lick your finger and touch the rock — if it sticks slightly (because fossils are porous), it's a fossil; if it slides off, it's just rock. Kids love this test, and the guide will absolutely make you do it.</div></details>
+<details><summary>What's the Blackfoot connection?</summary><div class="body">The Blackfoot nation (Siksika) are the traditional territory holders and sacred homeland keepers of this land. They were the first to discover dinosaur bones and respectfully left them undisturbed. They called the hoodoos <em>matapiiski</em>, "the people," believing them spirits that watch over the land. Early camps were set on the grassland rim above the coulees, possibly out of spiritual respect. Your guide will share these stories.</div></details>
+<details><summary>What's a hoodoo?</summary><div class="body">A tall, thin rock formation created by selective erosion — softer sandstone erodes faster than the harder ironstone layers above it, creating spire-like shapes over millions of years. Sculptural and unsettling in the best way. You'll see dozens from the bus and the trails.</div></details>
+<div class="cta-row" style="margin-top:36px;">
+<a class="btn btn-fat btn-gold" href="https://www.parkbus.com/reserve?parkline=9362&triptype=2&ride1id=81999&ride2id=82000">Book Tickets</a>
+</div>
+</div>
+</section>
+<footer>
+<div class="wrap">
+<div class="logo" style="margin-bottom:12px;">Parkbus</div>
+<p>In partnership with <a href="https://dinosaurtrips.com/">Dinosaur Trips</a> · <a href="mailto:help@parkbus.ca">help@parkbus.ca</a></p>
+<p class="small">Canada's National Outdoor Transportation · © 2026. All rights reserved.</p>
+</div>
 </footer>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // SCROLL ANIMATIONS (native scroll — no smooth-scroll hijack)
+  if(typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' || reduce) return;
+  gsap.registerPlugin(ScrollTrigger);
+  // Hero intro — staggered fade-up on load
+  gsap.from('.pill',      {opacity:0,y:20,duration:.8,ease:'power2.out',delay:.10});
+  gsap.from('.hero h1',   {opacity:0,y:26,duration:.9,ease:'power2.out',delay:.22});
+  gsap.from('.hero .sub', {opacity:0,y:20,duration:.9,ease:'power2.out',delay:.36});
+  gsap.from('.hero .lead',{opacity:0,y:20,duration:.9,ease:'power2.out',delay:.50});
+  gsap.from('.hero-btns', {opacity:0,y:18,duration:.9,ease:'power2.out',delay:.64});
+  gsap.from('.refund',    {opacity:0,    duration:1.0,ease:'power2.out',delay:.84});
+  // Section headings fade up when scrolled into view
+  gsap.utils.toArray('h2.display').forEach(function(el){
+    gsap.from(el,{scrollTrigger:{trigger:el,start:'top 90%',toggleActions:'play none none none'},opacity:0,y:24,duration:.7,ease:'power2.out'});
+  });
+  // Content blocks fade up (with light stagger within a row)
+  [['.stat',true],['.press',false],['.step',true],['.band',false],['.guide',false],
+   ['.partner',false],['.pickup',true],['.arrival',false],['table.price',false],
+   ['.incl-list',false],['.review',true],['.gallery img',true],['.faq details',false]
+  ].forEach(function(cfg){
+    var els = gsap.utils.toArray(cfg[0]);
+    els.forEach(function(el,i){
+      gsap.from(el,{
+        scrollTrigger:{trigger:el,start:'top 88%',toggleActions:'play none none none'},
+        opacity:0,y:30,duration:.7,ease:'power2.out',delay: cfg[1] ? (i%4)*0.08 : 0
+      });
+    });
+  });
+})();
+</script>
 </body>
 </html>
