@@ -1,0 +1,59 @@
+      {/* ---- STOP-BY-STOP ITINERARY TEASER. Matthew, 16 November 2026: a
+          "View this itinerary stop by stop" block near the top that opens the
+          interactive moving-map itinerary (public/harrison-river-valley-itinerary.html)
+          in a new tab. The map image is a Mapbox static image, so there is no
+          image file to keep in the repo. ---- */}
+      <style dangerouslySetInnerHTML={{ __html: `
+/* stop-by-stop itinerary teaser */
+.trip-teaser { padding: 0 0 72px; }
+.trip-teaser__wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+.trip-teaser__card { position: relative; display: block; overflow: hidden; border-radius: 14px; background: #1e291e; color: #fff; text-decoration: none; aspect-ratio: 16 / 7.4; box-shadow: 0 24px 60px -24px rgba(30,41,30,.5); }
+.trip-teaser__map { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 100% 50%; transition: transform .9s cubic-bezier(.22,.61,.36,1); }
+.trip-teaser__card:hover .trip-teaser__map { transform: scale(1.04); }
+.trip-teaser__card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(30,41,30,1) 0%, rgba(30,41,30,.96) 32%, rgba(30,41,30,.35) 50%, rgba(30,41,30,0) 64%); }
+.trip-teaser__txt { position: absolute; z-index: 2; left: 0; top: 0; bottom: 0; width: min(500px, 44%); padding: 0 0 0 52px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+.trip-teaser__eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #fff; }
+.trip-teaser__dot { position: relative; width: 10px; height: 10px; border-radius: 50%; background: #c4943a; }
+.trip-teaser__dot::after { content: ""; position: absolute; inset: -6px; border-radius: 50%; border: 2px solid #c4943a; animation: tripPulse 1.8s ease-out infinite; }
+@keyframes tripPulse { from { transform: scale(.5); opacity: 1; } to { transform: scale(1.6); opacity: 0; } }
+.trip-teaser__title { display: block; font-family: 'True North',Georgia,serif; font-size: clamp(28px, 3.3vw, 46px); font-weight: 400; letter-spacing: .01em; line-height: 1.04; margin: 14px 0 12px; color: #fff; }
+.trip-teaser__sub { display: block; margin: 0 0 24px; font-size: 17px; line-height: 1.5; color: rgba(255,255,255,.85); }
+.trip-teaser__btn { display: inline-flex; align-items: center; gap: 8px; background:#c4943a;color:#fff;border:2px solid #a67d2e;border-radius:10px;box-shadow:3px 4px 0 0 #8a6824;font-weight:700; font-size: 16px; padding: 13px 24px; transition: transform .2s; }
+.trip-teaser__card:hover .trip-teaser__btn { transform: translateX(4px); }
+.trip-teaser__stop { position: absolute; z-index: 2; right: 26px; bottom: 26px; display: flex; align-items: center; gap: 12px; background: #fff; color: #1A1A1A; border-radius: 10px; padding: 10px 16px 10px 10px; box-shadow: 0 10px 30px rgba(0,0,0,.28); }
+.trip-teaser__stop img { width: 64px; height: 64px; border-radius: 8px; object-fit: cover; display: block; }
+.trip-teaser__stop small { display: block; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #c4943a; }
+.trip-teaser__stop strong { display: block; font-size: 16px; line-height: 1.25; }
+@media (max-width: 820px) {
+  .trip-teaser { padding-bottom: 48px; }
+  .trip-teaser__wrap { padding: 0 20px; }
+  .trip-teaser__card { aspect-ratio: auto; min-height: 500px; }
+  .trip-teaser__map { height: 52%; object-position: 50% 50%; }
+  .trip-teaser__card::after { background: linear-gradient(180deg, rgba(30,41,30,0) 0%, rgba(30,41,30,0) 36%, rgba(30,41,30,1) 52%); }
+  .trip-teaser__txt { top: auto; bottom: 0; width: 100%; padding: 0 22px 26px; }
+  .trip-teaser__sub { font-size: 16px; margin-bottom: 18px; }
+  .trip-teaser__stop { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .trip-teaser__dot::after { animation: none; } .trip-teaser__map, .trip-teaser__btn { transition: none; } }
+` }} />
+      <section className="trip-teaser" aria-label="Interactive itinerary">
+        <div className="trip-teaser__wrap">
+          <a className="trip-teaser__card" href="/harrison-river-valley-itinerary.html" target="_blank" rel="noopener">
+            <picture>
+              <source media="(max-width: 820px)" srcSet={"https://api.mapbox.com/styles/v1/mapbox/outdoors-v12/static/path-6+2d3b2d-1(_hykHp%7CmnV~%5EmdBvAuaM%60rBkg%40h%5Doi%40jAw_FvvAu_Bxd%40seCtBmrBey%40esCrhAqaDnm%40mfJh%7CCsbCd%7D%40zKCbuGxV%60NkVpI%7BAkyLpiCatOkcAuSwYk_DqjCnXemAeGfScvJztA_iDnoB_iBpy%40%7DqDlWcpEaI_qMbm%40qoB%7CdAukAb_CetHdGihD%7BCm%60De%60B%7DcF%7D%40wnCoj%40kgDkq%40q%60A%60PgoEsl%40s~EYccEmY_sA%7BfA%7D%7BAmQ~%5BoX_SidAg%7BFqj%40yaAez%40mj%40gw%40xYcoAweBwa%40_xDkz%40myBsmBhKim%40oUhr%40nWl_BuUhh%40de%40%7Cd%40cz%40z%7C%40zBgB~_AlF%7B%7BAye%40ee%40dW%7BkBgMok%40bm%40%7DlAzRw%7DC%7BUuxAkv%40%7DWi%5Emv%40%7CIcxJ%7DxGo%60%40ix%40%7CX),pin-s-1+c4943a(-123.120488,49.286442),pin-s-2+c4943a(-122.84897,49.189019),pin-s-3+c4943a(-121.947521,49.281791),pin-s-4+c4943a(-121.956837,49.236315),pin-s-5+c4943a(-121.7853,49.3008)/auto/700x460@2x?padding=60,50,60,50&access_token=pk.eyJ1IjoibWF0dGhhcmR5dGhvbWFzIiwiYSI6ImNtbWF3dHExczBneGIycHB6bm1hcjVwbHkifQ.Cf_erP9A4LdvApP5iiGCOg"} />
+              <img className="trip-teaser__map" src={"https://api.mapbox.com/styles/v1/mapbox/outdoors-v12/static/path-6+2d3b2d-1(_hykHp%7CmnV~%5EmdBvAuaM%60rBkg%40h%5Doi%40jAw_FvvAu_Bxd%40seCtBmrBey%40esCrhAqaDnm%40mfJh%7CCsbCd%7D%40zKCbuGxV%60NkVpI%7BAkyLpiCatOkcAuSwYk_DqjCnXemAeGfScvJztA_iDnoB_iBpy%40%7DqDlWcpEaI_qMbm%40qoB%7CdAukAb_CetHdGihD%7BCm%60De%60B%7DcF%7D%40wnCoj%40kgDkq%40q%60A%60PgoEsl%40s~EYccEmY_sA%7BfA%7D%7BAmQ~%5BoX_SidAg%7BFqj%40yaAez%40mj%40gw%40xYcoAweBwa%40_xDkz%40myBsmBhKim%40oUhr%40nWl_BuUhh%40de%40%7Cd%40cz%40z%7C%40zBgB~_AlF%7B%7BAye%40ee%40dW%7BkBgMok%40bm%40%7DlAzRw%7DC%7BUuxAkv%40%7DWi%5Emv%40%7CIcxJ%7DxGo%60%40ix%40%7CX),pin-s-1+c4943a(-123.120488,49.286442),pin-s-2+c4943a(-122.84897,49.189019),pin-s-3+c4943a(-121.947521,49.281791),pin-s-4+c4943a(-121.956837,49.236315),pin-s-5+c4943a(-121.7853,49.3008)/auto/1280x600@2x?padding=80,90,80,620&access_token=pk.eyJ1IjoibWF0dGhhcmR5dGhvbWFzIiwiYSI6ImNtbWF3dHExczBneGIycHB6bm1hcjVwbHkifQ.Cf_erP9A4LdvApP5iiGCOg"} alt="Map of the route from Vancouver through Surrey to the Harrison River Valley, with each stop numbered" loading="lazy" />
+            </picture>
+            <span className="trip-teaser__stop" aria-hidden="true">
+              <img src="/img/harrison-kilby.jpg" alt="" loading="lazy" />
+              <span><small>Stop 4 · 1:50 PM</small><strong>Kilby Historic Site</strong></span>
+            </span>
+            <span className="trip-teaser__txt">
+              <span className="trip-teaser__eyebrow"><span className="trip-teaser__dot" />Interactive map</span>
+              <span className="trip-teaser__title">View this itinerary stop by stop</span>
+              <span className="trip-teaser__sub">Follow the coach from Vancouver to Harrison Village on a moving map, with every stop, time and place to stay.</span>
+              <span className="trip-teaser__btn">Open the itinerary <span aria-hidden="true">↗</span></span>
+            </span>
+          </a>
+        </div>
+      </section>
+
